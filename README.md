@@ -1,6 +1,6 @@
 # WhatsApp GPT Bot
 
-A fun project I decided to create instead of working. This bot integrates GPT functionality with WhatsApp, allowing for various interactive features.
+Random crap I decided to create instead of living life. This bot integrates GPT functionality with WhatsApp, allowing for various features.
 
 ## Features
 
