@@ -38,7 +38,7 @@ in `start.sh` file Replace GROQ_API_KEY and BING_COOKIE with your values, please
 
 ## Running
 
-    ```bash
-    chmod +x ./start.sh
-    ./start.sh
-    ```
+```bash
+   chmod +x ./start.sh
+   ./start.sh
+```
