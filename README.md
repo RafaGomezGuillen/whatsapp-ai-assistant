@@ -26,11 +26,11 @@ Follow these steps to get project up and running:
 1. Clone the repository:
    ```bash
    git clone https://github.com/malvads/whatsapp-gpt-bot.git
-   ````
+   ```
 
 2. ```bash
     cd whatsapp-gpt-bot && npm i
-    ````
+    ```
 
 ## Configuration
 
