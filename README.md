@@ -4,10 +4,14 @@ A fun project I decided to create instead of working. This bot integrates GPT fu
 
 ## Features
 
-- **Admin Panel**: Access the admin panel at `http://localhost:your_port`.
+- **Admin Panel**: Access the admin panel at `http://localhost:your_port` for real-time configuration.
 - **GPT Integration**: Uses Groq to provide GPT functionality and models remotely.
-- **TTS**: The bot can generate audio, preproccess using GPT and then using tts can send voice messages back
-- **Image generstion**: The bot can generate images, it uses bing for it.
+- **Text-to-Speech (TTS)**: The bot can generate audio by preprocessing text using GPT, then converts it to speech to send voice messages back to users.
+- **Image generation**: The bot can generate images, it uses bing for it.
+
+## Admin Panel
+
+![Alt text](assets/admin.png)
 
 ## How to Use
 
@@ -30,7 +34,7 @@ Follow these steps to get project up and running:
 
 ## Configuration
 
-Replace GROQ_API_KEY and BING_COOKIE with your values, please note that BING_COOKIE is the _U cookie
+in `start.sh` file Replace GROQ_API_KEY and BING_COOKIE with your values, please note that BING_COOKIE is the _U cookie
 
 ## Running
     ```bash
