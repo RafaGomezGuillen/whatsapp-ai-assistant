@@ -37,6 +37,7 @@ Follow these steps to get project up and running:
 in `start.sh` file Replace GROQ_API_KEY and BING_COOKIE with your values, please note that BING_COOKIE is the _U cookie
 
 ## Running
+
     ```bash
     chmod +x ./start.sh
     ./start.sh
