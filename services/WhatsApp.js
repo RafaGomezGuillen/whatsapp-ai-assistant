@@ -89,9 +89,7 @@ class WhatsAppClient {
     async handleMessage(msg) {
         const lowerMsg = msg.body.toLowerCase();
         const botName = config.botName.toLowerCase();
-
-        // Store the message with timestamp in the user's history
-
+            
         if (lowerMsg.includes(botName)) {
             if (this.isCommand(lowerMsg, config.commands.speak)) {
                 logger.info("Handling GPT TTS Request");
@@ -162,11 +160,11 @@ class WhatsAppClient {
                 const filePath = path.join(this.bingService.saveDir, file);
                 const fileData = await fs.readFile(filePath);
                 const media = new MessageMedia('image/png', fileData.toString('base64'), file);
-                // await this.client.sendMessage(msg.from, media);
+                await this.client.sendMessage(msg.from, media);
             }
         } catch (error) {
             logger.error("Error generating image");
-            // msg.reply(config.errorMessages.imageError);
+            msg.reply(config.errorMessages.imageError);
         } finally {
             this.isProcessing = false;
         }
