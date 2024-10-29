@@ -1,7 +1,10 @@
 #!/bin/bash
 
-export GROQ_API_KEY=GROQ_API_KEY
-export BING_COOKIE=BING_COOKIE_HERE
+# Source the .env file
+source "$(dirname "$0")/.env"
+
+export GROQ_API_KEY
+export BING_COOKIE
 
 while true; do
     node --no-deprecation index.js
