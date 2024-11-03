@@ -1,0 +1,28 @@
+.navbar-title {
+  display: block;
+}
+
+/* Default behavior for smaller screens */
+.custom-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Adjust the layout for larger screens */
+@media (min-width: 768px) {
+  .custom-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 200px;
+    flex-direction: column;
+    background-color: red; /* Adjust background as needed */
+    padding: 10px;
+  }
+
+  .navbar-title {
+    display: none;
+    margin-left: 200px;
+  }
+}
