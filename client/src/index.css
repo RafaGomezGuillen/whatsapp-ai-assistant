@@ -1,0 +1,23 @@
+:root {
+  --bg-primary: #121418;
+  --bg-secundary: #191B1F;
+  --border-primary: #282A2D;
+  --color-primary: #fff;
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+a {
+  color: var(--color-primary) !important;
+}
+
+.navbar-toggler {
+  background-color: var(--color-primary) !important;
+}
+
+.navbar-toggler:focus {
+  border: solid var(--border-primary) 1px;
+}

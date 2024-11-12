@@ -8,7 +8,7 @@ export const NavBar = () => {
   const expand = "md";
 
   return (
-    <Navbar expand={expand}>
+    <Navbar expand={expand} >
       <Container fluid>
         <Navbar.Brand href="#" className="navbar-title">Navbar Offcanvas</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
