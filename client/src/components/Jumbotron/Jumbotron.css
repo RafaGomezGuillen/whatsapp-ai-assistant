@@ -1,0 +1,19 @@
+#jumbotron {
+  border-bottom: var(--border-primary) solid 2px;
+  border-top: var(--border-primary) solid 2px;
+
+  h2 {
+    padding-top: 17px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 18px !important;
+
+    @media (min-width: 768px) {
+      padding-left: 25px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    border-top: none;
+  }
+}

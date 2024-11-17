@@ -7,12 +7,18 @@ export const routes = [
   {
     layout: "default",
     routes: [
-      { path: "/", element: <Landing /> },
-      { path: "/keys", element: <ApiKeys /> },
+      { title: "Index page", path: "/", element: <Landing /> },
+      { title: "API Keys", path: "/keys", element: <ApiKeys /> },
     ],
   },
   {
     layout: "no",
-    routes: [{ path: "*", element: <ErrorPage /> }],
+    routes: [
+      {
+        title: "404 | This page could not be found",
+        path: "*",
+        element: <ErrorPage />,
+      },
+    ],
   },
 ];

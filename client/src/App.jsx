@@ -2,7 +2,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 
 // Import css
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 
 // Import layouts
 import { DefaultLayout } from "./layouts/DefaultLayout/DefaultLayout";
@@ -13,7 +12,9 @@ import { routes } from "./Routes";
 
 function App() {
   const layoutComponents = {
-    default: (page) => <DefaultLayout>{page}</DefaultLayout>,
+    default: (page, title) => (
+      <DefaultLayout titlePage={title}>{page}</DefaultLayout>
+    ),
     no: (page) => <NoLayout>{page}</NoLayout>,
   };
 
@@ -25,7 +26,10 @@ function App() {
             <Route
               key={index}
               path={route.path}
-              element={layoutComponents[routeGroup.layout](route.element)}
+              element={layoutComponents[routeGroup.layout](
+                route.element,
+                route.title
+              )}
             />
           ))
         )}
