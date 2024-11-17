@@ -1,8 +1,16 @@
 :root {
+  /* bg colors */
   --bg-primary: #121418;
-  --bg-secundary: #191B1F;
-  --border-primary: #282A2D;
+  --bg-secundary: #343A40;
+ 
+  /* text colors */
   --color-primary: #fff;
+  
+  /* border colors */
+  --border-primary: #2F353A;
+  
+  /* hover colors */
+  --color-hover: #52575C;
 }
 
 body {
