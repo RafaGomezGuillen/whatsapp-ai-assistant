@@ -43,6 +43,7 @@ export const NavBar = () => {
                 <Nav.Link
                   key={index}
                   href={`/#${link.href}`}
+                  title={`Go to ${link.title} page`}
                   style={{
                     display: "flex",
                     flexDirection: "row",
