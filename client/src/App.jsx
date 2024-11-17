@@ -8,31 +8,27 @@ import "./App.css";
 import { DefaultLayout } from "./layouts/DefaultLayout/DefaultLayout";
 import { NoLayout } from "./layouts/NoLayout/NoLayout";
 
-// Import pages
-import { Lading } from "./pages/Lading/Lading";
-import { ErrorPage } from "./pages/Error/ErrorPage";
+// Import routes
+import { routes } from "./Routes";
 
 function App() {
+  const layoutComponents = {
+    default: (page) => <DefaultLayout>{page}</DefaultLayout>,
+    no: (page) => <NoLayout>{page}</NoLayout>,
+  };
+
   return (
     <HashRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <DefaultLayout>
-              <Lading />
-            </DefaultLayout>
-          }
-        ></Route>
-
-        <Route
-          path="*"
-          element={
-            <NoLayout>
-              <ErrorPage />
-            </NoLayout>
-          }
-        />
+        {routes.map((routeGroup) =>
+          routeGroup.routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={layoutComponents[routeGroup.layout](route.element)}
+            />
+          ))
+        )}
       </Routes>
     </HashRouter>
   );

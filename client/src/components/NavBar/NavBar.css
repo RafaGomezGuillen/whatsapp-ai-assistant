@@ -1,14 +1,28 @@
 .navbar-title {
   display: block;
+  color: var(--color-primary);
 }
 
-/* Default behavior for smaller screens */
+.navbar-title:hover {
+  color: var(--color-primary);
+}
+
+h1 {
+  padding-left: 5px;
+  font-size: 1.5rem;
+  display: none;
+  color: var(--color-primary);
+}
+
 .custom-nav {
   display: flex;
   flex-direction: row;
 }
 
-/* Adjust the layout for larger screens */
+.nav-link:hover {
+  background-color: var(--color-hover);
+}
+
 @media (min-width: 768px) {
   .custom-nav {
     position: fixed;
@@ -25,5 +39,9 @@
   .navbar-title {
     display: none;
     margin-left: 200px;
+  }
+
+  h1 {
+    display: block;
   }
 }
