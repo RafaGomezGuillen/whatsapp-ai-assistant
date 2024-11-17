@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Lading = () => {
+export const Landing = () => {
   return (
     <div>
       Aquiiiiii.Voluptate pariatur nisi exercitation non dolor pariatur proident et qui
