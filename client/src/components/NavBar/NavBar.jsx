@@ -15,15 +15,15 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 export const NavBar = () => {
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
+    { title: "Auth", icon: <IoSettingsOutline />, href: "#home" },
+    { title: "API Keys", icon: <CiLock />, href: "/keys" },
     {
       title: "Documentation",
       icon: <IoDocumentOutline />,
       href: "/documentation",
     },
-    { title: "API Keys", icon: <CiLock />, href: "/keys" },
     { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
-    // { title: "Auth", icon: <IoSettingsOutline />, href: "#home" },
   ];
   const title = "GPT Bot";
   const expand = "md";
