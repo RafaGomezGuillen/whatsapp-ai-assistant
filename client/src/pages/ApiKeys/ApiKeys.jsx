@@ -41,7 +41,7 @@ export const ApiKeys = () => {
         <Link
           to="/documentation"
           title="Go to Documentation page"
-          style={{ color: "var(--color-link) !important" }}
+          className="link"
         >
           Documentation page
         </Link>{" "}

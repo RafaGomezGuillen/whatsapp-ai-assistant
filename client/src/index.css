@@ -51,3 +51,13 @@ form button {
 form button:hover {
   opacity: 0.9;
 }
+
+/* COMMON CLASSES */
+
+.link {
+  color: var(--color-link) !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
