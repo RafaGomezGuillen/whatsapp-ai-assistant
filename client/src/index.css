@@ -5,6 +5,7 @@
  
   /* text colors */
   --color-primary: #fff;
+  --color-link: #D97328;
   
   /* border colors */
   --border-primary: #2F353A;
@@ -20,6 +21,7 @@ body {
 
 a {
   color: var(--color-primary) !important;
+  text-decoration: none !important;
 }
 
 .navbar-toggler {
@@ -28,4 +30,24 @@ a {
 
 .navbar-toggler:focus {
   border: solid var(--border-primary) 1px;
+}
+
+input {
+  color: var(--color-primary) !important;
+  background: none !important;
+  border: var(--border-primary) solid 2px !important;
+}
+
+input::placeholder {
+  color: var(--color-primary) !important;
+}
+
+form button {
+  background-color: var(--color-primary) !important;
+  color: var(--bg-primary) !important;
+  border: var(--color-primary) !important;
+}
+
+form button:hover {
+  opacity: 0.9;
 }
