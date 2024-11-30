@@ -11,7 +11,7 @@ export const DefaultLayout = ({ titlePage, children }) => {
       <NavBar />
       <main>
         <Jumbotron title={titlePage} />
-        <section>{children}</section>
+        <section style={{ padding: "15px" }}>{children}</section>
       </main>
     </div>
   );
