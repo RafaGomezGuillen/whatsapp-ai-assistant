@@ -9,16 +9,21 @@ import Navbar from "react-bootstrap/Navbar";
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
 import { CiLock } from "react-icons/ci";
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
 export const NavBar = () => {
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
+    {
+      title: "Documentation",
+      icon: <IoDocumentOutline />,
+      href: "/documentation",
+    },
     { title: "API Keys", icon: <CiLock />, href: "/keys" },
     { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
-    { title: "Auth", icon: <IoSettingsOutline />, href: "#home" },
+    // { title: "Auth", icon: <IoSettingsOutline />, href: "#home" },
   ];
   const title = "GPT Bot";
   const expand = "md";
