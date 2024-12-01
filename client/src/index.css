@@ -5,6 +5,7 @@
  
   /* text colors */
   --color-primary: #fff;
+  --color-placeholder: #f4e8e8;
   --color-link: #D97328;
   
   /* border colors */
@@ -32,14 +33,14 @@ a {
   border: solid var(--border-primary) 1px;
 }
 
-input {
+input, textarea {
   color: var(--color-primary) !important;
   background: none !important;
   border: var(--border-primary) solid 2px !important;
 }
 
-input::placeholder {
-  color: var(--color-primary) !important;
+input::placeholder, textarea::placeholder {
+  color: var(--color-placeholder) !important;
 }
 
 form button {
