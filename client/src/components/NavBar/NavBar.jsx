@@ -11,11 +11,12 @@ import { BsTerminal } from "react-icons/bs";
 import { CiLock } from "react-icons/ci";
 import { IoSettingsOutline, IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { SiSimplelogin } from "react-icons/si";
 
 export const NavBar = () => {
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
-    { title: "Auth", icon: <IoSettingsOutline />, href: "/auth" },
+    { title: "Authentication", icon: <SiSimplelogin />, href: "/auth" },
     { title: "API Keys", icon: <CiLock />, href: "/keys" },
     {
       title: "Documentation",

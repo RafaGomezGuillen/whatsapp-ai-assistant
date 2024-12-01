@@ -5,13 +5,17 @@ import { Landing } from "./pages/Playground/Landing/Landing";
 import { ImageConfiguration } from "./pages/Playground/ImageConfiguration/ImageConfiguration";
 import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorConfiguration";
 
+import { Auth } from "./pages/Auth/Auth";
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { ApiKeys } from "./pages/ApiKeys/ApiKeys";
 
 export const routes = [
   {
     layout: "default",
-    routes: [{ title: "API Keys", path: "/keys", element: <ApiKeys /> }],
+    routes: [
+      { title: "API Keys", path: "/keys", element: <ApiKeys /> },
+      { title: "Authentication", path: "/auth", element: <Auth /> },
+    ],
   },
   {
     layout: "no",
