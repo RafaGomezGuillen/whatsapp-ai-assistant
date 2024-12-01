@@ -15,7 +15,7 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 export const NavBar = () => {
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
-    { title: "Auth", icon: <IoSettingsOutline />, href: "#home" },
+    { title: "Auth", icon: <IoSettingsOutline />, href: "/auth" },
     { title: "API Keys", icon: <CiLock />, href: "/keys" },
     {
       title: "Documentation",
@@ -33,7 +33,7 @@ export const NavBar = () => {
       <Container fluid>
         <Navbar.Brand className="navbar-title">{title}</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="navbar-collapse">
           <Nav className="custom-nav">
             <section
               style={{
@@ -43,7 +43,16 @@ export const NavBar = () => {
                 width: "100%",
               }}
             >
-              <h1>{title}</h1>
+              <h1
+                style={{
+                  paddingBottom: "25px",
+                  borderBottom: "solid var(--border-primary) 2px",
+                }}
+              >
+                <span style={{ position: "relative", top: "10px", textAlign: "center" }}>
+                  {title}
+                </span>
+              </h1>
               {links.map((link, index) => (
                 <Nav.Link
                   key={index}
@@ -55,9 +64,15 @@ export const NavBar = () => {
                     gap: "12px",
                     padding: "10px",
                     borderRadius: "8px",
+                    fontWeight: "500",
                   }}
                 >
-                  <div style={{ position: "relative", bottom: "2px" }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      bottom: "2px",
+                    }}
+                  >
                     {link.icon}
                   </div>
                   <div>{link.title}</div>
