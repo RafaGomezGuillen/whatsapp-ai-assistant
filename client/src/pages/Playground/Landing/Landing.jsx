@@ -1,17 +1,40 @@
 import React from "react";
 
+// Import Bootstrap components
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 export const Landing = () => {
   return (
-    <div>
-      <p>
-        Amet ut aute aliqua cupidatat consectetur duis Lorem tempor Lorem
-        proident. Id pariatur deserunt voluptate esse adipisicing enim ipsum sit
-        nisi tempor pariatur deserunt id. Nulla id veniam nostrud deserunt
-        excepteur proident nostrud sunt. Laboris cupidatat do excepteur commodo
-        nisi eu eiusmod. Non velit irure veniam do excepteur pariatur veniam.
-        Mollit officia ad ut tempor consequat nostrud consectetur. Quis
-        excepteur ut enim proident officia voluptate elit.
-      </p>
-    </div>
+    <Form>
+      <Form.Group className="mb-3" controlId="bot-name">
+        <Form.Label>Bot name</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter Bot Name"
+          min={3}
+          max={15}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="max-tokens">
+        <Form.Label>Max tokens</Form.Label>
+        <Form.Control
+          type="number"
+          placeholder="Enter Max tokens"
+          min={1}
+          max={8192}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="system-promp">
+        <Form.Label>System promp</Form.Label>
+        <Form.Control as="textarea" rows={3} placeholder="Enter System promp" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit" title="Save configuration">
+        Save configuration
+      </Button>
+    </Form>
   );
 };

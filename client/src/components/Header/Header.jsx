@@ -9,9 +9,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const Header = () => {
   const configurations = [
-    { title: "Main configuration", href: "/" },
-    { title: "Image configuration", href: "/image-configuration" },
-    { title: "Error configuration", href: "/error-configuration" },
+    { title: "Main Configuration", href: "/" },
+    { title: "Image Configuration", href: "/image-configuration" },
+    { title: "Error Configuration", href: "/error-configuration" },
   ];
 
   const modes = [{ title: "Work in progress", href: "#" }];
