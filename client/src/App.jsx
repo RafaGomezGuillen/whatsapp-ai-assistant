@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // Import layouts
 import { DefaultLayout } from "./layouts/DefaultLayout/DefaultLayout";
-import { LandingLayout } from "./layouts/LandingLayout/LandingLayout";
+import { PlaygroundLayout } from "./layouts/PlaygroundLayout/PlaygroundLayout";
 import { NoLayout } from "./layouts/NoLayout/NoLayout";
 
 // Import routes
@@ -17,7 +17,7 @@ function App() {
       <DefaultLayout titlePage={title}>{page}</DefaultLayout>
     ),
     no: (page) => <NoLayout>{page}</NoLayout>,
-    landing: (page) => <LandingLayout>{page}</LandingLayout>,
+    playground: (page) => <PlaygroundLayout>{page}</PlaygroundLayout>,
   };
 
   return (
