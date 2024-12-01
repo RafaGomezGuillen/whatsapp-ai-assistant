@@ -7,7 +7,6 @@ export const routes = [
   {
     layout: "default",
     routes: [
-      { title: "Index page", path: "/", element: <Landing /> },
       { title: "API Keys", path: "/keys", element: <ApiKeys /> },
     ],
   },
@@ -19,6 +18,12 @@ export const routes = [
         path: "*",
         element: <ErrorPage />,
       },
+    ],
+  },
+  {
+    layout: "landing",
+    routes: [
+      { title: "Index page", path: "/", element: <Landing /> },
     ],
   },
 ];

@@ -3,27 +3,55 @@ import "./Header.css";
 
 // Import bootstrap components
 import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const Header = () => {
+  const configurations = [
+    { title: "Main configuration", href: "/" },
+    { title: "Image configuration", href: "/image-configuration" },
+    { title: "Error configuration", href: "/error-configuration" },
+  ];
+
+  const modes = [{ title: "Work in progress", href: "#" }];
+
   return (
-    <Navbar style={{ padding: "10px" }}>
-      <Navbar.Brand href="#home">Playground sin mas</Navbar.Brand>
-      <Nav>
-        <Nav.Link href="#home">Home</Nav.Link>
-        <NavDropdown
-          id="nav-dropdown-dark-example"
-          title="Modes"
-          menuVariant="dark"
-        >
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
+    <Navbar collapseOnSelect expand="lg" id="landing-header">
+      <Container fluid>
+        <Navbar.Brand>Playground</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav>
+            <NavDropdown
+              id="config-dropdown"
+              title="Configuration"
+              menuVariant="dark"
+            >
+              {configurations.map((config, index) => (
+                <NavDropdown.Item
+                  key={index}
+                  href={`/#${config.href}`}
+                  title={`Go to ${config.title} page`}
+                >
+                  {config.title}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+            <NavDropdown id="modes-config" title="AI Modes" menuVariant="dark">
+              {modes.map((mode, index) => (
+                <NavDropdown.Item
+                  key={index}
+                  href={`/#${mode.href}`}
+                  title={`Go to ${mode.title} page`}
+                >
+                  {mode.title}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };

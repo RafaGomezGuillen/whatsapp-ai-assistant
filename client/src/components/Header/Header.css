@@ -1,0 +1,30 @@
+#landing-header {
+  margin: 0;
+  padding: 10px 0px 10px 0px;
+  border-top: var(--border-primary) solid;
+  border-bottom: var(--border-primary) solid;
+
+  .navbar-brand {
+    color: var(--color-primary);
+  }
+
+  .dropdown a {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0px 0px 10px 0px;
+    border-top: none;
+
+    .dropdown a {
+      margin-right: 10px;
+    }
+
+    .navbar-brand {
+      position: relative;
+      top: 5px;
+    }
+  }
+}

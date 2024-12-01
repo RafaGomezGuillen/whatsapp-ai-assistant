@@ -3,12 +3,15 @@ import React from "react";
 export const Landing = () => {
   return (
     <div>
-      Aquiiiiii.Voluptate pariatur nisi exercitation non dolor pariatur proident et qui
-      nulla qui veniam. Cillum anim ex voluptate sit fugiat ex velit qui laborum
-      nisi. Magna anim mollit laborum in nisi ad ullamco id consequat anim magna
-      laboris. Nisi excepteur laborum id culpa aute enim deserunt nisi id magna.
-      Eiusmod aliquip labore aliqua excepteur do deserunt dolore laborum fugiat
-      Lorem.
+      <p>
+        Amet ut aute aliqua cupidatat consectetur duis Lorem tempor Lorem
+        proident. Id pariatur deserunt voluptate esse adipisicing enim ipsum sit
+        nisi tempor pariatur deserunt id. Nulla id veniam nostrud deserunt
+        excepteur proident nostrud sunt. Laboris cupidatat do excepteur commodo
+        nisi eu eiusmod. Non velit irure veniam do excepteur pariatur veniam.
+        Mollit officia ad ut tempor consequat nostrud consectetur. Quis
+        excepteur ut enim proident officia voluptate elit.
+      </p>
     </div>
   );
 };
