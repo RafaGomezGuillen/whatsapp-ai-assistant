@@ -8,6 +8,9 @@ import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorC
 import { Auth } from "./pages/Auth/Auth";
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { ApiKeys } from "./pages/ApiKeys/ApiKeys";
+import { Settings } from "./pages/Settings/Settings";
+import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
+import { About } from "./pages/About/About";
 
 export const routes = [
   {
@@ -15,6 +18,9 @@ export const routes = [
     routes: [
       { title: "API Keys", path: "/keys", element: <ApiKeys /> },
       { title: "Authentication", path: "/auth", element: <Auth /> },
+      { title: "Settings", path: "/settings", element: <Settings /> },
+      { title: "Documentation", path: "/documentation", element: <DocLanding /> },
+      { title: "About", path: "/about", element: <About /> },
     ],
   },
   {
