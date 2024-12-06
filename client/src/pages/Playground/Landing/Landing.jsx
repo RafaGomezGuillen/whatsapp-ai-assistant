@@ -31,7 +31,9 @@ export const Landing = () => {
     fetchCurrentConfig();
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     try {
       await saveGeneralConfig(botName, maxTokens, systemPrompt);
 

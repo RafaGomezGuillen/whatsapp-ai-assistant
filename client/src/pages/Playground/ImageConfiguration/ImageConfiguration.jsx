@@ -29,7 +29,9 @@ export const ImageConfiguration = () => {
     fetchCurrentConfig();
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
       await saveImageConfig(imagePromptPrefix, systemImagePrompt);
 

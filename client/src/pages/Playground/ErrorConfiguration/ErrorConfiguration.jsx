@@ -35,7 +35,9 @@ export const ErrorConfiguration = () => {
     fetchCurrentConfig();
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     try {
       await saveErrorConfig(
         processingErrorMessage,
