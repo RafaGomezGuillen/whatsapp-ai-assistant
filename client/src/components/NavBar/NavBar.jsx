@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./NavBar.css";
 
 // Import bootstrap components
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Alert from "react-bootstrap/Alert";
 
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
-import { CiLock } from "react-icons/ci";
+import { CiLock, CiCircleCheck, CiWarning } from "react-icons/ci";
 import { IoSettingsOutline, IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { SiSimplelogin } from "react-icons/si";
 
+// Import API
+import { fetchAuthStatus } from "../../api/gpt.api";
+
 export const NavBar = () => {
+  const [isAuth, setIsAuth] = useState(false);
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
     { title: "Authentication", icon: <SiSimplelogin />, href: "/auth" },
@@ -28,6 +33,20 @@ export const NavBar = () => {
   ];
   const title = "GPT Bot";
   const expand = "md";
+
+  // Fetch the current auth status
+  useEffect(() => {
+    const fetchCurrentAuth = async () => {
+      try {
+        const response = await fetchAuthStatus();
+        setIsAuth(response.is_auth);
+      } catch (error) {
+        console.error("Error fetching configuration:", error);
+      }
+    };
+
+    fetchCurrentAuth();
+  }, []);
 
   return (
     <Navbar expand={expand}>
@@ -50,7 +69,13 @@ export const NavBar = () => {
                   borderBottom: "solid var(--border-primary) 2px",
                 }}
               >
-                <span style={{ position: "relative", top: "10px", textAlign: "center" }}>
+                <span
+                  style={{
+                    position: "relative",
+                    top: "10px",
+                    textAlign: "center",
+                  }}
+                >
                   {title}
                 </span>
               </h1>
@@ -79,6 +104,31 @@ export const NavBar = () => {
                   <div>{link.title}</div>
                 </Nav.Link>
               ))}
+
+              <div
+                style={{
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "end",
+                  justifyContent: "center",
+                }}
+              >
+                {isAuth ? (
+                  <Alert variant="success" style={{ width: "100%" }}>
+                    <CiCircleCheck
+                      style={{ position: "relative", bottom: "1.5px" }}
+                    />{" "}
+                    Authenticated
+                  </Alert>
+                ) : (
+                  <Alert variant="warning" style={{ width: "100%" }}>
+                    <CiWarning
+                      style={{ position: "relative", bottom: "1.5px" }}
+                    />{" "}
+                    Not Authentified
+                  </Alert>
+                )}
+              </div>
             </section>
           </Nav>
         </Navbar.Collapse>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.css";
 
@@ -6,15 +6,40 @@ import "./Auth.css";
 import Alert from "react-bootstrap/Alert";
 import Card from "react-bootstrap/Card";
 
+// Import toast
+import { toast } from "react-toastify";
+
+// Import API
+import { fetchAuthStatus } from "../../api/gpt.api";
+
 export const Auth = () => {
+  const [isAuth, setIsAuth] = useState(false);
+
+  // Fetch the current auth status
+  useEffect(() => {
+    const fetchCurrentAuth = async () => {
+      try {
+        const response = await fetchAuthStatus();
+        setIsAuth(response.is_auth);
+      } catch (error) {
+        console.error("Error fetching configuration:", error);
+      }
+    };
+
+    fetchCurrentAuth();
+  }, []);
+
   return (
     <div id="auth">
       <div>
         <div
           style={{ width: "100%", height: "300px", background: "#fff" }}
         ></div>
-        <Alert variant="success">Authentified!</Alert>
-        <Alert variant="warning">Not Authentified!</Alert>
+        {isAuth ? (
+          <Alert variant="success">You are authenticated</Alert>
+        ) : (
+          <Alert variant="warning">You are not Authentified</Alert>
+        )}
       </div>
 
       <div>

@@ -88,3 +88,18 @@ export const saveErrorConfig = async (
     throw error;
   }
 };
+
+/**
+ * Fetch the current auth configuration from the server.
+ * @returns {Object} The current auth configuration.
+ * @throws Will throw an error if the request fails.
+ */
+export const fetchAuthStatus = async () => { 
+  try {
+    const response = await axios.get(`${API_URL}/auth-status`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching auth status:", error);
+    throw error;
+  }
+};
