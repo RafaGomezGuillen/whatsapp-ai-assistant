@@ -103,3 +103,19 @@ export const fetchAuthStatus = async () => {
     throw error;
   }
 };
+
+/**
+ * Logout from whatsapp.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+ */
+export const logout = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/logout`);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error("Error logging out:", error);
+    throw error;
+  }
+};

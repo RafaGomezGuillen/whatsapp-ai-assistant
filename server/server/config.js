@@ -20,6 +20,7 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import cors from "cors";
+import { exec } from 'child_process';
 import lodash from "lodash";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -91,6 +92,15 @@ app.get("/current-config", (req, res) => {
 });
 
 /**
+ * Return the current auth status.
+ * @param {Object} req - The request object.
+ * @param {Boolean} res - The response object.
+ */
+app.get("/auth-status", (req, res) => {
+  res.json({ is_auth, qr_code });
+});
+
+/**
  * Handle form submission and update the configuration.
  * @param {Object} req - The request object containing form data.
  * @param {Object} res - The response object to send feedback.
@@ -107,8 +117,24 @@ app.post("/save-config", (req, res) => {
   }
 });
 
-app.get("/auth-status", (req, res) => {
-  res.json({ is_auth });
+/**
+ * Execute the clean.sh file.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object to send feedback.
+ */
+app.post("/logout", (req, res) => {
+  exec('sh clean.sh', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing clean.sh: ${error}`);
+      return res.status(500).send(`Error executing clean.sh: ${error}`);
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return res.status(500).send(`stderr: ${stderr}`);
+    }
+    console.log(`stdout: ${stdout}`);
+    res.send("clean.sh executed successfully.");
+  });
 });
 
 const port = global.config.server_port || 3000;
