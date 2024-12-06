@@ -11,10 +11,12 @@
   "description": "",
   "dependencies": {
     "bing-nodejs": "^1.0.3",
+    "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "groq-sdk": "^0.7.0",
     "jaxcore-say-node": "^0.0.9",
+    "lodash": "^4.17.21",
     "whatsapp-web.js": "^1.26.0",
     "winston": "^3.15.0"
   }

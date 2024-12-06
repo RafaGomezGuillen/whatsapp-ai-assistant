@@ -14,36 +14,41 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
+import express from "express";
+import bodyParser from "body-parser";
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import cors from "cors";
+import lodash from "lodash";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const configPath = path.join(__dirname, 'config.json');
+const configPath = path.join(__dirname, "config.json");
 
 const app = express();
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(cors());
 
 global.config = {};
 global.qr_code = "";
 global.is_auth = false;
+
 /**
  * Load configuration from a JSON file.
  */
 function loadConfig() {
-    try {
-        const data = fs.readFileSync(configPath, 'utf-8');
-        config = JSON.parse(data);
-    } catch (error) {
-        console.error('Error loading config:', error);
-        config = {};
-    }
+  try {
+    const data = fs.readFileSync(configPath, "utf-8");
+    config = JSON.parse(data);
+  } catch (error) {
+    console.error("Error loading config:", error);
+    config = {};
+  }
 }
 
 /**
@@ -51,12 +56,12 @@ function loadConfig() {
  * @param {Object} newConfig - The new configuration object to save.
  */
 function saveConfig(newConfig) {
-    try {
-        fs.writeFileSync(configPath, JSON.stringify(newConfig, null, 2), 'utf-8');
-        config = newConfig;
-    } catch (error) {
-        console.error('Error saving config:', error);
-    }
+  try {
+    fs.writeFileSync(configPath, JSON.stringify(newConfig, null, 2), "utf-8");
+    config = newConfig;
+  } catch (error) {
+    console.error("Error saving config:", error);
+  }
 }
 
 // Load the initial config
@@ -67,8 +72,22 @@ loadConfig();
  * @param {Object} req - The request object.
  * @param {Object} res - The response object.
  */
-app.get('/', (req, res) => {
-    res.render('form', { config, qr_code, is_auth });
+app.get("/", (req, res) => {
+  res.render("form", { config, qr_code, is_auth });
+});
+
+/**
+ * API endpoint to return configuration fields as JSON.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ */
+app.get("/current-config", (req, res) => {
+  try {
+    res.json(config);
+  } catch (error) {
+    console.error("Error retrieving config:", error);
+    res.status(500).json({ error: "Failed to retrieve configuration" });
+  }
 });
 
 /**
@@ -76,47 +95,23 @@ app.get('/', (req, res) => {
  * @param {Object} req - The request object containing form data.
  * @param {Object} res - The response object to send feedback.
  */
-app.post('/save-config', (req, res) => {
-    const { 
-        botName,
-        processingError, 
-        generalError, 
-        imageError, 
-        ttsError, 
-        ttsPrefix, 
-        imagePromptPrefix, 
-        systemPrompt, 
-        systemImagePrompt, 
-        maxTokens 
-    } = req.body;
-
-    const updatedConfig = {
-        ...config,
-        botName,
-        errorMessages: {
-            ...config.errorMessages,
-            processing: processingError,
-            generalError: generalError,
-            imageError: imageError,
-            ttsError: ttsError,
-        },
-        ttsPrefix,
-        imagePromptPrefix,
-        systemPrompt,
-        systemImagePrompt,
-        max_tokens: parseInt(maxTokens),
-    };
-    config = updatedConfig;
+app.post("/save-config", (req, res) => {
+  try {
+    const newFields = req.body;
+    const updatedConfig = lodash.merge({}, config, newFields);
     saveConfig(updatedConfig);
-
     res.send('Configuration updated successfully! <a href="/">Go Back</a>');
+  } catch (error) {
+    console.error("Error handling POST /save-config:", error);
+    res.status(500).send("Error saving configuration.");
+  }
 });
 
-app.get('/auth-status', (req, res) => {
-    res.json({ is_auth });
+app.get("/auth-status", (req, res) => {
+  res.json({ is_auth });
 });
 
 const port = global.config.server_port || 3000;
 app.listen(port, () => {
-    logger.info(`Admin server running at http://localhost:${port}`);
+  logger.info(`Admin server running at http://localhost:${port}`);
 });
