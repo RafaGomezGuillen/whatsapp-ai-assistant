@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+// Import toast
+import { toast } from "react-toastify";
+
 // Import API
 import { saveGeneralConfig, fetchConfig } from "../../../api/gpt.api";
 
@@ -28,8 +31,7 @@ export const Landing = () => {
     fetchCurrentConfig();
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       await saveGeneralConfig(botName, maxTokens, systemPrompt);
 
@@ -38,6 +40,8 @@ export const Landing = () => {
       setBotName(updatedConfig.botName || "");
       setMaxTokens(updatedConfig.max_tokens || "");
       setSystemPrompt(updatedConfig.systemPrompt || "");
+
+      toast.success("Main configuration was saved successfully");
     } catch (error) {
       console.error("Error saving general configuration:", error);
     }

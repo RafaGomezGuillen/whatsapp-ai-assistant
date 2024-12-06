@@ -3,6 +3,10 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 // Import css
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Import toast
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 // Import layouts
 import { DefaultLayout } from "./layouts/DefaultLayout/DefaultLayout";
 import { PlaygroundLayout } from "./layouts/PlaygroundLayout/PlaygroundLayout";
@@ -36,6 +40,8 @@ function App() {
           ))
         )}
       </Routes>
+
+      <ToastContainer />
     </HashRouter>
   );
 }
