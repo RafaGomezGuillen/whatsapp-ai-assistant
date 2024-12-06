@@ -20,7 +20,7 @@ export const ImageConfiguration = () => {
       try {
         const config = await fetchConfig();
         setImagePromptPrefix(config.imagePromptPrefix || "");
-        setImagePromptPrefix(config.systemImagePrompt || "");
+        setSystemImagePrompt(config.systemImagePrompt || "");
       } catch (error) {
         console.error("Error fetching configuration:", error);
       }
@@ -31,12 +31,12 @@ export const ImageConfiguration = () => {
 
   const handleSubmit = async () => {
     try {
-      await saveImageConfig(imagePromptPrefix, imagePromptPrefix);
+      await saveImageConfig(imagePromptPrefix, systemImagePrompt);
 
       // Fetch the updated config again after submit
       const updatedConfig = await fetchConfig();
       setImagePromptPrefix(updatedConfig.imagePromptPrefix || "");
-      setImagePromptPrefix(updatedConfig.systemImagePrompt || "");
+      setSystemImagePrompt(updatedConfig.systemImagePrompt || "");
 
       toast.success("Image configuration was saved successfully");
     } catch (error) {
