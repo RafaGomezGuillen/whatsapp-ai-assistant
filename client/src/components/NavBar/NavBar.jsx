@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./NavBar.css";
 
+// Import components
+import { Authenticated } from "../Modals/Authenticated/Authenticated";
+import { NotAuthenticated } from "../Modals/NotAuthenticated/NotAuthenticated";
+
 // Import bootstrap components
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Alert from "react-bootstrap/Alert";
 
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
-import { CiLock, CiCircleCheck, CiWarning } from "react-icons/ci";
+import { CiLock } from "react-icons/ci";
 import { IoSettingsOutline, IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { SiSimplelogin } from "react-icons/si";
 
 // Import API
 import { fetchAuthStatus } from "../../api/gpt.api";
@@ -21,7 +23,6 @@ export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
-    { title: "Authentication", icon: <SiSimplelogin />, href: "/auth" },
     { title: "API Keys", icon: <CiLock />, href: "/keys" },
     {
       title: "Documentation",
@@ -114,19 +115,9 @@ export const NavBar = () => {
                 }}
               >
                 {isAuth ? (
-                  <Alert variant="success" style={{ width: "100%" }}>
-                    <CiCircleCheck
-                      style={{ position: "relative", bottom: "1.5px" }}
-                    />{" "}
-                    Authenticated
-                  </Alert>
+                  <Authenticated />
                 ) : (
-                  <Alert variant="warning" style={{ width: "100%" }}>
-                    <CiWarning
-                      style={{ position: "relative", bottom: "1.5px" }}
-                    />{" "}
-                    Not Authentified
-                  </Alert>
+                  <NotAuthenticated />
                 )}
               </div>
             </section>

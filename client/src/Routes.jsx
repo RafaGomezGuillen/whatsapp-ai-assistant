@@ -5,7 +5,6 @@ import { Landing } from "./pages/Playground/Landing/Landing";
 import { ImageConfiguration } from "./pages/Playground/ImageConfiguration/ImageConfiguration";
 import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorConfiguration";
 
-import { Auth } from "./pages/Auth/Auth";
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { ApiKeys } from "./pages/ApiKeys/ApiKeys";
 import { Settings } from "./pages/Settings/Settings";
@@ -17,7 +16,6 @@ export const routes = [
     layout: "default",
     routes: [
       { title: "API Keys", path: "/keys", element: <ApiKeys /> },
-      { title: "Authentication", path: "/auth", element: <Auth /> },
       { title: "Settings", path: "/settings", element: <Settings /> },
       { title: "Documentation", path: "/documentation", element: <DocLanding /> },
       { title: "About", path: "/about", element: <About /> },

@@ -44,14 +44,9 @@ input::placeholder, textarea::placeholder {
   color: var(--color-placeholder) !important;
 }
 
-form button {
-  background-color: var(--color-primary) !important;
-  color: var(--bg-primary) !important;
-  border: var(--color-primary) !important;
-}
-
-form button:hover {
-  opacity: 0.9;
+.modal-content {
+  border: var(--border-primary) solid 2px !important;
+  background-color: var(--bg-card) !important;
 }
 
 .card {
