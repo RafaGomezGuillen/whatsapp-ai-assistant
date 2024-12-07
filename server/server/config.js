@@ -20,7 +20,6 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import cors from "cors";
-import { exec } from 'child_process';
 import lodash from "lodash";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -115,26 +114,6 @@ app.post("/save-config", (req, res) => {
     console.error("Error handling POST /save-config:", error);
     res.status(500).send("Error saving configuration.");
   }
-});
-
-/**
- * Execute the clean.sh file.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object to send feedback.
- */
-app.post("/logout", (req, res) => {
-  exec('sh clean.sh', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing clean.sh: ${error}`);
-      return res.status(500).send(`Error executing clean.sh: ${error}`);
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return res.status(500).send(`stderr: ${stderr}`);
-    }
-    console.log(`stdout: ${stdout}`);
-    res.send("clean.sh executed successfully.");
-  });
 });
 
 const port = global.config.server_port || 3000;
