@@ -34,14 +34,14 @@
     background-color: var(--bg-secundary);
     border-right: var(--border-primary) solid;
     padding: 10px;
+
+    h1 {
+      display: block;
+    }
   }
 
   .navbar-title {
     display: none;
     margin-left: 200px;
-  }
-
-  h1 {
-    display: block;
   }
 }
