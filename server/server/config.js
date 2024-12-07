@@ -21,9 +21,11 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import lodash from "lodash";
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const envPath = path.join(__dirname, '../.env');
 const configPath = path.join(__dirname, "config.json");
 
 const app = express();
@@ -100,6 +102,18 @@ app.get("/auth-status", (req, res) => {
 });
 
 /**
+ * Get the GROQ_API_KEY and BING_COOKIE fields from the .env file.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object to send feedback.
+ */
+app.get("/get-env", (req, res) => {
+  const envConfig = dotenv.parse(fs.readFileSync(envPath));
+  const { GROQ_API_KEY, BING_COOKIE } = envConfig;
+
+  res.json({ GROQ_API_KEY, BING_COOKIE });
+});
+
+/**
  * Handle form submission and update the configuration.
  * @param {Object} req - The request object containing form data.
  * @param {Object} res - The response object to send feedback.
@@ -108,6 +122,7 @@ app.post("/save-config", (req, res) => {
   try {
     const newFields = req.body;
     const updatedConfig = lodash.merge({}, config, newFields);
+
     saveConfig(updatedConfig);
     res.send('Configuration updated successfully! <a href="/">Go Back</a>');
   } catch (error) {
@@ -116,7 +131,29 @@ app.post("/save-config", (req, res) => {
   }
 });
 
+/**
+ * Overwrite the GROQ_API_KEY and BING_COOKIE fields in the .env file.
+ * @param {Object} req - The request object containing the new values.
+ * @param {Object} res - The response object to send feedback.
+ */
+app.post("/update-env", (req, res) => {
+  const { GROQ_API_KEY, BING_COOKIE } = req.body;
+  const envConfig = dotenv.parse(fs.readFileSync(envPath));
+
+  envConfig.GROQ_API_KEY = GROQ_API_KEY;
+  envConfig.BING_COOKIE = BING_COOKIE;
+
+  const updatedEnv = Object.entries(envConfig)
+    .map(([key, value]) => `${key}=\"${value}\"`)
+    .join('\n');
+
+  fs.writeFileSync(envPath, updatedEnv);
+
+  res.send("Environment variables updated successfully.");
+});
+
 const port = global.config.server_port || 3000;
+
 app.listen(port, () => {
   logger.info(`Admin server running at http://localhost:${port}`);
 });

@@ -1,6 +1,10 @@
 import axios from "axios";
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
+// --------------------------------------------
+//  GET METHODS
+// --------------------------------------------
+
 /**
  * Fetch the current configuration from the server.
  * @returns {Object} The current configuration.
@@ -15,6 +19,40 @@ export const fetchConfig = async () => {
     throw error;
   }
 };
+
+/**
+ * Fetch the current auth configuration from the server.
+ * @returns {Object} The current auth configuration.
+ * @throws Will throw an error if the request fails.
+ */
+export const fetchAuthStatus = async () => { 
+  try {
+    const response = await axios.get(`${API_URL}/auth-status`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching auth status:", error);
+    throw error;
+  }
+};
+
+/**
+ * Get the GROQ_API_KEY and BING_COOKIE fields from the .env file.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+ */
+export const getEnv = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/get-env`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching environment variables:", error);
+    throw error;
+  }
+};
+
+// --------------------------------------------
+//  POST METHODS
+// --------------------------------------------
 
 /**
  * Save the general configuration to the server.
@@ -90,21 +128,6 @@ export const saveErrorConfig = async (
 };
 
 /**
- * Fetch the current auth configuration from the server.
- * @returns {Object} The current auth configuration.
- * @throws Will throw an error if the request fails.
- */
-export const fetchAuthStatus = async () => { 
-  try {
-    const response = await axios.get(`${API_URL}/auth-status`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching auth status:", error);
-    throw error;
-  }
-};
-
-/**
  * Logout from whatsapp.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
@@ -116,6 +139,24 @@ export const logout = async () => {
     return response.data;
   } catch (error) {
     console.error("Error logging out:", error);
+    throw error;
+  }
+};
+
+/**
+ * Update the GROQ_API_KEY and BING_COOKIE fields in the .env file.
+ * @param {string} groqApiKey - The new GROQ_API_KEY value.
+ * @param {string} bingCookie - The new BING_COOKIE value.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+ */
+export const updateEnv = async (groqApiKey, bingCookie) => {
+  try {
+    const payload = { GROQ_API_KEY: groqApiKey, BING_COOKIE: bingCookie };
+    const response = await axios.post(`${API_URL}/update-env`, payload);
+    return response.data;
+  } catch (error) {
+    console.error("Error updating environment variables:", error);
     throw error;
   }
 };
