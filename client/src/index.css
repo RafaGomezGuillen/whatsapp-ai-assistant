@@ -55,6 +55,17 @@ input::placeholder, textarea::placeholder {
   border: var(--border-primary) solid 2px !important;
 }
 
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 8px;
+}
+
 /* COMMON CLASSES */
 
 .link {
