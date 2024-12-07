@@ -30,6 +30,8 @@ function NotAuthenticatedModal(props) {
     };
 
     fetchCurrentAuth();
+    const intervalId = setInterval(fetchCurrentAuth, 5e3);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
