@@ -17,6 +17,7 @@
 }
 
 body {
+  font-family: "Open Sans", sans-serif !important;
   background-color: var(--bg-primary) !important;
   color: var(--color-primary) !important;
 }
