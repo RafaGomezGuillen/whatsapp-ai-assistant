@@ -32,7 +32,7 @@ export const NavBar = () => {
     { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
   ];
-  const title = "GPT Bot";
+  const title = "WhatsApp GPT Bot";
   const expand = "md";
 
   // Fetch the current auth status
@@ -68,15 +68,16 @@ export const NavBar = () => {
             >
               <h1
                 style={{
-                  paddingBottom: "25px",
+                  paddingBottom: "20px",
                   borderBottom: "solid var(--border-primary) 2px",
                 }}
               >
                 <span
                   style={{
-                    position: "relative",
-                    top: "10px",
                     textAlign: "center",
+                    fontSize: "18px",
+                    color: "var(--color-link)",
+                    fontWeight: "bold",
                   }}
                 >
                   {title}
