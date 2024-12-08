@@ -1,5 +1,168 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./About.css";
+
+// Import axios
+import axios from "axios";
+
+// Import Bootstrap components
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+
+// Import icons
+import { FaEye, FaStar } from "react-icons/fa";
+import { FaCodeFork } from "react-icons/fa6";
+
+export const RepoDetails = () => {
+  const [stargazersCount, setStargazersCount] = useState(0);
+  const [forksCount, setForksCount] = useState(0);
+  const [watchers, setWatchers] = useState(0);
+
+  const details = [
+    { title: "Stars", count: stargazersCount, icon: <FaStar /> },
+    { title: "Forks", count: forksCount, icon: <FaCodeFork /> },
+    { title: "Watchers", count: watchers, icon: <FaEye /> },
+  ];
+
+  useEffect(() => {
+    const fetchRepoDetails = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.github.com/repos/malvads/whatsapp-gpt-bot"
+        );
+
+        setStargazersCount(response.data.stargazers_count);
+        setForksCount(response.data.forks_count);
+        setWatchers(response.data.watchers);
+      } catch (error) {
+        console.error("Error fetching repository details:", error);
+      }
+    };
+
+    fetchRepoDetails();
+  }, []);
+
+  return (
+    <Card>
+      <Card.Body>
+        <Card.Title style={{ color: "var(--color-link)" }}>
+          malvads/whatsapp-gpt-bot
+        </Card.Title>
+        <Card.Subtitle style={{ marginTop: "10px", marginBottom: "10px" }}>
+          GitHub Repository details
+        </Card.Subtitle>
+        <div>
+          <ul>
+            {details.map((detail, index) => (
+              <li key={index}>
+                {detail.icon} {detail.title}: {detail.count}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Button
+          variant="light"
+          href={"https://github.com/malvads/whatsapp-gpt-bot"}
+          title={`Go to whatsapp-gpt-bot GitHub Repository`}
+        >
+          <span style={{ color: "#000" }}>Go to GitHub Repository</span>
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+};
+
+const Constributors = () => {
+  const [contributors, setContributors] = useState([]);
+
+  useEffect(() => {
+    const fetchContributors = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.github.com/repos/malvads/whatsapp-gpt-bot/contributors"
+        );
+        
+        setContributors(response.data);
+      } catch (error) {
+        console.error("Error fetching contributors:", error);
+      }
+    };
+
+    fetchContributors();
+  }, []);
+
+  return (
+    <div style={{ marginTop: "25px" }}>
+      <h2>Contributors</h2>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px",
+        }}
+      >
+        {contributors.map((contributor) => (
+          <Card style={{ width: "18rem" }} key={contributor.login}>
+            <Card.Img
+              variant="top"
+              src={contributor.avatar_url}
+              alt={contributor.login}
+            />
+            <Card.Body>
+              <Card.Title>{contributor.login}</Card.Title>
+              <Card.Text>{contributor.contributions} contributions</Card.Text>
+              <Button
+                variant="light"
+                href={`https://github.com/${contributor.login}`}
+                title={`Go to ${contributor.login} GitHub Profile Account`}
+              >
+                <span style={{ color: "#000" }}>GitHub Profile</span>
+              </Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const About = () => {
-  return <div>About. (Work in progress)</div>;
+  return (
+    <div>
+      <div className="about-info-container">
+        <div>
+          <h1>About the WhatsApp GPT Bot</h1>
+          <p>
+            Welcome to the <strong>WhatsApp GPT Bot</strong>, a project designed
+            to bring the power of AI directly into your WhatsApp conversations.
+            Generate a bot that integrates advanced natural language processing
+            capabilities with a user-friendly interface to deliver fun,
+            creativity, and utility in one package.
+          </p>
+          <h2>Key Features</h2>
+          <ul>
+            <li>
+              <strong>AI-Powered Chat:</strong> Leverages state-of-the-art GPT
+              models for engaging, intelligent responses.
+            </li>
+            <li>
+              <strong>Image Generation:</strong> Use creative commands to
+              generate stunning images directly within chats.
+            </li>
+            <li>
+              <strong>Voice Interaction:</strong> Convert text to speech and
+              interact with the bot in a more dynamic way.
+            </li>
+            <li>
+              <strong>Customizable Configuration:</strong> Tailor the bot’s
+              personality, error messages, and behavior to suit your
+              preferences.
+            </li>
+          </ul>
+        </div>
+        <RepoDetails />
+      </div>
+
+      <Constributors />
+    </div>
+  );
 };
