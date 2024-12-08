@@ -13,7 +13,7 @@ import Alert from "react-bootstrap/Alert";
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
 import { CiLock, CiCircleCheck } from "react-icons/ci";
-import { IoSettingsOutline, IoDocumentOutline } from "react-icons/io5";
+import { IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
 // Import API
@@ -29,7 +29,6 @@ export const NavBar = () => {
       icon: <IoDocumentOutline />,
       href: "/documentation",
     },
-    { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
   ];
   const title = "WhatsApp GPT Bot";
