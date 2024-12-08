@@ -1,19 +1,19 @@
 :root {
   /* bg colors */
   --bg-primary: #121418;
-  --bg-secundary: #343A40;
+  --bg-secundary: #343a40;
   --bg-card: #202124;
- 
+
   /* text colors */
   --color-primary: #fff;
   --color-placeholder: #f4e8e8;
-  --color-link: #D97328;
-  
+  --color-link: #d97328;
+
   /* border colors */
-  --border-primary: #2F353A;
-  
+  --border-primary: #2f353a;
+
   /* hover colors */
-  --color-hover: #52575C;
+  --color-hover: #52575c;
 }
 
 body {
@@ -35,13 +35,20 @@ a {
   border: solid var(--border-primary) 1px;
 }
 
-input, textarea {
+input,
+textarea,
+select {
   color: var(--color-primary) !important;
   background: none !important;
   border: var(--border-primary) solid 2px !important;
 }
 
-input::placeholder, textarea::placeholder {
+option {
+  background-color: var(--bg-secundary);
+}
+
+input::placeholder,
+textarea::placeholder {
   color: var(--color-placeholder) !important;
 }
 

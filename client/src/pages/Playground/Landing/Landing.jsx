@@ -8,12 +8,85 @@ import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 
 // Import API
-import { saveGeneralConfig, fetchConfig } from "../../../api/gpt.api";
+import { saveGeneralConfig, fetchConfig, getEnv } from "../../../api/gpt.api";
+
+// Import axios
+import axios from "axios";
+
+export const AiModels = ({ currentModel, onModelChange }) => {
+  const [models, setModels] = useState([]);
+  const [groqApiKey, setGroqApiKey] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch the API key first
+  useEffect(() => {
+    const fetchCurrentEnv = async () => {
+      try {
+        const env = await getEnv();
+        setGroqApiKey(env.GROQ_API_KEY || "");
+      } catch (error) {
+        console.error("Error fetching env:", error);
+        setError("Failed to fetch API key.");
+      }
+    };
+
+    fetchCurrentEnv();
+  }, [currentModel]);
+
+  // Fetch models after the API key is set
+  useEffect(() => {
+    if (!groqApiKey) return;
+
+    const fetchModels = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.groq.com/openai/v1/models",
+          {
+            headers: {
+              Authorization: `Bearer ${groqApiKey}`,
+            },
+          }
+        );
+        setModels(response.data.data);
+      } catch (err) {
+        console.error("Error fetching AI models:", err);
+        setError("Failed to fetch models.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchModels();
+  }, [groqApiKey]);
+
+  // Handle loading and error states
+  if (loading) return <div>Loading AI models...</div>;
+  if (error) return <div>{error}</div>;
+
+  return (
+    <Form.Group className="mb-3" controlId="ai-model">
+      <Form.Label>AI Models</Form.Label>
+      <Form.Select
+        aria-label="Default select example"
+        value={currentModel}
+        onChange={(e) => onModelChange(e.target.value)}
+      >
+        {models.map((model, index) => (
+          <option key={index} value={model.id}>
+            {model.id}
+          </option>
+        ))}
+      </Form.Select>
+    </Form.Group>
+  );
+};
 
 export const Landing = () => {
   const [botName, setBotName] = useState("");
   const [maxTokens, setMaxTokens] = useState("");
   const [systemPrompt, setSystemPrompt] = useState("");
+  const [model, setModel] = useState("");
 
   // Fetch the current configuration
   useEffect(() => {
@@ -23,6 +96,7 @@ export const Landing = () => {
         setBotName(config.botName || "");
         setMaxTokens(config.max_tokens || "");
         setSystemPrompt(config.systemPrompt || "");
+        setModel(config.model || "");
       } catch (error) {
         console.error("Error fetching configuration:", error);
       }
@@ -33,15 +107,16 @@ export const Landing = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      await saveGeneralConfig(botName, maxTokens, systemPrompt);
+      await saveGeneralConfig(botName, maxTokens, systemPrompt, model);
 
       // Fetch the updated config again after submit
       const updatedConfig = await fetchConfig();
       setBotName(updatedConfig.botName || "");
       setMaxTokens(updatedConfig.max_tokens || "");
       setSystemPrompt(updatedConfig.systemPrompt || "");
+      setModel(updatedConfig.model || "");
 
       toast.success("Main configuration was saved successfully");
     } catch (error) {
@@ -74,6 +149,8 @@ export const Landing = () => {
           onChange={(e) => setMaxTokens(e.target.value)}
         />
       </Form.Group>
+
+      <AiModels currentModel={model} onModelChange={setModel} />
 
       <Form.Group className="mb-3" controlId="system-promp">
         <Form.Label>System prompt</Form.Label>

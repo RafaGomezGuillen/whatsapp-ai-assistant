@@ -59,12 +59,13 @@ export const getEnv = async () => {
  * @param {string} botName - The name of the bot.
  * @param {number} maxTokens - The maximum number of tokens.
  * @param {string} systemPrompt - The system prompt.
+ * @param {string} model - The selected AI model.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
-export const saveGeneralConfig = async (botName, maxTokens, systemPrompt) => {
+export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model) => {
   try {
-    const payload = { botName, maxTokens, systemPrompt };
+    const payload = { botName, maxTokens, systemPrompt, model };
     const response = await axios.post(`${API_URL}/save-config`, payload);
     return response.data;
   } catch (error) {
