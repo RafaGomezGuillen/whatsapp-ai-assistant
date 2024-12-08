@@ -68,6 +68,7 @@ export const ApiKeys = () => {
           <Form.Label>Bing API Key</Form.Label>
           <Form.Control
             type="text"
+            as={"textarea"}
             placeholder="Enter Bing API Key"
             value={bingApiKey}
             onChange={(e) => setBingApiKey(e.target.value)}
