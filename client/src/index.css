@@ -63,6 +63,20 @@ textarea::placeholder {
   border: var(--border-primary) solid 2px !important;
 }
 
+.offcanvas {
+  background-color: var(--bg-secundary) !important;
+  color: var(--color-primary) !important;
+
+  a {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .btn-close {
+    background-color: var(--color-primary) !important;
+  }
+}
+
 /* scroll bar */
 ::-webkit-scrollbar {
   width: 5px;

@@ -15,7 +15,6 @@ export const routes = [
     layout: "default",
     routes: [
       { title: "API Keys", path: "/keys", element: <ApiKeys /> },
-      { title: "Documentation", path: "/documentation", element: <DocLanding /> },
       { title: "About", path: "/about", element: <About /> },
     ],
   },
@@ -42,6 +41,16 @@ export const routes = [
         title: "Error configuration",
         path: "/error-configuration",
         element: <ErrorConfiguration />,
+      },
+    ],
+  },
+  {
+    layout: "documentation",
+    routes: [
+      {
+        title: "Documentation",
+        path: "/documentation",
+        element: <DocLanding />,
       },
     ],
   },
