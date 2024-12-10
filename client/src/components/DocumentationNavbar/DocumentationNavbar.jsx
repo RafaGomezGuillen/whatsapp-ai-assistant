@@ -6,15 +6,20 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
+// Import icons
+import { FaHome, FaCode } from "react-icons/fa";
+import { CiLock } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
+
 export const DocumentationNavbar = () => {
   const title = "Documentation";
   const label = "documentation-navbar";
 
   const links = [
-    { title: "Overview", href: "" },
-    { title: "Playground", href: "/playground" },
-    { title: "API Keys", href: "/api-keys" },
-    { title: "Authentication", href: "/authentication" },
+    { title: "Overview", href: "", icon: <FaHome /> },
+    { title: "API Keys", href: "/api-keys", icon: <CiLock /> },
+    { title: "Playground", href: "/playground", icon: <FaCode /> },
+    { title: "Authentication", href: "/authentication", icon: <CgProfile /> },
   ];
 
   return (
@@ -36,11 +41,21 @@ export const DocumentationNavbar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {links.map((link) => (
+              {links.map((link, index) => (
                 <Nav.Link
+                  key={index}
                   href={`/#/documentation${link.href}`}
                   title={`Go to ${link.title} documentation page`}
                 >
+                  <span
+                    style={{
+                      position: "relative",
+                      bottom: "1.5px",
+                      paddingRight: "5px",
+                    }}
+                  >
+                    {link.icon}
+                  </span>
                   {link.title}
                 </Nav.Link>
               ))}
