@@ -7,9 +7,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 // Import icons
-import { FaHome, FaCode } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
+import { BsTerminal } from "react-icons/bs";
 
 export const DocumentationNavbar = () => {
   const title = "Documentation";
@@ -18,7 +19,7 @@ export const DocumentationNavbar = () => {
   const links = [
     { title: "Overview", href: "", icon: <FaHome /> },
     { title: "API Keys", href: "/api-keys", icon: <CiLock /> },
-    { title: "Playground", href: "/playground", icon: <FaCode /> },
+    { title: "Playground", href: "/playground", icon: <BsTerminal /> },
     { title: "Authentication", href: "/authentication", icon: <CgProfile /> },
   ];
 
