@@ -80,7 +80,7 @@ const Constributors = () => {
         const response = await axios.get(
           "https://api.github.com/repos/malvads/whatsapp-gpt-bot/contributors"
         );
-        
+
         setContributors(response.data);
       } catch (error) {
         console.error("Error fetching contributors:", error);
@@ -93,13 +93,7 @@ const Constributors = () => {
   return (
     <div style={{ marginTop: "25px" }}>
       <h2>Contributors</h2>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "10px",
-        }}
-      >
+      <div className="contributors-container">
         {contributors.map((contributor) => (
           <Card style={{ width: "18rem" }} key={contributor.login}>
             <Card.Img
@@ -127,7 +121,7 @@ const Constributors = () => {
 
 export const About = () => {
   return (
-    <div>
+    <div id="about-page">
       <div className="about-info-container">
         <div>
           <h1>About the WhatsApp GPT Bot</h1>
