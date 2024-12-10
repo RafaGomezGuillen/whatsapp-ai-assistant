@@ -77,7 +77,7 @@ function NotAuthenticatedModal(props) {
             <Card.Text>
               For further details, please refer to the{" "}
               <Link
-                to="/documentation"
+                to="/documentation/authentication"
                 title="Go to documentation page"
                 className="link"
               >

@@ -90,7 +90,7 @@ export const ApiKeys = () => {
         If you require additional support seeting up your API keys, please have
         a look at the{" "}
         <Link
-          to="/documentation"
+          to="/documentation/api-keys"
           title="Go to Documentation page"
           className="link"
         >
