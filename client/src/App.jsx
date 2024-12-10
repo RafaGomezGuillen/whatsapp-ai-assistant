@@ -23,7 +23,7 @@ function App() {
     ),
     no: (page) => <NoLayout>{page}</NoLayout>,
     playground: (page) => <PlaygroundLayout>{page}</PlaygroundLayout>,
-    documentation: (page) => <DocumentationLayout>{page}</DocumentationLayout>,
+    documentation: (page, title) => <DocumentationLayout titlePage={title}>{page}</DocumentationLayout>,
   };
 
   return (

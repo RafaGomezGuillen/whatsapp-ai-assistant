@@ -7,8 +7,11 @@ import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorC
 
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { ApiKeys } from "./pages/ApiKeys/ApiKeys";
-import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
 import { About } from "./pages/About/About";
+
+// Import documentation pages
+import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
+import { DocApiKeys } from "./pages/Documentation/DocApiKeys/DocApiKeys";
 
 export const routes = [
   {
@@ -48,9 +51,14 @@ export const routes = [
     layout: "documentation",
     routes: [
       {
-        title: "Documentation",
+        title: "Welcome to the WhatsApp GPT Bot page documentation",
         path: "/documentation",
         element: <DocLanding />,
+      },
+      {
+        title: "API Keys Documentation",
+        path: "/documentation/api-keys",
+        element: <DocApiKeys />,
       },
     ],
   },

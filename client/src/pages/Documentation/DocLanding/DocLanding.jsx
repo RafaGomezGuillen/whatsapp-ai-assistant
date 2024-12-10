@@ -39,8 +39,6 @@ export const DocLanding = () => {
 
   return (
     <section id="documentation-landing">
-      <h2>Welcome to the WhatsApp GPT Bot page documentation</h2>
-
       <p>
         Here you will find all the necessary information to get started with the WhatsApp GPT Bot
       </p>
