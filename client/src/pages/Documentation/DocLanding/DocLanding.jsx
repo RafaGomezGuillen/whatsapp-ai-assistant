@@ -11,8 +11,8 @@ import { BsBing } from "react-icons/bs";
 
 export const DocLanding = () => {
   const links = [
-    { title: "API Keys", href: "/api-keys" },
     { title: "Playground", href: "/playground" },
+    { title: "Settings", href: "/settings" },
     { title: "Authentication", href: "/authentication" },
   ];
 

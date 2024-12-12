@@ -12,9 +12,9 @@ import Alert from "react-bootstrap/Alert";
 
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
-import { CiLock, CiCircleCheck } from "react-icons/ci";
+import {  CiCircleCheck } from "react-icons/ci";
 import { IoDocumentOutline } from "react-icons/io5";
-import { IoMdInformationCircleOutline } from "react-icons/io";
+import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
 
 // Import API
 import { fetchAuthStatus } from "../../api/gpt.api";
@@ -23,7 +23,7 @@ export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
-    { title: "API Keys", icon: <CiLock />, href: "/keys" },
+    { title: "Settings", icon: <IoMdSettings />, href: "/settings" },
     {
       title: "Documentation",
       icon: <IoDocumentOutline />,

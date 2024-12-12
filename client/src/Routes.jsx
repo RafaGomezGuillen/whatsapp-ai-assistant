@@ -6,18 +6,18 @@ import { ImageConfiguration } from "./pages/Playground/ImageConfiguration/ImageC
 import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorConfiguration";
 
 import { ErrorPage } from "./pages/Error/ErrorPage";
-import { ApiKeys } from "./pages/ApiKeys/ApiKeys";
+import { Settings } from "./pages/Settings/Settings";
 import { About } from "./pages/About/About";
 
 // Import documentation pages
 import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
-import { DocApiKeys } from "./pages/Documentation/DocApiKeys/DocApiKeys";
+import { DocSettings } from "./pages/Documentation/DocSettings/DocSettings";
 
 export const routes = [
   {
     layout: "default",
     routes: [
-      { title: "API Keys", path: "/keys", element: <ApiKeys /> },
+      { title: "Settings", path: "/settings", element: <Settings /> },
       { title: "About", path: "/about", element: <About /> },
     ],
   },
@@ -56,9 +56,9 @@ export const routes = [
         element: <DocLanding />,
       },
       {
-        title: "API Keys Documentation",
-        path: "/documentation/api-keys",
-        element: <DocApiKeys />,
+        title: "Settings Documentation",
+        path: "/documentation/settings",
+        element: <DocSettings />,
       },
     ],
   },

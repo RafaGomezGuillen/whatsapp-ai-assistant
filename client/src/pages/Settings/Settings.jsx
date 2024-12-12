@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 // Import API
 import { getEnv, updateEnv } from "../../api/gpt.api";
 
-export const ApiKeys = () => {
+export const Settings = () => {
   const [groqApiKey, setGroqApiKey] = useState("");
   const [bingApiKey, setBingApiKey] = useState("");
 
@@ -90,7 +90,7 @@ export const ApiKeys = () => {
         If you require additional support seeting up your API keys, please have
         a look at the{" "}
         <Link
-          to="/documentation/api-keys"
+          to="/documentation/settings"
           title="Go to Documentation page"
           className="link"
         >
