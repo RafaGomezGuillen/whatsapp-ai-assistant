@@ -12,6 +12,7 @@ import { About } from "./pages/About/About";
 // Import documentation pages
 import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
 import { DocSettings } from "./pages/Documentation/DocSettings/DocSettings";
+import { DocPlayground } from "./pages/Documentation/DocPlayground/DocPlayground";
 
 export const routes = [
   {
@@ -54,6 +55,11 @@ export const routes = [
         title: "Welcome to the WhatsApp GPT Bot page documentation",
         path: "/documentation",
         element: <DocLanding />,
+      },
+      {
+        title: "Playground Documentation",
+        path: "/documentation/playground",
+        element: <DocPlayground />,
       },
       {
         title: "Settings Documentation",

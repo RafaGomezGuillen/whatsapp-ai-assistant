@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const GroqCloud = () => {
   return (
-    <div style={{ marginTop: "25px" }}>
+    <div>
       <h3>How to Manage Your Groq API Key</h3>
 
       <p>

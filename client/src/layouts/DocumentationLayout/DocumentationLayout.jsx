@@ -12,7 +12,7 @@ export const DocumentationLayout = ({ titlePage, children }) => {
         <DocumentationNavbar />
         <section style={{ padding: "15px" }}>
           <h2>{titlePage}</h2>
-          {children}
+          <div style={{ marginTop: "25px" }}>{children}</div>
         </section>
       </main>
     </div>
