@@ -8,7 +8,6 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 // Import icons
 import { FaHome } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
 import { BsTerminal } from "react-icons/bs";
 import { IoMdSettings } from "react-icons/io";
 
@@ -20,7 +19,6 @@ export const DocumentationNavbar = () => {
     { title: "Overview", href: "", icon: <FaHome /> },
     { title: "Playground", href: "/playground", icon: <BsTerminal /> },
     { title: "Settings", href: "/settings", icon: <IoMdSettings /> },
-    { title: "Authentication", href: "/authentication", icon: <CgProfile /> },
   ];
 
   return (

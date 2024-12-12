@@ -63,27 +63,16 @@ function NotAuthenticatedModal(props) {
           <Card.Body>
             <Card.Title>Instructions</Card.Title>
             <Card.Text>
-              1. Authenticate your WhatsApp Number: Open WhatsApp on your phone,
-              navigate to Settings {"->"} Linked Devices, and scan the QR code
-              displayed here to connect your WhatsApp account.
+              <strong>1. Authenticate your WhatsApp Number:</strong>{" "}
+              Open WhatsApp on your phone, navigate to Settings {"->"} Linked
+              Devices, and scan the QR code displayed here to connect your
+              WhatsApp account.
             </Card.Text>
 
             <Card.Text>
-              2. Configure Your Settings: Adjust the configuration settings to
-              your preference, then click on Save Configuration to apply the
-              changes.
-            </Card.Text>
-
-            <Card.Text>
-              For further details, please refer to the{" "}
-              <Link
-                to="/documentation/authentication"
-                title="Go to documentation page"
-                className="link"
-              >
-                documentation
-              </Link>{" "}
-              page.
+              <strong>2. Configure Your Settings:</strong>{" "}
+              Adjust the configuration settings to your preference, then click
+              on Save Configuration to apply the changes.
             </Card.Text>
           </Card.Body>
         </Card>

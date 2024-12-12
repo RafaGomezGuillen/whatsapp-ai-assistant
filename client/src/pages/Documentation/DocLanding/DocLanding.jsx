@@ -13,7 +13,6 @@ export const DocLanding = () => {
   const links = [
     { title: "Playground", href: "/playground" },
     { title: "Settings", href: "/settings" },
-    { title: "Authentication", href: "/authentication" },
   ];
 
   const devResources = [

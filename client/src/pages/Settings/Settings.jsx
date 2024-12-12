@@ -56,7 +56,7 @@ const ApiKeys = () => {
     <div>
       <h2>API Keys</h2>
 
-      <p style={{ color: "#C6C6C6" }}>
+      <p style={{ color: "var(--color-secondary)" }}>
         Manage your API keys carefully. Ensure they are kept secure to prevent
         unauthorized access to your account.
       </p>
@@ -149,7 +149,7 @@ const ChromePath = () => {
         borderTop: "var(--border-primary) solid 2px",
       }}
     >
-      <h2>Chrome Installation Path</h2>
+      <h2 style={{ marginBottom: "15px" }}>Chrome Installation Path</h2>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="chrome-path">

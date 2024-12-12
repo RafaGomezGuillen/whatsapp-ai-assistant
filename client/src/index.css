@@ -6,6 +6,7 @@
 
   /* text colors */
   --color-primary: #fff;
+  --color-secondary: #C6C6C6;
   --color-placeholder: #f4e8e8;
   --color-link: #d97328;
 
@@ -75,6 +76,17 @@ textarea::placeholder {
   .btn-close {
     background-color: var(--color-primary) !important;
   }
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  background-color: var(--bg-card) !important;
+  color: var(--color-primary) !important;
+  border: var(--border-primary) solid 2px !important;
 }
 
 /* scroll bar */
