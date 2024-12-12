@@ -161,3 +161,20 @@ export const updateEnv = async (groqApiKey, bingCookie) => {
     throw error;
   }
 };
+
+/**
+ * Save the chrome installation path configuration to the server.
+ * @param {string} chromePath - the chrome installation path.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+ */
+export const saveChromePath = async (chromePath) => {
+  try {
+    const payload = { chrome_path: chromePath };
+    const response = await axios.post(`${API_URL}/save-config`, payload);
+    return response.data;
+  } catch (error) {
+    console.error("Error saving chrome installation path:", error);
+    throw error;
+  }
+};

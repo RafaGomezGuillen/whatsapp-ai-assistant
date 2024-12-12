@@ -62,7 +62,13 @@ const GroqCloud = () => {
 
 const BingCookie = () => {
   return (
-    <div style={{ marginTop: "25px" }}>
+    <div
+      style={{
+        marginTop: "25px",
+        paddingTop: "25px",
+        borderTop: "var(--border-primary) solid 2px",
+      }}
+    >
       <h3>How to Obtain and Configure the Bing Cookie (_U)</h3>
 
       <p>
@@ -130,14 +136,20 @@ const BingCookie = () => {
 
 export const ChromePath = () => {
   return (
-    <div style={{ marginTop: "25px" }}>
+    <div
+      style={{
+        marginTop: "25px",
+        paddingTop: "25px",
+        borderTop: "var(--border-primary) solid 2px",
+      }}
+    >
       <h3>How to Locate and Configure the Chrome Installation Path</h3>
 
       <p>
         The <strong>chrome_path</strong> specifies the location of the Chrome
-        executable on your system. This path is required for certain operations
-        that involve automated interactions with the Chrome browser. Below are
-        the default paths for Chrome on various operating systems:
+        executable on your system. This path is required to specify the
+        operating system and browser to authenticate WhatsApp. Below are the
+        default paths for Chrome on various operating systems:
       </p>
 
       <h4>Windows</h4>

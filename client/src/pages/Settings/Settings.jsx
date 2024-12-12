@@ -9,9 +9,14 @@ import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 
 // Import API
-import { getEnv, updateEnv } from "../../api/gpt.api";
+import {
+  getEnv,
+  updateEnv,
+  fetchConfig,
+  saveChromePath,
+} from "../../api/gpt.api";
 
-export const Settings = () => {
+const ApiKeys = () => {
   const [groqApiKey, setGroqApiKey] = useState("");
   const [bingApiKey, setBingApiKey] = useState("");
 
@@ -49,6 +54,8 @@ export const Settings = () => {
 
   return (
     <div>
+      <h2>API Keys</h2>
+
       <p style={{ color: "#C6C6C6" }}>
         Manage your API keys carefully. Ensure they are kept secure to prevent
         unauthorized access to your account.
@@ -82,7 +89,6 @@ export const Settings = () => {
 
       <p
         style={{
-          borderTop: "var(--border-primary) solid 2px",
           marginTop: "15px",
           paddingTop: "15px",
         }}
@@ -99,5 +105,94 @@ export const Settings = () => {
         where the set-up process is explained in depth.
       </p>
     </div>
+  );
+};
+
+const ChromePath = () => {
+  const [chromePath, setChromePath] = useState("");
+
+  // Fetch the current configuration
+  useEffect(() => {
+    const fetchCurrentConfig = async () => {
+      try {
+        const config = await fetchConfig();
+        setChromePath(config.chrome_path || "");
+      } catch (error) {
+        console.error("Error fetching configuration:", error);
+      }
+    };
+
+    fetchCurrentConfig();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await saveChromePath(chromePath);
+
+      // Fetch the updated Chrome installation path again after submit
+      const updatedConfig = await fetchConfig();
+      setChromePath(updatedConfig.chrome_path || "");
+
+      toast.success("Chrome installation path was saved successfully");
+    } catch (error) {
+      console.error("Error saving Chrome installation path:", error);
+    }
+  };
+
+  return (
+    <div
+      style={{
+        marginTop: "25px",
+        paddingTop: "25px",
+        borderTop: "var(--border-primary) solid 2px",
+      }}
+    >
+      <h2>Chrome Installation Path</h2>
+
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="chrome-path">
+          <Form.Label>Chrome Installation Path</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Chrome Installation Path"
+            value={chromePath}
+            onChange={(e) => setChromePath(e.target.value)}
+          />
+        </Form.Group>
+
+        <Button variant="light" type="submit" title="Save Chrome Path">
+          Save Chrome Path
+        </Button>
+      </Form>
+
+      <p
+        style={{
+          marginTop: "15px",
+          paddingTop: "15px",
+        }}
+      >
+        If you require additional support seeting up your Chrome Installation
+        Path, please have a look at the{" "}
+        <Link
+          to="/documentation/settings"
+          title="Go to Documentation page"
+          className="link"
+        >
+          Documentation page
+        </Link>{" "}
+        where the set-up process is explained in depth.
+      </p>
+    </div>
+  );
+};
+
+export const Settings = () => {
+  return (
+    <>
+      <ApiKeys />
+      <ChromePath />
+    </>
   );
 };
