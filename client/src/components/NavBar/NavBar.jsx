@@ -25,7 +25,7 @@ export const NavBar = () => {
   const location = useLocation();
 
   const links = [
-    { title: "Playground", icon: <BsTerminal />, href: "/" },
+    { title: "Playground", icon: <BsTerminal />, href: "/playground" },
     { title: "Settings", icon: <IoMdSettings />, href: "/settings" },
     {
       title: "Documentation",
@@ -90,7 +90,9 @@ export const NavBar = () => {
                   key={index}
                   href={`/#${link.href}`}
                   title={`Go to ${link.title} page`}
-                  className={location.pathname === link.href ? "active" : ""}
+                  className={
+                    location.pathname.startsWith(link.href) ? "active" : ""
+                  }
                   style={{
                     display: "flex",
                     flexDirection: "row",

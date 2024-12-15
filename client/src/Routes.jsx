@@ -35,15 +35,15 @@ export const routes = [
   {
     layout: "playground",
     routes: [
-      { title: "Index page", path: "/", element: <Landing /> },
+      { title: "Index page", path: "/playground", element: <Landing /> },
       {
         title: "Image configuration",
-        path: "/image-configuration",
+        path: "/playground/image-configuration",
         element: <ImageConfiguration />,
       },
       {
         title: "Error configuration",
-        path: "/error-configuration",
+        path: "/playground/error-configuration",
         element: <ErrorConfiguration />,
       },
     ],

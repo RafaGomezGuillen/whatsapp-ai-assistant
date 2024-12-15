@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./Header.css";
 
 // Import bootstrap components
@@ -8,12 +9,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const Header = () => {
+  const location = useLocation();
   const configurations = [
-    { title: "Main Configuration", href: "/" },
-    { title: "Image Configuration", href: "/image-configuration" },
-    { title: "Error Configuration", href: "/error-configuration" },
+    { title: "Main Configuration", href: "/playground/" },
+    { title: "Image Configuration", href: "/playground/image-configuration" },
+    { title: "Error Configuration", href: "/playground/error-configuration" },
   ];
-
   const modes = [{ title: "Work in progress", href: "#" }];
 
   return (
@@ -33,6 +34,7 @@ export const Header = () => {
                   key={index}
                   href={`/#${config.href}`}
                   title={`Go to ${config.title} page`}
+                  className={location.pathname === config.href ? "active" : ""}
                 >
                   {config.title}
                 </NavDropdown.Item>

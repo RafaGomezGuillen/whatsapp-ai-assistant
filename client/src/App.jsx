@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // Import css
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,12 +23,17 @@ function App() {
     ),
     no: (page) => <NoLayout>{page}</NoLayout>,
     playground: (page) => <PlaygroundLayout>{page}</PlaygroundLayout>,
-    documentation: (page, title) => <DocumentationLayout titlePage={title}>{page}</DocumentationLayout>,
+    documentation: (page, title) => (
+      <DocumentationLayout titlePage={title}>{page}</DocumentationLayout>
+    ),
   };
 
   return (
     <HashRouter>
       <Routes>
+        {/* Redirect from `/` to `/playground` */}
+        <Route path="/" element={<Navigate to="/playground" replace />} />
+
         {routes.map((routeGroup) =>
           routeGroup.routes.map((route, index) => (
             <Route
