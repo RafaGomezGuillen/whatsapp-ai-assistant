@@ -1,4 +1,6 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import "./DocumentationNavbar.css";
 
 // Import bootstrap components
 import Container from "react-bootstrap/Container";
@@ -14,6 +16,7 @@ import { IoMdSettings } from "react-icons/io";
 export const DocumentationNavbar = () => {
   const title = "Documentation";
   const label = "documentation-navbar";
+  const location = useLocation();
 
   const links = [
     { title: "Overview", href: "", icon: <FaHome /> },
@@ -45,6 +48,8 @@ export const DocumentationNavbar = () => {
                   key={index}
                   href={`/#/documentation${link.href}`}
                   title={`Go to ${link.title} documentation page`}
+                  className={location.pathname === `/documentation${link.href}` ? "active" : ""}
+                  style={{marginBottom: "10px"}}
                 >
                   <span
                     style={{

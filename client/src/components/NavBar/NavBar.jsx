@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./NavBar.css";
 
 // Import components
@@ -12,7 +13,7 @@ import Alert from "react-bootstrap/Alert";
 
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
-import {  CiCircleCheck } from "react-icons/ci";
+import { CiCircleCheck } from "react-icons/ci";
 import { IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
 
@@ -21,6 +22,8 @@ import { fetchAuthStatus } from "../../api/gpt.api";
 
 export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);
+  const location = useLocation();
+
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/" },
     { title: "Settings", icon: <IoMdSettings />, href: "/settings" },
@@ -87,6 +90,7 @@ export const NavBar = () => {
                   key={index}
                   href={`/#${link.href}`}
                   title={`Go to ${link.title} page`}
+                  className={location.pathname === link.href ? "active" : ""}
                   style={{
                     display: "flex",
                     flexDirection: "row",
