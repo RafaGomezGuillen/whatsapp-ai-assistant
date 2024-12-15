@@ -11,7 +11,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 export const Header = () => {
   const location = useLocation();
   const configurations = [
-    { title: "Main Configuration", href: "/playground/" },
+    { title: "Main Configuration", href: "/playground" },
     { title: "Image Configuration", href: "/playground/image-configuration" },
     { title: "Error Configuration", href: "/playground/error-configuration" },
   ];
