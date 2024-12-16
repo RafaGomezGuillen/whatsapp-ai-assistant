@@ -65,7 +65,7 @@ export const getEnv = async () => {
  */
 export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model) => {
   try {
-    const payload = { botName, maxTokens, systemPrompt, model };
+    const payload = { botName, max_tokens: maxTokens, systemPrompt, model };
     const response = await axios.post(`${API_URL}/save-config`, payload);
     return response.data;
   } catch (error) {
