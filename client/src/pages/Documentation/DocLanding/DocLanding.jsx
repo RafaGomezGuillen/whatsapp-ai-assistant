@@ -71,8 +71,6 @@ export const DocLanding = () => {
                 <Card.Title>
                   <span
                     style={{
-                      position: "relative",
-                      bottom: "1.5px",
                       paddingRight: "5px",
                     }}
                   >

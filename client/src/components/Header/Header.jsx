@@ -8,12 +8,29 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+// Import icons
+import { GoDependabot } from "react-icons/go";
+import { FaImage } from "react-icons/fa6";
+import { BiSolidCommentError } from "react-icons/bi";
+
 export const Header = () => {
   const location = useLocation();
   const configurations = [
-    { title: "Main Configuration", href: "/playground" },
-    { title: "Image Configuration", href: "/playground/image-configuration" },
-    { title: "Error Configuration", href: "/playground/error-configuration" },
+    {
+      title: "Main Configuration",
+      href: "/playground",
+      icon: <GoDependabot />,
+    },
+    {
+      title: "Image Configuration",
+      href: "/playground/image-configuration",
+      icon: <FaImage />,
+    },
+    {
+      title: "Error Configuration",
+      href: "/playground/error-configuration",
+      icon: <BiSolidCommentError />,
+    },
   ];
   const modes = [{ title: "Work in progress", href: "#" }];
 
@@ -36,7 +53,7 @@ export const Header = () => {
                   title={`Go to ${config.title} page`}
                   className={location.pathname === config.href ? "active" : ""}
                 >
-                  {config.title}
+                  {config.icon} {config.title}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>

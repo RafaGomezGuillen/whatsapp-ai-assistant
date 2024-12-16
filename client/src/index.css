@@ -89,6 +89,11 @@ td {
   border: var(--border-primary) solid 2px !important;
 }
 
+svg {
+  position: relative;
+  bottom: 2px;
+}
+
 /* scroll bar */
 ::-webkit-scrollbar {
   width: 5px;

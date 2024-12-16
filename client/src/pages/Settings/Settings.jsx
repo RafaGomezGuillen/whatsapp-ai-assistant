@@ -16,6 +16,9 @@ import {
   saveChromePath,
 } from "../../api/gpt.api";
 
+// Import icons
+import { FaLock, FaChrome } from "react-icons/fa";
+
 const ApiKeys = () => {
   const [groqApiKey, setGroqApiKey] = useState("");
   const [bingApiKey, setBingApiKey] = useState("");
@@ -54,7 +57,9 @@ const ApiKeys = () => {
 
   return (
     <div>
-      <h2>API Keys</h2>
+      <h2>
+        <FaLock /> API Keys
+      </h2>
 
       <p style={{ color: "var(--color-secondary)" }}>
         Manage your API keys carefully. Ensure they are kept secure to prevent
@@ -149,14 +154,16 @@ const ChromePath = () => {
         borderTop: "var(--border-primary) solid 2px",
       }}
     >
-      <h2 style={{ marginBottom: "15px" }}>Chrome Installation Path</h2>
+      <h2 style={{ marginBottom: "15px" }}>
+        <FaChrome /> Chrome Installation Path
+      </h2>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="chrome-path">
           <Form.Label>Chrome Installation Path</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Chrome Installation Path"
+            placeholder="Enter Chrome Installation Path (C:\Program Files\Google\Chrome\Application\chrome.exe)"
             value={chromePath}
             onChange={(e) => setChromePath(e.target.value)}
           />

@@ -96,20 +96,13 @@ export const NavBar = () => {
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    gap: "12px",
+                    gap: "8px",
                     padding: "10px",
                     borderRadius: "8px",
                     fontWeight: "500",
                   }}
                 >
-                  <div
-                    style={{
-                      position: "relative",
-                      bottom: "2px",
-                    }}
-                  >
-                    {link.icon}
-                  </div>
+                  <div>{link.icon}</div>
                   <div>{link.title}</div>
                 </Nav.Link>
               ))}
@@ -124,10 +117,7 @@ export const NavBar = () => {
               >
                 {isAuth ? (
                   <Alert variant="success" style={{ width: "100%" }}>
-                    <CiCircleCheck
-                      style={{ position: "relative", bottom: "1.5px" }}
-                    />{" "}
-                    Authenticated
+                    <CiCircleCheck /> Authenticated
                   </Alert>
                 ) : (
                   <NotAuthenticated />

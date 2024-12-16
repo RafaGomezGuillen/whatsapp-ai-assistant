@@ -96,7 +96,7 @@ export const NotAuthenticated = () => {
         onClick={() => setModalShow(true)}
         style={{ width: "100%" }}
       >
-        <CiWarning style={{ position: "relative", bottom: "1.5px" }} /> Not
+        <CiWarning /> Not
         Authentified
       </Button>
 
