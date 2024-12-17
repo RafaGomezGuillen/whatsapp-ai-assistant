@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 // Import icons
-import { FaCode, FaGithub } from "react-icons/fa";
+import { FaCode, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { BsBing } from "react-icons/bs";
 
 export const DocLanding = () => {
@@ -27,6 +27,12 @@ export const DocLanding = () => {
       desc: "Generate a Bing API Key",
       link: "https://www.bing.com/",
       icon: <BsBing />,
+    },
+    {
+      title: "WhatsApp Web",
+      desc: "Access WhatsApp Web to check messages and AI responses",
+      link: "https://web.whatsapp.com/",
+      icon: <FaWhatsapp />,
     },
     {
       title: "WhatsApp GPT Bot",
