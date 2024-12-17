@@ -6,3 +6,4 @@ logger/logs/*
 .wwebjs_cache/*
 .env
 images/*
+.DS_Store
