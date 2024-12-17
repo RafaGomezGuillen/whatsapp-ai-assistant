@@ -56,7 +56,13 @@ const ApiKeys = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "25px",
+        paddingTop: "25px",
+        borderTop: "var(--border-primary) solid 2px",
+      }}
+    >
       <h2>
         <FaLock /> API Keys
       </h2>
@@ -147,16 +153,14 @@ const ChromePath = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "25px",
-        paddingTop: "25px",
-        borderTop: "var(--border-primary) solid 2px",
-      }}
-    >
+    <div>
       <h2 style={{ marginBottom: "15px" }}>
         <FaChrome /> Chrome Installation Path
       </h2>
+
+      <p style={{ color: "var(--color-secondary)" }}>
+        Please ensure your Chrome installation path is set; otherwise, the application may not function correctly.
+      </p>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="chrome-path">
@@ -198,8 +202,8 @@ const ChromePath = () => {
 export const Settings = () => {
   return (
     <>
-      <ApiKeys />
       <ChromePath />
+      <ApiKeys />
     </>
   );
 };

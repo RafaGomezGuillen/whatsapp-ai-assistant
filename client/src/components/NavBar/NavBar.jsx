@@ -4,6 +4,7 @@ import "./NavBar.css";
 
 // Import components
 import { NotAuthenticated } from "../Modals/NotAuthenticated/NotAuthenticated";
+import { EmptyChromePath } from "../Modals/EmptyChromePath/EmptyChromePath";
 
 // Import bootstrap components
 import Container from "react-bootstrap/Container";
@@ -18,10 +19,11 @@ import { IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
 
 // Import API
-import { fetchAuthStatus } from "../../api/gpt.api";
+import { fetchAuthStatus, fetchConfig } from "../../api/gpt.api";
 
 export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);
+  const [chromePath, setChromePath] = useState("");
   const location = useLocation();
 
   const links = [
@@ -50,6 +52,22 @@ export const NavBar = () => {
 
     fetchCurrentAuth();
     const intervalId = setInterval(fetchCurrentAuth, 5e3);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Fetch the current auth status
+  useEffect(() => {
+    const fetchChromePath = async () => {
+      try {
+        const response = await fetchConfig();
+        setChromePath(response.chrome_path);
+      } catch (error) {
+        console.error("Error fetching chrome path:", error);
+      }
+    };
+
+    fetchChromePath();
+    const intervalId = setInterval(fetchChromePath, 5e3);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -111,10 +129,16 @@ export const NavBar = () => {
                 style={{
                   height: "100%",
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "end",
-                  justifyContent: "center",
+                  justifyContent: "end",
+                  gap: "10px",
                 }}
               >
+                {chromePath.trim() ===
+                  "" && (
+                  <EmptyChromePath />
+                )}
                 {isAuth ? (
                   <Alert variant="success" style={{ width: "100%" }}>
                     <CiCircleCheck /> Authenticated
