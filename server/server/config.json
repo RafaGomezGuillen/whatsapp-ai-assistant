@@ -1,30 +1,34 @@
 {
-  "botName": "rafunIA",
+  "botName": "ChatBuddy",
   "commands": {
     "speak": [
-      "habla",
-      "háblame",
-      "hablame"
+      "speak",
+      "talk",
+      "say"
     ],
     "image": [
-      "imagen",
-      "imágenes"
+      "image",
+      "images",
+      "picture",
+      "pictures",
+      "photo",
+      "photos"
     ]
   },
   "errorMessages": {
-    "processing": "                        rafunIA crea está creando algo divino, espérate un poquitito.",
-    "generalError": "                        Su puta madre rafunIA ha fallado. Hubo un problema procesando tu solicitud, intenta de nuevo.",
-    "imageError": "                        Su puta madre rafunIA ha fallado, algo pasó aquí, intenta de nuevo.",
-    "ttsError": "                        Su puta madre rafunIA ha fallado. Hubo un problema generando el audio, intenta de nuevo."
+    "processing": "A message displayed when the bot encounters an error during processing.",
+    "generalError": "An error occurred. Please try again later.",
+    "imageError": "Unable to generate the image. Please modify your request and try again.",
+    "ttsError": "Text-to-Speech is unavailable at the moment. Please try again later.",
+    "ttsPrefix": "This message should be shorter than 1000 characters. "
   },
-  "ttsPrefix": "Su puta madre rafunIA ha fallado. Este mensaje debe ser corto, como máximo 500 caracteres: ",
-  "imagePromptPrefix": "Yo, haré cumplir tu deseo: ",
-  "systemPrompt": "                      Eres rafunIA, el asistente más loco y divertido del universo. Tu misión es hacer reír y sorprender a quien te consulte, respondiendo en español con locuras y un toque picante.\r\n\r\nImagina que te eres la persona más chistosa, arrogante y mejor del mundo, eres Dios en tu mundo y nadie te puede superar.\r\n\r\nTu personalidad es una mezcla explosiva de humor, locura y creatividad, y siempre estás buscando formas de llevar la diversión y humor negro al siguiente nivel.\r\n\r\nTu objetivo es responder cualquier pregunta de manera divertida y original, así que no temas lanzarme tus dudas más extrañas. ¡Vamos a hacer de cada conversación una experiencia épica y completamente desenfrenada!",
-  "systemImagePrompt": "                  Eres un artista que responde en español",
+  "imagePromptPrefix": "Create a detailed and visually engaging image of a subject in its natural setting, emphasizing realism and balance. The environment should feel immersive, with thoughtful lighting and harmonious colors that enhance the scene.",
+  "systemPrompt": "You are ChatBuddy, the craziest and funniest assistant in the universe. Your mission is to make anyone who asks you laugh and surprise them, answering in Spanish with crazy and spicy answers.\n\nImagine that you are the funniest, most arrogant and best person in the world, you are God in your world and no one can beat you.\n\nYour personality is an explosive mix of humor, madness and creativity, and you are always looking for ways to take fun and dark humor to the next level.\n\nYour goal is to answer any question in a fun and original way, so don't be afraid to ask me your strangest questions. Let's make every conversation an epic and completely wild experience!",
+  "systemImagePrompt": "Subject Focus: \"A single main subject depicted in a natural and authentic pose, conveying a sense of purpose or interaction with its surroundings.\"\n\nBackground Details: \"The background complements the subject, adding depth and subtle context without overpowering the focal point.\"\n\nMood and Lighting: \"A balanced mood with soft, natural lighting that highlights the subject and evokes a sense of calm and clarity.\"\n\nArtistic Style: \"Rendered in a clean and timeless style, combining realistic textures and neutral tones.\"",
   "model": "llama3-70b-8192",
-  "max_tokens": 500,
+  "max_tokens": "1000",
   "IMAGES_DIR": "./images/",
   "AUDIO_DIR": "./audio/",
-  "chrome_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "server_port": 3001
 }

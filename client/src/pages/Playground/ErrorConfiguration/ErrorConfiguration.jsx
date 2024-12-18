@@ -26,7 +26,7 @@ export const ErrorConfiguration = () => {
         setGeneralErrorMessage(config.errorMessages.generalError || "");
         setImageErrorMessage(config.errorMessages.imageError || "");
         setTtsErrorMessage(config.errorMessages.ttsError || "");
-        setTtsPrefix(config.ttsPrefix || "");
+        setTtsPrefix(config.errorMessages.ttsPrefix || "");
       } catch (error) {
         console.error("Error fetching configuration:", error);
       }
@@ -53,7 +53,7 @@ export const ErrorConfiguration = () => {
       setGeneralErrorMessage(updatedConfig.errorMessages.generalError || "");
       setImageErrorMessage(updatedConfig.errorMessages.imageError || "");
       setTtsErrorMessage(updatedConfig.errorMessages.ttsError || "");
-      setTtsPrefix(updatedConfig.ttsPrefix || "");
+      setTtsPrefix(updatedConfig.errorMessages.ttsPrefix || "");
 
       toast.success("Error configuration was saved successfully");
     } catch (error) {

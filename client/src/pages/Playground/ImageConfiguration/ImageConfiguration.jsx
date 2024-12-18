@@ -51,10 +51,11 @@ export const ImageConfiguration = () => {
       <Form.Group className="mb-3" controlId="image-prompt-prefix">
         <Form.Label>Image Prompt Prefix</Form.Label>
         <Form.Control
-          type="text"
           placeholder="Enter Image Prompt Prefix"
           min={3}
           max={15}
+          as="textarea"
+          rows={3}
           value={imagePromptPrefix}
           onChange={(e) => setImagePromptPrefix(e.target.value)}
         />
@@ -64,7 +65,7 @@ export const ImageConfiguration = () => {
         <Form.Label>System Image Prompt</Form.Label>
         <Form.Control
           as="textarea"
-          rows={3}
+          rows={5}
           placeholder="Enter System Image Prompt"
           value={systemImagePrompt}
           onChange={(e) => setSystemImagePrompt(e.target.value)}
