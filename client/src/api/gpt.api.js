@@ -50,6 +50,21 @@ export const getEnv = async () => {
   }
 };
 
+/**
+ * Fetch the logs from the server.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+  */
+export const getLogs = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/stream-logs`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching logs:", error);
+    throw error;
+  }
+};
+
 // --------------------------------------------
 //  POST METHODS
 // --------------------------------------------
@@ -116,8 +131,8 @@ export const saveErrorConfig = async (
         generalError: generalError,
         imageError: imageError,
         ttsError: ttsError,
+        ttsPrefix: ttsPrefix,
       },
-      ttsPrefix,
     };
 
     const response = await axios.post(`${API_URL}/save-config`, payload);

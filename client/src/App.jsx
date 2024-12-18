@@ -16,6 +16,9 @@ import { DocumentationLayout } from "./layouts/DocumentationLayout/Documentation
 // Import routes
 import { routes } from "./Routes";
 
+// Import components
+import { Logger } from "./components/Logger/Logger";
+
 function App() {
   const layoutComponents = {
     default: (page, title) => (
@@ -47,7 +50,8 @@ function App() {
           ))
         )}
       </Routes>
-
+      
+      <Logger />
       <ToastContainer />
     </HashRouter>
   );

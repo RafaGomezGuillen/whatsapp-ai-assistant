@@ -152,6 +152,30 @@ app.post("/update-env", (req, res) => {
   res.send("Environment variables updated successfully.");
 });
 
+
+/**
+ * API endpoint to retrieve the latest logs.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ */
+app.get("/stream-logs", (req, res) => {
+  const logFilePath = path.join(__dirname, "../logger/logs/combined.log");
+
+  fs.readFile(logFilePath, "utf-8", (err, data) => {
+    if (err) {
+      logger.error("Error reading log file:", err);
+      return res.status(500).json({ error: "Failed to retrieve logs." });
+    }
+
+    const logs = data
+      .split("\n")
+      .filter((line) => line) // Remove empty lines
+      .map((line) => JSON.parse(line)); // Parse JSON logs if stored in JSON format
+
+    res.json(logs);
+  });
+});
+
 const port = global.config.server_port || 3000;
 
 app.listen(port, () => {
