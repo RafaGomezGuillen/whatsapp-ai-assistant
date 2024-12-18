@@ -84,7 +84,7 @@ export const AiModels = ({ currentModel, onModelChange }) => {
 
 export const Landing = () => {
   const [botName, setBotName] = useState("");
-  const [maxTokens, setMaxTokens] = useState("");
+  const [maxTokens, setMaxTokens] = useState(0);
   const [systemPrompt, setSystemPrompt] = useState("");
   const [model, setModel] = useState("");
 
