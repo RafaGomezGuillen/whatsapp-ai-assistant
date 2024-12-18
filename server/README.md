@@ -1,45 +1,19 @@
-# WhatsApp GPT Bot
+# WhatsApp GPT Bot (server side)
 
-Random crap I decided to create instead of living life. This bot integrates GPT functionality with WhatsApp, allowing for various features.
+The WhatsApp GPT Bot server allows customization through an admin panel. Access the admin panel at:
 
-## Features
+```cmd
+http://localhost:<your_port> # normally is 3001
+```
 
-- **Admin Panel**: Access the admin panel at `http://localhost:your_port` for real-time configuration.
-- **GPT Integration**: Uses Groq to provide GPT functionality and models remotely.
-- **Text-to-Speech (TTS)**: The bot can generate audio by preprocessing text using GPT, then converts it to speech to send voice messages back to users.
-- **Image generation**: The bot can generate images, it uses bing for it.
-
-## Admin Panel
+This provides real-time configuration options for your bot.
 
 ![Admin panel picture](assets/admin.png)
 
-## How to Use
+> [!NOTE]
+> While you can configure the bot through the server, it is highly recommended to perform customizations in the client-side project, which includes comprehensive documentation and an easier user experience.
 
-1. Open the admin panel and scan the QR code.
-2. You can find available commands in the `config.json` file.
-3. Ask any friend to send you a message using the bot name as prefix, for normal gpt response only name is required but for other actions words in config.json are required.
-
-## Installation
-
-Follow these steps to get project up and running:
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/malvads/whatsapp-gpt-bot.git
-```
-
-2. Install node modules
-
-```bash
-cd whatsapp-gpt-bot && npm i
-```
-
-### Installation troubleshooting
-
-To ensure proper installation, make sure you have the latest Visual C++ Build Tools installed. You can refer to the Node.js [node-gyp documentation](https://github.com/nodejs/node-gyp) for detailed instructions on installing the required tools.
-
-## Configuration
+## Environment files
 
 Before running the application, create an `.env` file in the same folder as the `start.sh` file with your API keys:
 
@@ -84,6 +58,30 @@ C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 /usr/bin/google-chrome
 ```
 
+## Getting Started
+
+Follow the steps below to set up and run the project locally.
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/en) installed on your machine. You can check if Node.js is installed by running the following command in your terminal:
+
+```cmd
+node -v
+```
+
+### Installation
+
+npm install
+
+```cmd
+npm i
+```
+
+### Installation troubleshooting
+
+To ensure proper installation, make sure you have the latest Visual C++ Build Tools installed. You can refer to the Node.js [node-gyp documentation](https://github.com/nodejs/node-gyp) for detailed instructions on installing the required tools.
+
 ## Running the Application
 
 After configuring the keys, you can start the application with the following commands:
@@ -104,6 +102,9 @@ sh start.sh # on windows
 ## Cleaning the Application
 
 You can clean temporary files, cache, and other unnecessary content using the `clean.sh` script.
+
+> [!CAUTION]
+> Running `cleans.sh` will delete all authentication-related files. You will need to re-authenticate after running the script.
 
 ### Usage
 
