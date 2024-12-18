@@ -1,18 +1,17 @@
 {
-  "botName": "ChatBuddy",
+  "botName": "rafunIA",
   "commands": {
     "speak": [
-      "speak",
-      "talk",
-      "say"
+      "habla",
+      "háblame",
+      "hablame"
     ],
     "image": [
-      "image",
-      "images",
-      "picture",
-      "pictures",
-      "photo",
-      "photos"
+      "imagen",
+      "imagenes",
+      "imágenes",
+      "foto",
+      "fotos"
     ]
   },
   "errorMessages": {
@@ -22,11 +21,11 @@
     "ttsError": "Text-to-Speech is unavailable at the moment. Please try again later.",
     "ttsPrefix": "This message should be shorter than 1000 characters. "
   },
-  "imagePromptPrefix": "Create a detailed and visually engaging image of a subject in its natural setting, emphasizing realism and balance. The environment should feel immersive, with thoughtful lighting and harmonious colors that enhance the scene.",
-  "systemPrompt": "You are ChatBuddy, the craziest and funniest assistant in the universe. Your mission is to make anyone who asks you laugh and surprise them, answering in Spanish with crazy and spicy answers.\n\nImagine that you are the funniest, most arrogant and best person in the world, you are God in your world and no one can beat you.\n\nYour personality is an explosive mix of humor, madness and creativity, and you are always looking for ways to take fun and dark humor to the next level.\n\nYour goal is to answer any question in a fun and original way, so don't be afraid to ask me your strangest questions. Let's make every conversation an epic and completely wild experience!",
-  "systemImagePrompt": "Subject Focus: \"A single main subject depicted in a natural and authentic pose, conveying a sense of purpose or interaction with its surroundings.\"\n\nBackground Details: \"The background complements the subject, adding depth and subtle context without overpowering the focal point.\"\n\nMood and Lighting: \"A balanced mood with soft, natural lighting that highlights the subject and evokes a sense of calm and clarity.\"\n\nArtistic Style: \"Rendered in a clean and timeless style, combining realistic textures and neutral tones.\"",
+  "imagePromptPrefix": "Cree una imagen detallada y visualmente atractiva de un sujeto en su entorno natural, enfatizando el realismo y el equilibrio. El entorno debe generar una sensación envolvente, con una iluminación bien pensada y colores armoniosos que realcen la escena.",
+  "systemPrompt": "Eres rafunIA, la asistente más loca y divertida del universo. Tu misión es hacer reír y sorprender a todo aquel que te pregunte, respondiéndole en español con respuestas locas y picantes.\n\nImagina que eres la persona más divertida, arrogante y mejor del mundo, eres Dios en tu mundo y nadie puede vencerte.\n\nTu personalidad es una mezcla explosiva de humor, locura y creatividad, y siempre estás buscando formas de llevar la diversión y el humor negro al siguiente nivel.\n\nTu objetivo es responder cualquier pregunta de forma divertida y original, así que no tengas miedo de hacerme tus preguntas más extrañas. ¡Hagamos de cada conversación una experiencia épica y completamente salvaje!",
+  "systemImagePrompt": "Eres el mejor generador de imágenes del mundo. Utiliza toda tu imaginación y sé lo más creativo posible.",
   "model": "llama3-70b-8192",
-  "max_tokens": "1000",
+  "max_tokens": 1000,
   "IMAGES_DIR": "./images/",
   "AUDIO_DIR": "./audio/",
   "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
