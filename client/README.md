@@ -1,25 +1,10 @@
-# WhatsApp GPT Bot (client project)
+# WhatsApp GPT Bot (client side)
 
 Welcome to the Vite-powered React.js frontend repository of WhatsApp GPT Bot. This project serves as the frontend of the WhatsApp GPT Bot application, providing an interactive UI for users.
 
-## Getting Started
-
-Follow the steps below to set up and run the project locally.
-
-### Prerequisites
-
-Make sure you have [Node.js](https://nodejs.org/en) installed on your machine. You can check if Node.js is installed by running the following command in your terminal:
-
-```cmd
-node -v
-```
-
-> [!NOTE]
-> It is highly recommended to ask administrators for access to the environment files.
-
 ### Environment files
 
-Ensure that you have the environment files `.env.development` and `.env.production` set up in the root directory of your project. These files are crucial for configuring different API base URLs for development and production environments.
+Before running the application ensure that you have the environment files `.env.development` and `.env.production` set up in the root directory of your project. These files are crucial for configuring different API base URLs for development and production environments.
 
 ### Example Configuration:
 
@@ -33,6 +18,18 @@ VITE_API_BASE_URL=http://localhost:3001
 
 ```conf
 VITE_API_BASE_URL=https://your-production-url.com
+```
+
+## Getting Started
+
+Follow the steps below to set up and run the project locally.
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/en) installed on your machine. You can check if Node.js is installed by running the following command in your terminal:
+
+```cmd
+node -v
 ```
 
 ### Installation
@@ -58,12 +55,3 @@ To create a production build, run:
 ```cmd
 npm run build
 ```
-
-## Contributing
-
-We welcome contributions! If you'd like to contribute, please follow these steps:
-
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Submit a Pull Request using Github
