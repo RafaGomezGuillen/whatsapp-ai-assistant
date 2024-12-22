@@ -152,7 +152,7 @@ class WhatsAppClient {
   async handleImageRequest(msg) {
     if (this.isProcessing) {
       const errorPrompt = this.promptService.generateErrorPrompt();
-      const response = await this.gptService.getResponse(errorPrompt);
+      await this.gptService.getResponse(errorPrompt);
       msg.reply(config.errorMessages.processing);
       return;
     }
@@ -180,7 +180,7 @@ class WhatsAppClient {
         await this.client.sendMessage(msg.from, media);
       }
     } catch (error) {
-      logger.error("Error generating image");
+      logger.error(`Error generating image: ${error}`);
       msg.reply(config.errorMessages.imageError);
     } finally {
       this.isProcessing = false;
@@ -226,16 +226,10 @@ class WhatsAppClient {
    */
   async renewSession() {
     logger.info("Forcing QR code regeneration...");
+    
     try {
       // Destroy the current client instance
       await this.client.destroy();
-
-      // Clear session files if using LocalAuth
-      const fs = require("fs");
-      const path = "../.wwebjs_auth";
-      if (fs.existsSync(path)) {
-        fs.rmSync(path, { recursive: true, force: true });
-      }
 
       // Reinitialize the client
       this.client = new Client(); // Recreate the client with the same configuration

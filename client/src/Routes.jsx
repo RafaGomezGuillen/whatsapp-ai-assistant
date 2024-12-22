@@ -1,7 +1,7 @@
 // Import pages
 
 // Import playground pages
-import { Landing } from "./pages/Playground/Landing/Landing";
+import { PlaygroundLanding } from "./pages/Playground/PlaygroundLanding/PlaygroundLanding";
 import { ImageConfiguration } from "./pages/Playground/ImageConfiguration/ImageConfiguration";
 import { ErrorConfiguration } from "./pages/Playground/ErrorConfiguration/ErrorConfiguration";
 
@@ -35,7 +35,7 @@ export const routes = [
   {
     layout: "playground",
     routes: [
-      { title: "Index page", path: "/playground", element: <Landing /> },
+      { title: "Playground", path: "/playground", element: <PlaygroundLanding /> },
       {
         title: "Image configuration",
         path: "/playground/image-configuration",

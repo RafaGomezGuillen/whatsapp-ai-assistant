@@ -82,7 +82,7 @@ export const AiModels = ({ currentModel, onModelChange }) => {
   );
 };
 
-export const Landing = () => {
+export const PlaygroundLanding = () => {
   const [botName, setBotName] = useState("");
   const [maxTokens, setMaxTokens] = useState(0);
   const [systemPrompt, setSystemPrompt] = useState("");
