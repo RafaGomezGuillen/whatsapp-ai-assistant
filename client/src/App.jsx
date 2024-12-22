@@ -35,7 +35,7 @@ function App() {
     <HashRouter>
       <Routes>
         {/* Redirect from `/` to `/playground` */}
-        <Route path="/" element={<Navigate to="/playground" replace />} />
+        <Route path="/" element={<Navigate to="/home" replace />} />
 
         {routes.map((routeGroup) =>
           routeGroup.routes.map((route, index) => (

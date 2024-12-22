@@ -1,5 +1,8 @@
 // Import pages
 
+// Import default pages
+import { Landing } from "./pages/Landing/Landing";
+
 // Import playground pages
 import { PlaygroundLanding } from "./pages/Playground/PlaygroundLanding/PlaygroundLanding";
 import { ImageConfiguration } from "./pages/Playground/ImageConfiguration/ImageConfiguration";
@@ -29,6 +32,11 @@ export const routes = [
         title: "404 | This page could not be found",
         path: "*",
         element: <ErrorPage />,
+      },
+      {
+        title: "Home page",
+        path: "/home",
+        element: <Landing />,
       },
     ],
   },
