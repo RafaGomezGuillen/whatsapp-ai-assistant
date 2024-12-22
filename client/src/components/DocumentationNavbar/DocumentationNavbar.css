@@ -1,3 +1,4 @@
 .active {
-  background-color: var(--color-hover);
+  background-color: none !important;
+  border: solid var(--border-secondary) 1px;
 }

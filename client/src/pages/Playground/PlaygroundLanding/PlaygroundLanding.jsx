@@ -163,7 +163,7 @@ export const PlaygroundLanding = () => {
         />
       </Form.Group>
 
-      <Button variant="light" type="submit" title="Save configuration">
+      <Button variant="primary" type="submit" title="Save configuration">
         Save configuration
       </Button>
     </Form>

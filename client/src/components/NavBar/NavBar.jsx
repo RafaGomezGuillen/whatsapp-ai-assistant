@@ -88,20 +88,13 @@ export const NavBar = () => {
             >
               <h1
                 style={{
-                  paddingBottom: "20px",
-                  borderBottom: "solid var(--border-primary) 2px",
+                  textAlign: "center",
+                  fontSize: "18px",
+                  color: "var(--color-link)",
+                  fontWeight: "bold",
                 }}
               >
-                <span
-                  style={{
-                    textAlign: "center",
-                    fontSize: "18px",
-                    color: "var(--color-link)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {title}
-                </span>
+                {title}
               </h1>
               {links.map((link, index) => (
                 <Nav.Link
@@ -133,12 +126,10 @@ export const NavBar = () => {
                   alignItems: "end",
                   justifyContent: "end",
                   gap: "10px",
+                  paddingBottom: "10px",
                 }}
               >
-                {chromePath.trim() ===
-                  "" && (
-                  <EmptyChromePath />
-                )}
+                {chromePath.trim() === "" && <EmptyChromePath />}
                 {isAuth ? (
                   <Alert variant="success" style={{ width: "100%" }}>
                     <CiCircleCheck /> Authenticated

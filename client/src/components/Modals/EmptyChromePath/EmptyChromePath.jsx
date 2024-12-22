@@ -27,7 +27,7 @@ const EmptyChromePathModal = ({ onHide, ...props }) => {
       </Modal.Body>
       <Modal.Footer>
         <Link to="/settings" title="Go to settings page">
-          <Button variant="light" onClick={onHide}>
+          <Button variant="primary" onClick={onHide}>
             Settings
           </Button>
         </Link>

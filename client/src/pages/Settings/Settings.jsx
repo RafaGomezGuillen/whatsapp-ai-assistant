@@ -93,7 +93,7 @@ const ApiKeys = () => {
           />
         </Form.Group>
 
-        <Button variant="light" type="submit" title="Upload API Keys">
+        <Button variant="primary" type="submit" title="Upload API Keys">
           Upload API Keys
         </Button>
       </Form>
@@ -173,7 +173,7 @@ const ChromePath = () => {
           />
         </Form.Group>
 
-        <Button variant="light" type="submit" title="Save Chrome Path">
+        <Button variant="primary" type="submit" title="Save Chrome Path">
           Save Chrome Path
         </Button>
       </Form>

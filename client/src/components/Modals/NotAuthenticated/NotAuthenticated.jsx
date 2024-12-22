@@ -78,7 +78,7 @@ function NotAuthenticatedModal(props) {
         </Card>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="light">
+        <Button onClick={props.onHide} variant="primary">
           Close
         </Button>
       </Modal.Footer>

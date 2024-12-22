@@ -60,7 +60,7 @@ export const RepoDetails = () => {
           </ul>
         </div>
         <Button
-          variant="light"
+          variant="primary"
           href={"https://github.com/malvads/whatsapp-gpt-bot"}
           title={`Go to whatsapp-gpt-bot GitHub Repository`}
         >
@@ -105,7 +105,7 @@ const Constributors = () => {
               <Card.Title>{contributor.login}</Card.Title>
               <Card.Text>{contributor.contributions} contributions</Card.Text>
               <Button
-                variant="light"
+                variant="primary"
                 href={`https://github.com/${contributor.login}`}
                 title={`Go to ${contributor.login} GitHub Profile Account`}
               >
