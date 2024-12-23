@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./NavBar.css";
 
@@ -74,7 +75,16 @@ export const NavBar = () => {
   return (
     <Navbar expand={expand}>
       <Container fluid>
-        <Navbar.Brand className="navbar-title">{title}</Navbar.Brand>
+        <Navbar.Brand
+          className="navbar-title"
+          href="/#/"
+          style={{
+            color: "var(--color-link) !important",
+            fontWeight: "bold",
+          }}
+        >
+          {title}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
         <Navbar.Collapse id="navbar-collapse">
           <Nav className="custom-nav">
@@ -86,15 +96,19 @@ export const NavBar = () => {
                 width: "100%",
               }}
             >
-              <h1
-                style={{
-                  textAlign: "center",
-                  fontSize: "18px",
-                  color: "var(--color-link)",
-                  fontWeight: "bold",
-                }}
-              >
-                {title}
+              <h1>
+                <Link
+                  to={"/"}
+                  style={{
+                    textAlign: "center",
+                    fontSize: "18px",
+                    color: "var(--color-link) !important",
+                    fontWeight: "bold",
+                    background: "none",
+                  }}
+                >
+                  {title}
+                </Link>
               </h1>
               {links.map((link, index) => (
                 <Nav.Link
