@@ -19,7 +19,7 @@ export const ErrorPage = () => {
 
         <div className="btn-container">
           <Link
-            to="/playground"
+            to="/"
             title="Go to home page"
             style={{ backgroundColor: "var(--bg-secundary)" }}
           >
