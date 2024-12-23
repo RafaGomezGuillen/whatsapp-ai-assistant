@@ -112,50 +112,6 @@
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="image-configuration">
-                <button
-                  class="btn collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#image-configuration-collapse"
-                  aria-expanded="false"
-                  aria-controls="image-configuration-collapse"
-                >
-                  Image Configuration
-                </button>
-              </div>
-              <div
-                id="image-configuration-collapse"
-                class="collapse"
-                aria-labelledby="image-configuration"
-                data-parent="#form-accordion"
-              >
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="imagePromptPrefix">Image Prompt Prefix</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="imagePromptPrefix"
-                      name="imagePromptPrefix"
-                      value="<%= config.imagePromptPrefix %>"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="systemImagePrompt">System Image Prompt</label>
-                    <textarea
-                      class="form-control"
-                      id="systemImagePrompt"
-                      name="systemImagePrompt"
-                    >
-                  <%= config.systemImagePrompt %></textarea
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
               <div class="card-header" id="error-message">
                 <button
                   class="btn collapsed"

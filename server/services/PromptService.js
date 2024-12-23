@@ -18,69 +18,68 @@ limitations under the License.
  * Class representing a service for generating various prompts.
  */
 class PromptService {
-    /**
-     * Creates an instance of the PromptService class.
-     * Initializes the default context using the system prompt from the configuration.
-     */
-    constructor() {
-        this.defaultContext = config.systemPrompt;
-    }
+  /**
+   * Creates an instance of the PromptService class.
+   * Initializes the default context using the system prompt from the configuration.
+   */
+  constructor() {
+    this.defaultContext = config.systemPrompt;
+    this.botName = config.botName;
+  }
 
-    /**
-     * Generates a prompt by combining a user message with a specified context.
-     * 
-     * @param {string} message - The user message to include in the prompt.
-     * @param {string} [context=this.defaultContext] - The context to append to the message. Defaults to the system prompt.
-     * @returns {string} The generated prompt combining the message and context.
-     */
-    generatePrompt(message, context = this.defaultContext) {
-        logger.debug("Generating prompt...")
-        return `${message}. ${context}`;
-    }
+  /**
+   * Generates a prompt by combining a user message with a specified context.
+   *
+   * @param {string} message - The user message to include in the prompt.
+   * @param {string} [context=this.defaultContext] - The context to append to the message. Defaults to the system prompt.
+   * @returns {string} The generated prompt combining the message and context.
+   */
+  generatePrompt(message, context = this.defaultContext) {
+    logger.debug("Generating prompt...");
+    return `${message}. ${context}`;
+  }
 
-    /**
-     * Generates an image prompt by prepending a base message to the user message.
-     * 
-     * @param {string} message - The user message for the image prompt.
-     * @returns {string} The generated image prompt.
-     */
-    generateImagePrompt(message) {
-        logger.debug("Generating image prompt...")
-        const baseMessage = config.imagePromptPrefix;
-        return this.generatePrompt(baseMessage + message);
-    }
+  /**
+   * Generates an image prompt by prepending a base message to the user message.
+   *
+   * @param {string} message - The user message for the image prompt.
+   * @returns {string} The generated image prompt.
+   */
+  generateImagePrompt(message) {
+    return message.replace(this.botName, "").trim();
+  }
 
-    /**
-     * Generates a speech prompt by prepending a TTS prefix to the user message.
-     * 
-     * @param {string} message - The user message for the speech prompt.
-     * @returns {string} The generated speech prompt.
-     */
-    generateSpeechPrompt(message) {
-        logger.debug("Generating speech prompt...")
-        return `${config.ttsPrefix} ${message}`;
-    }
+  /**
+   * Generates a speech prompt by prepending a TTS prefix to the user message.
+   *
+   * @param {string} message - The user message for the speech prompt.
+   * @returns {string} The generated speech prompt.
+   */
+  generateSpeechPrompt(message) {
+    logger.debug("Generating speech prompt...");
+    return `${config.ttsPrefix} ${message}`;
+  }
 
-    /**
-     * Generates an error prompt using the processing error message from the configuration.
-     * 
-     * @returns {string} The generated error prompt.
-     */
-    generateErrorPrompt() {
-        logger.debug("Generating error prompt...")
-        return this.generatePrompt(config.errorMessages.processing);
-    }
+  /**
+   * Generates an error prompt using the processing error message from the configuration.
+   *
+   * @returns {string} The generated error prompt.
+   */
+  generateErrorPrompt() {
+    logger.debug("Generating error prompt...");
+    return this.generatePrompt(config.errorMessages.processing);
+  }
 
-    /**
-     * Generates a general prompt from the user message.
-     * 
-     * @param {string} userMessage - The user message for the general prompt.
-     * @returns {string} The generated general prompt.
-     */
-    generateGeneralPrompt(userMessage) {
-        logger.debug("Generating general prompt...")
-        return this.generatePrompt(userMessage);
-    }
+  /**
+   * Generates a general prompt from the user message.
+   *
+   * @param {string} userMessage - The user message for the general prompt.
+   * @returns {string} The generated general prompt.
+   */
+  generateGeneralPrompt(userMessage) {
+    logger.debug("Generating general prompt...");
+    return this.generatePrompt(userMessage);
+  }
 }
 
 export default PromptService;

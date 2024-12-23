@@ -161,13 +161,10 @@ class WhatsAppClient {
 
     try {
       const prompt = this.promptService.generateImagePrompt(
-        config.imagePromptPrefix + msg.body
+        msg.body
       );
-      const imgres = await this.gptService.getResponse(
-        prompt,
-        config.systemImagePrompt
-      );
-      const files = await this.bingService.generateAndDownloadImages(imgres);
+
+      const files = await this.bingService.generateAndDownloadImages(prompt);
 
       for (const file of files) {
         const filePath = path.join(this.bingService.saveDir, file);

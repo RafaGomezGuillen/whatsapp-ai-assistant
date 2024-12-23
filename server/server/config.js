@@ -102,15 +102,15 @@ app.get("/auth-status", (req, res) => {
 });
 
 /**
- * Get the GROQ_API_KEY and BING_COOKIE fields from the .env file.
+ * Get the GROQ_API_KEY and BING_IMAGE_COOKIE fields from the .env file.
  * @param {Object} req - The request object.
  * @param {Object} res - The response object to send feedback.
  */
 app.get("/get-env", (req, res) => {
   const envConfig = dotenv.parse(fs.readFileSync(envPath));
-  const { GROQ_API_KEY, BING_COOKIE } = envConfig;
+  const { GROQ_API_KEY, BING_IMAGE_COOKIE } = envConfig;
 
-  res.json({ GROQ_API_KEY, BING_COOKIE });
+  res.json({ GROQ_API_KEY, BING_IMAGE_COOKIE });
 });
 
 /**
@@ -132,16 +132,16 @@ app.post("/save-config", (req, res) => {
 });
 
 /**
- * Overwrite the GROQ_API_KEY and BING_COOKIE fields in the .env file.
+ * Overwrite the GROQ_API_KEY and BING_IMAGE_COOKIE fields in the .env file.
  * @param {Object} req - The request object containing the new values.
  * @param {Object} res - The response object to send feedback.
  */
 app.post("/update-env", (req, res) => {
-  const { GROQ_API_KEY, BING_COOKIE } = req.body;
+  const { GROQ_API_KEY, BING_IMAGE_COOKIE } = req.body;
   const envConfig = dotenv.parse(fs.readFileSync(envPath));
 
   envConfig.GROQ_API_KEY = GROQ_API_KEY;
-  envConfig.BING_COOKIE = BING_COOKIE;
+  envConfig.BING_IMAGE_COOKIE = BING_IMAGE_COOKIE;
 
   const updatedEnv = Object.entries(envConfig)
     .map(([key, value]) => `${key}=\"${value}\"`)
@@ -151,7 +151,6 @@ app.post("/update-env", (req, res) => {
 
   res.send("Environment variables updated successfully.");
 });
-
 
 /**
  * API endpoint to retrieve the latest logs.

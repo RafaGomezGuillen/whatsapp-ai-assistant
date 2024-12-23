@@ -36,7 +36,7 @@ export const fetchAuthStatus = async () => {
 };
 
 /**
- * Get the GROQ_API_KEY and BING_COOKIE fields from the .env file.
+ * Get the GROQ_API_KEY and BING_IMAGE_COOKIE fields from the .env file.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
@@ -85,24 +85,6 @@ export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model)
     return response.data;
   } catch (error) {
     console.error("Error saving general configuration:", error);
-    throw error;
-  }
-};
-
-/**
- * Save the image configuration to the server.
- * @param {string} imagePromptPrefix - The prefix for the image prompt.
- * @param {string} systemImagePrompt - The system image prompt.
- * @returns {Object} The response data from the server.
- * @throws Will throw an error if the request fails.
- */
-export const saveImageConfig = async (imagePromptPrefix, systemImagePrompt) => {
-  try {
-    const payload = { imagePromptPrefix, systemImagePrompt };
-    const response = await axios.post(`${API_URL}/save-config`, payload);
-    return response.data;
-  } catch (error) {
-    console.error("Error saving image configuration:", error);
     throw error;
   }
 };
@@ -160,15 +142,15 @@ export const logout = async () => {
 };
 
 /**
- * Update the GROQ_API_KEY and BING_COOKIE fields in the .env file.
+ * Update the GROQ_API_KEY and BING_IMAGE_COOKIE fields in the .env file.
  * @param {string} groqApiKey - The new GROQ_API_KEY value.
- * @param {string} bingCookie - The new BING_COOKIE value.
+ * @param {string} bingCookie - The new BING_IMAGE_COOKIE value.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
 export const updateEnv = async (groqApiKey, bingCookie) => {
   try {
-    const payload = { GROQ_API_KEY: groqApiKey, BING_COOKIE: bingCookie };
+    const payload = { GROQ_API_KEY: groqApiKey, BING_IMAGE_COOKIE: bingCookie };
     const response = await axios.post(`${API_URL}/update-env`, payload);
     return response.data;
   } catch (error) {

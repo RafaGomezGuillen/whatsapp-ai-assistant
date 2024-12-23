@@ -38,7 +38,7 @@ const initializeServices = () => {
     }
 
     const gptService = new GPTService();
-    const bingService = new BingService(process.env.BING_COOKIE, IMAGES_DIR);
+    const bingService = new BingService(IMAGES_DIR);
     const ttsService = new TTSService(AUDIO_DIR);
     const promptService = new PromptService();
     logger.info("Services started...");
