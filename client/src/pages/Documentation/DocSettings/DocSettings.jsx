@@ -72,7 +72,7 @@ const BingCookie = () => {
       <h3>How to Obtain and Configure the Bing Cookie (_U)</h3>
 
       <p>
-        The <strong>BING_COOKIE</strong> is required to generate images via Bing
+        The <strong>BING_IMAGE_COOKIE</strong> is required to generate images via Bing
         services. To set it up, follow the steps below to locate and copy the{" "}
         <strong>_U</strong> cookie value from Bing:
       </p>

@@ -33,21 +33,6 @@ export const DocPlayground = () => {
     },
   ];
 
-  const imageProcessingFields = [
-    {
-      header: "Image Prompt Prefix",
-      description:
-        "A prefix added to image generation prompts to provide additional context.",
-      example: "Generate an image of a...",
-    },
-    {
-      header: "System Prompt Prefix",
-      description:
-        "A prefix added to general prompts for setting a consistent tone or context.",
-      example: "Respond politely and concisely to all user queries.",
-    },
-  ];
-
   const errorHandlingFields = [
     {
       header: "Processing Error Message",
@@ -103,27 +88,6 @@ export const DocPlayground = () => {
         </thead>
         <tbody>
           {mainConfigFields.map((field, index) => (
-            <tr key={index}>
-              <td>{field.header}</td>
-              <td>{field.description}</td>
-              <td>{field.example}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      <h4>Image Processing Configuration</h4>
-
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Description</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          {imageProcessingFields.map((field, index) => (
             <tr key={index}>
               <td>{field.header}</td>
               <td>{field.description}</td>

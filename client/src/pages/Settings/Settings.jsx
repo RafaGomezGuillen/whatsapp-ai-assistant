@@ -29,7 +29,7 @@ const ApiKeys = () => {
       try {
         const env = await getEnv();
         setGroqApiKey(env.GROQ_API_KEY || "");
-        setBingApiKey(env.BING_COOKIE || "");
+        setBingApiKey(env.BING_IMAGE_COOKIE || "");
       } catch (error) {
         console.error("Error fetching env:", error);
       }
@@ -47,7 +47,7 @@ const ApiKeys = () => {
       // Fetch the updated API keys again after submit
       const updatedConfig = await getEnv();
       setGroqApiKey(updatedConfig.GROQ_API_KEY || "");
-      setBingApiKey(updatedConfig.BING_COOKIE || "");
+      setBingApiKey(updatedConfig.BING_IMAGE_COOKIE || "");
 
       toast.success("API keys was saved successfully");
     } catch (error) {

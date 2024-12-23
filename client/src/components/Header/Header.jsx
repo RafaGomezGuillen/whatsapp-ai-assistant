@@ -10,7 +10,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 // Import icons
 import { GoDependabot } from "react-icons/go";
-import { FaImage } from "react-icons/fa6";
 import { BiSolidCommentError } from "react-icons/bi";
 
 export const Header = () => {
@@ -20,11 +19,6 @@ export const Header = () => {
       title: "Main Configuration",
       href: "/playground",
       icon: <GoDependabot />,
-    },
-    {
-      title: "Image Configuration",
-      href: "/playground/image-configuration",
-      icon: <FaImage />,
     },
     {
       title: "Error Configuration",

@@ -15,6 +15,11 @@
   .dropdown a {
     padding: 10px;
     border-radius: 8px;
+    margin-top: 10px;
+
+    @media (min-width: 990px) {
+      margin-top: 0px;
+    }
   }
 
   .dropdown-menu a:not(:first-child) {
