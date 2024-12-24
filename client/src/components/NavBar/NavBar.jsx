@@ -73,7 +73,7 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <Navbar expand={expand}>
+    <Navbar expand={expand} id="playground-navbar">
       <Container fluid>
         <Navbar.Brand
           className="navbar-title"

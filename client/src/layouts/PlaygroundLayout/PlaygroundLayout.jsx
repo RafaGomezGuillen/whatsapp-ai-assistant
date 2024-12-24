@@ -1,4 +1,5 @@
 import React from "react";
+import "./PlaygroundLayout.css";
 
 // Import components
 import { NavBar } from "../../components/NavBar/NavBar";
@@ -8,7 +9,7 @@ export const PlaygroundLayout = ({ children }) => {
   return (
     <div>
       <NavBar />
-      <main>
+      <main id="playground-layout">
         <Header />
         <section style={{ padding: "15px" }}>{children}</section>
       </main>

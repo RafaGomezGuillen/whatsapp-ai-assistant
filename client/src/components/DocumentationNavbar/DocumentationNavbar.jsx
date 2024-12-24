@@ -25,7 +25,7 @@ export const DocumentationNavbar = () => {
   ];
 
   return (
-    <Navbar expand={false} id="documentation-header">
+    <Navbar expand={false} id="documentation-navbar">
       <Container fluid>
         <Navbar.Brand style={{ color: "var(--color-primary)" }}>
           {title}

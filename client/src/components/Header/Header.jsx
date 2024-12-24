@@ -15,7 +15,7 @@ export const Header = () => {
   const modes = [{ title: "Work in progress", href: "#" }];
 
   return (
-    <Navbar collapseOnSelect expand="lg" id="playground-landing-header">
+    <Navbar collapseOnSelect expand="lg" id="playground-landing-navbar">
       <Container fluid>
         <Navbar.Brand>Playground</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
