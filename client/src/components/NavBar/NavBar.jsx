@@ -20,7 +20,8 @@ import { IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
 
 // Import API
-import { fetchAuthStatus, fetchConfig } from "../../api/gpt.api";
+import { fetchAuthStatus } from "../../api/auth.api";
+import { fetchConfig } from "../../api/config.api";
 
 export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);

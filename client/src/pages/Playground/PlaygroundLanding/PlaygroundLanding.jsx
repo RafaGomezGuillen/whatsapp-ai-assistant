@@ -9,12 +9,8 @@ import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 
 // Import API
-import {
-  saveGeneralConfig,
-  fetchConfig,
-  getEnv,
-  saveErrorConfig,
-} from "../../../api/gpt.api";
+import { saveErrorConfig, saveGeneralConfig, fetchConfig } from "../../../api/config.api";
+import { getEnv } from "../../../api/auth.api";
 
 // Import axios
 import axios from "axios";

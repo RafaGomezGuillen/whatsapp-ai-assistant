@@ -9,12 +9,8 @@ import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 
 // Import API
-import {
-  getEnv,
-  updateEnv,
-  fetchConfig,
-  saveChromePath,
-} from "../../api/gpt.api";
+import { fetchConfig, saveChromePath } from "../../api/config.api";
+import { getEnv, updateEnv } from "../../api/auth.api";
 
 // Import icons
 import { FaLock, FaChrome } from "react-icons/fa";
@@ -159,7 +155,8 @@ const ChromePath = () => {
       </h2>
 
       <p style={{ color: "var(--color-secondary)" }}>
-        Please ensure your Chrome installation path is set; otherwise, the application may not function correctly.
+        Please ensure your Chrome installation path is set; otherwise, the
+        application may not function correctly.
       </p>
 
       <Form onSubmit={handleSubmit}>

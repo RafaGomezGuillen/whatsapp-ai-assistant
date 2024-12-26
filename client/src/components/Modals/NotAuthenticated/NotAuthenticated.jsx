@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // Import boostrap components
 import Button from "react-bootstrap/Button";
@@ -13,7 +12,7 @@ import { CiWarning } from "react-icons/ci";
 import QRCode from "react-qr-code";
 
 // Import API
-import { fetchAuthStatus } from "../../../api/gpt.api";
+import { fetchAuthStatus } from "../../../api/auth.api";
 
 function NotAuthenticatedModal(props) {
   const [qrCode, setQrCode] = useState("");

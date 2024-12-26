@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { getLogs } from "../../api/gpt.api";
+import { getLogs } from "../../api/logs.api";
 
 export const Logger = () => {
   const [lastLog, setLastLog] = useState(null);

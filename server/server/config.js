@@ -20,12 +20,14 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import cors from "cors";
-import lodash from "lodash";
-import dotenv from 'dotenv';
+
+// Import routes
+import authRoutes from "../routes/authRoutes.js";
+import configRoutes from "../routes/configRoutes.js";
+import logsRoutes from "../routes/logsRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const envPath = path.join(__dirname, '../.env');
 const configPath = path.join(__dirname, "config.json");
 
 const app = express();
@@ -53,130 +55,16 @@ function loadConfig() {
   }
 }
 
-/**
- * Save the updated configuration back to the JSON file.
- * @param {Object} newConfig - The new configuration object to save.
- */
-function saveConfig(newConfig) {
-  try {
-    fs.writeFileSync(configPath, JSON.stringify(newConfig, null, 2), "utf-8");
-    config = newConfig;
-  } catch (error) {
-    console.error("Error saving config:", error);
-  }
-}
-
 // Load the initial config
 loadConfig();
 
-/**
- * Serve the HTML form to edit specific config parameters.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object.
- */
-app.get("/", (req, res) => {
-  res.render("form", { config, qr_code, is_auth });
-});
-
-/**
- * API endpoint to return configuration fields as JSON.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object.
- */
-app.get("/current-config", (req, res) => {
-  try {
-    res.json(config);
-  } catch (error) {
-    console.error("Error retrieving config:", error);
-    res.status(500).json({ error: "Failed to retrieve configuration" });
-  }
-});
-
-/**
- * Return the current auth status.
- * @param {Object} req - The request object.
- * @param {Boolean} res - The response object.
- */
-app.get("/auth-status", (req, res) => {
-  res.json({ is_auth, qr_code });
-});
-
-/**
- * Get the GROQ_API_KEY and BING_IMAGE_COOKIE fields from the .env file.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object to send feedback.
- */
-app.get("/get-env", (req, res) => {
-  const envConfig = dotenv.parse(fs.readFileSync(envPath));
-  const { GROQ_API_KEY, BING_IMAGE_COOKIE } = envConfig;
-
-  res.json({ GROQ_API_KEY, BING_IMAGE_COOKIE });
-});
-
-/**
- * Handle form submission and update the configuration.
- * @param {Object} req - The request object containing form data.
- * @param {Object} res - The response object to send feedback.
- */
-app.post("/save-config", (req, res) => {
-  try {
-    const newFields = req.body;
-    const updatedConfig = lodash.merge({}, config, newFields);
-
-    saveConfig(updatedConfig);
-    res.send('Configuration updated successfully! <a href="/">Go Back</a>');
-  } catch (error) {
-    console.error("Error handling POST /save-config:", error);
-    res.status(500).send("Error saving configuration.");
-  }
-});
-
-/**
- * Overwrite the GROQ_API_KEY and BING_IMAGE_COOKIE fields in the .env file.
- * @param {Object} req - The request object containing the new values.
- * @param {Object} res - The response object to send feedback.
- */
-app.post("/update-env", (req, res) => {
-  const { GROQ_API_KEY, BING_IMAGE_COOKIE } = req.body;
-  const envConfig = dotenv.parse(fs.readFileSync(envPath));
-
-  envConfig.GROQ_API_KEY = GROQ_API_KEY;
-  envConfig.BING_IMAGE_COOKIE = BING_IMAGE_COOKIE;
-
-  const updatedEnv = Object.entries(envConfig)
-    .map(([key, value]) => `${key}=\"${value}\"`)
-    .join('\n');
-
-  fs.writeFileSync(envPath, updatedEnv);
-
-  res.send("Environment variables updated successfully.");
-});
-
-/**
- * API endpoint to retrieve the latest logs.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object.
- */
-app.get("/stream-logs", (req, res) => {
-  const logFilePath = path.join(__dirname, "../logger/logs/combined.log");
-
-  fs.readFile(logFilePath, "utf-8", (err, data) => {
-    if (err) {
-      logger.error("Error reading log file:", err);
-      return res.status(500).json({ error: "Failed to retrieve logs." });
-    }
-
-    const logs = data
-      .split("\n")
-      .filter((line) => line) // Remove empty lines
-      .map((line) => JSON.parse(line)); // Parse JSON logs if stored in JSON format
-
-    res.json(logs);
-  });
-});
+// Use the routes
+app.use(authRoutes);
+app.use(configRoutes);
+app.use(logsRoutes);
 
 const port = global.config.server_port || 3000;
 
 app.listen(port, () => {
-  logger.info(`Admin server running at http://localhost:${port}`);
+  console.log(`Admin server running at http://localhost:${port}`);
 });
