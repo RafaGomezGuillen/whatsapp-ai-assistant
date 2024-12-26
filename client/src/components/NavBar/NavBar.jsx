@@ -37,7 +37,7 @@ export const NavBar = () => {
     },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
   ];
-  const title = "WhatsApp GPT Bot";
+  const title = "WhatsApp AI Assistant";
   const expand = "md";
 
   // Fetch the current auth status
@@ -78,10 +78,7 @@ export const NavBar = () => {
         <Navbar.Brand
           className="navbar-title"
           href="/#/"
-          style={{
-            color: "var(--color-link) !important",
-            fontWeight: "bold",
-          }}
+          title="Go to Home page"
         >
           {title}
         </Navbar.Brand>
@@ -96,17 +93,11 @@ export const NavBar = () => {
                 width: "100%",
               }}
             >
-              <h1>
-                <Link
-                  to={"/"}
-                  style={{
-                    textAlign: "center",
-                    fontSize: "18px",
-                    color: "var(--color-link) !important",
-                    fontWeight: "bold",
-                    background: "none",
-                  }}
-                >
+              <h1 className="navbar-title">
+                <Link to={"/"} title="Go to Home page" style={{
+                  backgroundColor: "transparent",
+                  color: "var(--color-link) !important",
+                }}>
                   {title}
                 </Link>
               </h1>

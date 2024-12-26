@@ -1,7 +1,9 @@
 #playground-navbar {
   .navbar-title {
     display: block;
-    color: var(--color-primary);
+    color: var(--color-link) !important;
+    font-weight: bold;
+    text-align: center;
   }
 
   .navbar-title:hover {
@@ -59,7 +61,6 @@
 
     .navbar-title {
       display: none;
-      margin-left: 200px;
     }
   }
 }
