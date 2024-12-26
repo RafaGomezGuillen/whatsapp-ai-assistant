@@ -1,7 +1,20 @@
 #playground-layout {
+  .playground-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 5px;
+
+    @media (min-width: 990px) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 5px;
+      grid-row-gap: 0px;
+    }
+  }
+
   @media (min-width: 768px) {
     margin-left: 200px;
-    position: relative;
-    bottom: 16px;
   }
 }

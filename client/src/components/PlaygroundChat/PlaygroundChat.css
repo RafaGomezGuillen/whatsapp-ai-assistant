@@ -1,0 +1,9 @@
+#playground-chat {
+  border-top: solid var(--color-link);
+  padding: 15px;
+
+  @media (min-width: 990px) {
+    border-top: none;
+    border-left: solid var(--color-link);
+  }
+}

@@ -169,7 +169,7 @@ const Services = () => {
       title: "Testing Environment",
       description:
         "You can test your bot's responses in a controlled environment to ensure it's working as expected before deploying it to your WhatsApp account.",
-      href: "/documentation",
+      href: "/playground",
       icon: <GrTest />,
     },
     {
