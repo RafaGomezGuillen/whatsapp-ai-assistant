@@ -108,6 +108,18 @@ textarea::placeholder {
   }
 }
 
+.accordion-header {
+  margin: 0 !important;
+}
+
+.accordion-button {
+  background-color: var(--bg-card) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
 .btn-primary {
   background-color: var(--bg-secundary) !important;
   border: var(--border-primary) solid !important;
@@ -115,6 +127,15 @@ textarea::placeholder {
 
   &:hover {
     background-color: var(--color-hover-secondary) !important;
+  }
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary) !important;
+  color: #fff !important;
+
+  &:hover {
+    opacity: 0.8;
   }
 }
 

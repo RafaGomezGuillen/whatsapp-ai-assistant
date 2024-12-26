@@ -1,118 +1,16 @@
 #landing {
-  /* Fonts */
-  :root {
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
-    --heading-font: "Nunito", sans-serif;
-    --nav-font: "Inter", sans-serif;
+  /* 
+  --------------------------------------------------------------
+  GLOBAL STYLES 
+  --------------------------------------------------------------
+  */
+  .active {
+    font-weight: bold !important;
+    color: var(--color-link) !important;
   }
 
-  :root {
-    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-    --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-    --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
-    --accent-color: #0d83fd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  }
-
-  :root {
-    --nav-color: #212529; /* The default color of the main navmenu links */
-    --nav-hover-color: #0d83fd; /* Applied to main navmenu links when they are hovered over or active */
-    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-    --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-    --nav-dropdown-hover-color: #0d83fd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-  }
-
-  .light-background {
-    --background-color: #f3f9ff;
-    --surface-color: #ffffff;
-  }
-
-  .dark-background {
-    --background-color: #0d83fd;
-    --default-color: #ffffff;
-    --heading-color: #ffffff;
-    --surface-color: #409dfd;
-    --contrast-color: #ffffff;
-  }
-
-  /*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
-  .header {
-    --background-color: rgba(255, 255, 255, 0);
-    color: var(--default-color);
-    background-color: var(--background-color);
-    padding: 20px 0;
-  }
-
-  .header .header-container {
-    background: #fff;
-    border-radius: 50px;
-    padding: 5px 25px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
-
-    @media (max-width: 990px) {
-      border-radius: 8px;
-    }
-  }
-
-  .header a {
-    background-color: #fff !important;
-
-    &:hover {
-      cursor: pointer;
-      color: red !important;
-    }
-  }
-
-  .header .navbar-toggler {
-    position: relative;
-    right: 20px;
-    background: none !important;
-    border: none !important;
-  }
-
-  @media (max-width: 1200px) {
-    .header {
-      padding: 10px;
-    }
-
-    .header .header-container {
-      padding: 10px 5px 10px 15px;
-    }
-  }
-
-  /*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
-  section,
-  .section {
-    color: var(--default-color);
-    background-color: var(--background-color);
-    padding: 60px 0;
-    scroll-margin-top: 90px;
-    overflow: clip;
-  }
-
-  @media (max-width: 1199px) {
-    section,
-    .section {
-      scroll-margin-top: 66px;
-    }
-  }
-
-  /*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
   .section-title {
     text-align: center;
-    padding-bottom: 60px;
-    position: relative;
   }
 
   .section-title h2 {
@@ -120,616 +18,211 @@
     font-weight: 700;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    position: relative;
   }
 
-  .section-title h2:after {
+  .section-title h2::after {
     content: "";
-    position: absolute;
+    position: relative;
     display: block;
     width: 50px;
     height: 3px;
-    background: var(--accent-color);
-    left: 0;
-    right: 0;
-    bottom: 0;
     margin: auto;
+    top: 15px;
+    border: solid var(--color-link);
   }
 
-  .section-title p {
-    margin-bottom: 0;
-  }
+  /* 
+  --------------------------------------------------------------
+  NAVBAR 
+  --------------------------------------------------------------
+  */
+  #landing-navbar {
+    padding: 20px 0;
 
-  /*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
-  .hero {
-    position: relative;
-    padding-top: 160px;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--accent-color), transparent 95%) 50%,
-      color-mix(in srgb, var(--accent-color), transparent 98%) 25%,
-      transparent 50%
-    );
-  }
+    .landing-navbar-container {
+      background-color: var(--bg-primary);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
 
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle at 90% 10%,
-      color-mix(in srgb, var(--accent-color), transparent 92%),
-      transparent 40%
-    );
-    pointer-events: none;
-  }
-
-  .hero .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero .hero-content h1 .accent-text {
-    color: var(--accent-color);
-  }
-
-  @media (max-width: 992px) {
-    .hero .hero-content {
-      text-align: center;
-      margin-bottom: 3rem;
+      @media (max-width: 990px) {
+        border-radius: 8px;
+      }
     }
 
-    .hero .hero-content h1 {
-      font-size: 2.5rem;
+    a {
+      &:hover {
+        cursor: pointer;
+        color: var(--color-link) !important;
+      }
     }
 
-    .hero .hero-content .hero-buttons {
+    .navbar-toggler {
+      position: relative;
+      right: 20px;
+      background: none !important;
+      border: none !important;
+    }
+
+    .ms-auto {
+      a {
+        color: var(--color-link) !important;
+        font-weight: bolder;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline !important;
+        }
+        @media (max-width: 990px) {
+          margin-top: 10px;
+          background-color: var(--color-hover);
+          padding: 15px 15px 15px 5px;
+          border-radius: 8px;
+        }
+      }
+    } 
+
+    @media (max-width: 1200px) {
+      padding: 10px;
+
+      .landing-navbar-container {
+        padding: 10px 5px 10px 15px;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  HERO SECTION 
+  --------------------------------------------------------------
+  */
+  #hero {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 575px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  ABOUT SECTION 
+  --------------------------------------------------------------
+  */
+  #about {
+    margin: 20px 0;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 992px) {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  SERVICES SECTION 
+  --------------------------------------------------------------
+  */
+  #services {
+    .service-card {
+      height: 100%;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: var(--bg-card);
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card .icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 30px;
+      background-color: var(--color-hover-secondary);
+      display: flex;
+      align-items: center;
       justify-content: center;
+      border-radius: 8px;
+      color: #000;
+      font-size: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .icon {
+      background: var(--bg-primary);
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 25px;
+      font-size: 15px;
+      line-height: 1.6;
     }
   }
 
-  @media (max-width: 575px) {
-    .hero .hero-content h1 {
-      font-size: 2rem;
-    }
-  }
+  /* 
+  --------------------------------------------------------------
+  FAQ SECTION 
+  --------------------------------------------------------------
+  */
+  #faq {
+    padding-bottom: 50px;
 
-  .hero .btn-primary {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--contrast-color);
-    padding: 0.75rem 2.5rem;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .hero .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--accent-color), black 20%);
-    border-color: color-mix(in srgb, var(--accent-color), black 20%);
-  }
-
-  .hero .btn-link {
-    color: var(--heading-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .hero .btn-link:hover {
-    color: var(--accent-color);
-  }
-
-  .hero .btn-link i {
-    font-size: 1.5rem;
-    vertical-align: middle;
-  }
-
-  .hero .hero-image {
-    position: relative;
-    text-align: center;
-    z-index: 1;
-  }
-
-  .hero .hero-image img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  @keyframes float-badge {
-    0% {
-      transform: translateY(0);
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
-    50% {
-      transform: translateY(-10px);
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
     }
-
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  /*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-  .about .about-meta {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    display: inline-block;
-  }
-
-  .about .about-title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  @media (max-width: 992px) {
-    .about .about-title {
-      font-size: 2rem;
-    }
-  }
-
-  .about .about-description {
-    margin-bottom: 2rem;
-    color: color-mix(in srgb, var(--default-color), transparent 20%);
-  }
-
-  .about .feature-list-wrapper {
-    margin-bottom: 2rem;
-  }
-
-  .about .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .about .feature-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  .about .feature-list li i {
-    color: var(--accent-color);
-    font-size: 1.25rem;
-  }
-
-  .about .profile .profile-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .about .profile .profile-name {
-    font-size: 1.125rem;
-    margin: 0;
-  }
-
-  .about .profile .profile-position {
-    color: var(--accent-color);
-    margin: 0;
-    font-size: 0.875rem;
-  }
-
-  .about .contact-info {
-    padding: 1rem 1.5rem;
-    background-color: var(--surface-color);
-    border-radius: 0.5rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
-  }
-
-  .about .contact-info i {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-  }
-
-  .about .contact-info .contact-label {
-    color: color-mix(in srgb, var(--default-color), transparent 30%);
-    font-size: 0.875rem;
-    margin: 0;
-  }
-
-  .about .contact-info .contact-number {
-    font-weight: 600;
-    margin: 0;
-  }
-
-  .about .image-wrapper {
-    position: relative;
-  }
-
-  @media (max-width: 992px) {
-    .about .image-wrapper {
-      padding-left: 0;
-      margin-top: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .about .image-wrapper .images {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .about .image-wrapper .main-image {
-      margin-left: 0;
-    }
-  }
-
-  .about .image-wrapper .small-image {
-    position: absolute;
-    top: 20%;
-    left: -10%;
-    width: 45%;
-    border: 8px solid var(--surface-color);
-  }
-
-  @media (max-width: 992px) {
-    .about .image-wrapper .small-image {
-      position: static;
-      width: 100%;
-      margin: 0 auto;
-      border: 0;
-    }
-  }
-
-  .about .image-wrapper .experience-badge {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    min-width: 200px;
-    animation: experience-float 3s ease-in-out infinite;
-  }
-
-  @media (max-width: 992px) {
-    .about .image-wrapper .experience-badge {
-      position: static;
-      width: fit-content;
-      margin: 0 auto;
-    }
-  }
-
-  .about .image-wrapper .experience-badge h3 {
-    color: var(--contrast-color);
-    font-size: 2.5rem;
-    margin: 0;
-    line-height: 0.5;
-  }
-
-  .about .image-wrapper .experience-badge h3 span {
-    font-size: 1rem;
-    display: inline-block;
-    margin-left: 0.25rem;
-  }
-
-  .about .image-wrapper .experience-badge p {
-    margin: 0.5rem 0 0;
-    font-size: 0.875rem;
-  }
-
-  @keyframes experience-float {
-    0% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  /*--------------------------------------------------------------
-# Features Section
---------------------------------------------------------------*/
-  .features .nav-tabs {
-    border: 0;
-    background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    padding: 6px;
-    width: auto;
-  }
-
-  .features .nav-item {
-    margin: 0;
-    padding: 0 5px 0 0;
-  }
-
-  .features .nav-item:last-child {
-    padding-right: 0;
-  }
-
-  .features .nav-link {
-    background-color: none;
-    color: var(--heading-color);
-    padding: 10px 30px;
-    transition: 0.3s;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    height: 100%;
-    border: 0;
-    margin: 0;
-  }
-
-  @media (max-width: 468px) {
-    .features .nav-link {
-      padding: 8px 20px;
-    }
-  }
-
-  .features .nav-link i {
-    padding-right: 15px;
-    font-size: 48px;
-  }
-
-  .features .nav-link h4 {
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0;
-  }
-
-  .features .nav-link:hover {
-    border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-  }
-
-  .features .nav-link:hover h4 {
-    color: var(--accent-color);
-  }
-
-  .features .nav-link.active {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-  }
-
-  .features .nav-link.active h4 {
-    color: var(--contrast-color);
-  }
-
-  .features .tab-content {
-    margin-top: 30px;
-  }
-
-  .features .tab-pane h3 {
-    color: var(--heading-color);
-    font-weight: 700;
-    font-size: 32px;
-    position: relative;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  }
-
-  .features .tab-pane h3:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-color);
-    left: 0;
-    bottom: 0;
-  }
-
-  .features .tab-pane ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .features .tab-pane ul li {
-    padding-top: 10px;
-  }
-
-  .features .tab-pane ul i {
-    font-size: 20px;
-    padding-right: 4px;
-    color: var(--accent-color);
-  }
-
-  .features .tab-pane p:last-child {
-    margin-bottom: 0;
-  }
-
-  /*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-  .services .service-card {
-    height: 100%;
-    padding: 30px;
-    background: var(--surface-color);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-  }
-
-  .services .service-card:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-  }
-
-  .services .service-card:hover .icon {
-    background: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .services .service-card:hover .read-more {
-    color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  }
-
-  .services .service-card .icon {
-    width: 60px;
-    height: 60px;
-    margin-right: 30px;
-    background: color-mix(in srgb, var(--accent-color), transparent 90%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    color: var(--accent-color);
-    font-size: 28px;
-    transition: all 0.3s ease;
-    line-height: 1;
-  }
-
-  .services .service-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-
-  .services .service-card p {
-    margin-bottom: 25px;
-    color: color-mix(in srgb, var(--default-color), transparent 25%);
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .services .service-card .read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--accent-color);
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .services .service-card .read-more i {
-    font-size: 14px;
-    transition: transform 0.3s ease;
-  }
-
-  .services .service-card .read-more:hover i {
-    transform: translateX(5px);
-  }
-
-  /*--------------------------------------------------------------
-# Faq Section
---------------------------------------------------------------*/
-  .faq .faq-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--heading-color);
-  }
-
-  .faq .faq-description {
-    font-size: 1rem;
-    color: var(--default-color);
-    margin-bottom: 2rem;
-  }
-
-  .faq .faq-arrow {
-    color: var(--accent-color);
-  }
-
-  .faq .faq-container .faq-item {
-    background-color: var(--surface-color);
-    position: relative;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .faq .faq-container .faq-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .faq .faq-container .faq-item h3 {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0 30px 0 0;
-    transition: 0.3s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-
-  .faq .faq-container .faq-item h3 .num {
-    color: var(--accent-color);
-    padding-right: 5px;
-  }
-
-  .faq .faq-container .faq-item h3:hover {
-    color: var(--accent-color);
-  }
-
-  .faq .faq-container .faq-item .faq-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: 0.3s ease-in-out;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .faq .faq-container .faq-item .faq-content p {
-    margin-bottom: 0;
-    overflow: hidden;
-  }
-
-  .faq .faq-container .faq-item .faq-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 16px;
-    line-height: 0;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-
-  .faq .faq-container .faq-item .faq-toggle:hover {
-    color: var(--accent-color);
-  }
-
-  .faq .faq-container .faq-active h3 {
-    color: var(--accent-color);
-  }
-
-  .faq .faq-container .faq-active .faq-content {
-    grid-template-rows: 1fr;
-    visibility: visible;
-    opacity: 1;
-    padding-top: 10px;
-  }
-
-  .faq .faq-container .faq-active .faq-toggle {
-    transform: rotate(90deg);
-    color: var(--accent-color);
   }
 }
