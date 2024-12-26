@@ -25,6 +25,7 @@ import cors from "cors";
 import authRoutes from "../routes/authRoutes.js";
 import configRoutes from "../routes/configRoutes.js";
 import logsRoutes from "../routes/logsRoutes.js";
+import chatSimulatorRoutes from "../routes/chatSimulatorRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -62,6 +63,7 @@ loadConfig();
 app.use(authRoutes);
 app.use(configRoutes);
 app.use(logsRoutes);
+app.use(chatSimulatorRoutes);
 
 const port = global.config.server_port || 3000;
 

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { generateImageFiles } from "bimg";
+import { generateImageFiles, generateImagesLinks } from "bimg";
 import { promises as fs } from "fs";
 import path from "path";
 import logger from "../logger/Logger.js";
@@ -72,6 +72,19 @@ class BingService {
     const files = await fs.readdir(this.saveDir);
     logger.info(`Generating images: ${files}`);
     return files;
+  }
+
+  /**
+   * Generates link of images based on the provided prompt and downloads them.
+   *
+   * @param {string} prompt - The prompt for generating images.
+   * @returns {Promise<string[]>} A promise that resolves to an array of link of images.
+   */
+  async generateLinkImages(prompt) {
+    const imageLinks = await generateImagesLinks(prompt);
+
+    logger.info(`Generating images: ${imageLinks}`);
+    return imageLinks;
   }
 }
 

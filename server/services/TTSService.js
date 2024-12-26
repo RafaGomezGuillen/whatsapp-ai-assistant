@@ -90,6 +90,31 @@ class TTSService {
       msg.reply(this.ttsError);
     }
   }
+
+  /**
+   * Generates audio from the given text using a TTS service and returns the audio file path.
+   *
+   * @param {string} text - The text to convert to audio.
+   * @returns {Promise<string>} A promise that resolves to the path of the generated audio file.
+   * @throws {Error} Throws an error if the audio generation fails.
+   */
+  async generateAudio(text) {
+    const ttsUrl = `https://cache-a.oddcast.com/tts/genC.php?EID=2&LID=2&VID=7&TXT=${encodeURIComponent(
+      text
+    )}&EXT=mp3&FNAME=&ACC=15679&SceneID=2692826&HTTP_ERR=`;
+    const audioFilename = `audio_${Date.now()}.mp3`;
+    const audioPath = path.join(this.audioDir, audioFilename);
+
+    try {
+      await this.createDirectory();
+      await this.downloadFile(ttsUrl, audioPath);
+      logger.info("Audio successfully generated");
+      return audioPath;
+    } catch (error) {
+      logger.error("Error generating audio " + error);
+      throw new Error("Failed to generate audio");
+    }
+  }
 }
 
 export default TTSService;
