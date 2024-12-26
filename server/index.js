@@ -20,7 +20,7 @@ import BingService from './services/BingService.js';
 import TTSService from './services/TTSService.js';
 import PromptService from './services/PromptService.js';
 import WhatsAppClient from './services/WhatsApp.js';
-import logger from './logger/logger.js';
+import logger from './logger/Logger.js';
 
 let whatsappClient;
 
