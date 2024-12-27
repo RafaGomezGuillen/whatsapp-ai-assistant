@@ -15,12 +15,13 @@ import { GrConfigure } from "react-icons/gr";
 import { IoSettings } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { GrTest } from "react-icons/gr";
+import { BsWhatsapp } from "react-icons/bs";
 
 // Import SVG
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Header = () => {
-  const title = "WhatsApp AI Assistant";
+  const title = "AI Assistant";
   const links = [
     { name: "Home", href: "#hero" },
     { name: "Services", href: "#services" },
@@ -54,7 +55,9 @@ const Header = () => {
   return (
     <Navbar id="landing-navbar" expand="lg" sticky="top">
       <Container className="landing-navbar-container">
-        <Navbar.Brand href="/#/">{title}</Navbar.Brand>
+        <Navbar.Brand href="/#/">
+          <BsWhatsapp /> {title}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="landing-navbar-links">
           <Nav>

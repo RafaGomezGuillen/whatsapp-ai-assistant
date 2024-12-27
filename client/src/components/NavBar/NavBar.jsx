@@ -18,6 +18,7 @@ import { BsTerminal } from "react-icons/bs";
 import { CiCircleCheck } from "react-icons/ci";
 import { IoDocumentOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
+import { BsWhatsapp } from "react-icons/bs";
 
 // Import API
 import { fetchAuthStatus } from "../../api/auth.api";
@@ -38,7 +39,7 @@ export const NavBar = () => {
     },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
   ];
-  const title = "WhatsApp AI Assistant";
+  const title = "AI Assistant";
   const expand = "md";
 
   // Fetch the current auth status
@@ -81,7 +82,7 @@ export const NavBar = () => {
           href="/#/"
           title="Go to Home page"
         >
-          {title}
+         <BsWhatsapp /> {title}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
         <Navbar.Collapse id="navbar-collapse">
@@ -99,7 +100,7 @@ export const NavBar = () => {
                   backgroundColor: "transparent",
                   color: "var(--color-link) !important",
                 }}>
-                  {title}
+                  <BsWhatsapp /> {title}
                 </Link>
               </h1>
               {links.map((link, index) => (
