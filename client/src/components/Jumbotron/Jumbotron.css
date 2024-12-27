@@ -2,6 +2,7 @@
   border-bottom: var(--border-secondary) solid;
   border-top: var(--border-secondary) solid;
   padding: 15px;
+  padding-top: 33px;
 
   h2 {
     font-size: 18px !important;
