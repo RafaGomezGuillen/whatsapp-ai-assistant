@@ -1,6 +1,68 @@
 #playground-chat {
   border-top: solid var(--color-link);
   padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .chat-messages {
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: var(--bg-secondary);
+    
+    @media (min-width: 990px) {
+      max-height: 70vh;
+    }
+  }
+
+  .chat-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 55%;
+    word-wrap: break-word;
+  }
+
+  .user-message {
+    background-color: var(--color-link);
+    color: var(--color-secondary);
+    float: right;
+  }
+
+  .bot-message,
+  .bot-audio-message,
+  .bot-image-message {
+    float: left;
+  }
+
+  .bot-message,
+  .bot-image-message {
+    background-color: var(--color-hover-secondary);
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .image-grid img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .send-message-container {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
+  }
 
   @media (min-width: 990px) {
     border-top: none;

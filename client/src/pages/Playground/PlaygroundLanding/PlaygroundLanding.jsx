@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./PlaygroundLanding.css";
 import { Link } from "react-router-dom";
 
 // Import Bootstrap components
@@ -135,7 +136,7 @@ const MainConfiguration = () => {
       <h2>
         <FaRobot /> Main Configuration
       </h2>
-      <p style={{ color: "var(--color-secondary)" }}>
+      <p style={{ color: "var(--color-tertiary)" }}>
         Configure the main settings for the AI model.
       </p>
       <Form onSubmit={handleSubmit}>
@@ -267,7 +268,7 @@ const ErrorConfiguration = () => {
         <BiSolidCommentError /> Error Configuration
       </h2>
 
-      <p style={{ color: "var(--color-secondary)" }}>
+      <p style={{ color: "var(--color-tertiary)" }}>
         Configure the error messages for the AI model.
       </p>
 
@@ -360,9 +361,9 @@ const ErrorConfiguration = () => {
 
 export const PlaygroundLanding = () => {
   return (
-    <>
+    <section id="playground-landing">
       <MainConfiguration />
       <ErrorConfiguration />
-    </>
+    </section>
   );
 };

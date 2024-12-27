@@ -53,7 +53,7 @@ class ChatSimulatorService {
     }
 
     return {
-      error: "Message does not contain a valid command or bot reference.",
+      error: `Message does not contain a valid command or bot reference. Remember to include the bot name (${config.botName}) in your message.`,
     };
   }
 
