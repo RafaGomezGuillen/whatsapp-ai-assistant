@@ -9,16 +9,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 
-// Import images
-import heroImage from "../../assets/img/hero.webp";
-import aboutImage from "../../assets/img/about.webp";
-
 // Import icons
 import { FaCheck } from "react-icons/fa6";
 import { GrConfigure } from "react-icons/gr";
 import { IoSettings } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { GrTest } from "react-icons/gr";
+
+// Import SVG
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Header = () => {
   const title = "WhatsApp AI Assistant";
@@ -115,33 +114,28 @@ const Hero = () => {
 
               <p className="mb-4 mb-md-5">
                 Create a personalized chatbot powered by GPT for interactive
-                messaging on WhatsApp. Automate responses, queries, and
-                enhance conversations with your custom AI bot.
+                messaging on WhatsApp. Automate responses, queries, and enhance
+                conversations with your custom AI bot.
               </p>
 
               <div className="hero-buttons">
                 <Button
-                  href="#about"
+                  href="/#/playground"
                   variant="primary"
                   title="Get started with your own AI assistant"
                 >
                   Get Started
-                </Button>
-                <Button
-                  href="pepe"
-                  variant="secondary"
-                  title="See how it works"
-                >
-                  See how it works
                 </Button>
               </div>
             </div>
           </div>
 
           <div className="col-lg-6">
-            <div className="hero-image">
-              <img src={heroImage} alt="Hero Image" className="img-fluid" />
-            </div>
+            <DotLottieReact
+              src="https://lottie.host/8738ae08-369d-40c4-b0b0-03b05c687222/uJ0FHYrTSG.lottie"
+              loop
+              autoplay
+            />
           </div>
         </Row>
       </Container>
@@ -156,6 +150,7 @@ const Services = () => {
       description:
         "Set up your bot's core features, including its name, maximum tokens, and main prompt (personality). As well as, error and fallback responses to ensure a reliable bot performance with your WhatsApp account.",
       href: "/playground",
+      buttonLabel: "Customize your AI Assistant",
       icon: <GrConfigure />,
     },
     {
@@ -163,6 +158,7 @@ const Services = () => {
       description:
         "Easily configure your external API key integrations and other settings in just a few clicks to set up your application as fast as possible.",
       href: "/settings",
+      buttonLabel: "Set up your AI Assistant",
       icon: <IoSettings />,
     },
     {
@@ -170,6 +166,7 @@ const Services = () => {
       description:
         "You can test your bot's responses in a controlled environment to ensure it's working as expected before deploying it to your WhatsApp account.",
       href: "/playground",
+      buttonLabel: "Test your AI Assistant",
       icon: <GrTest />,
     },
     {
@@ -177,6 +174,7 @@ const Services = () => {
       description:
         "Access detailed documentation to guide you through every step of setting up, customizing, and troubleshooting your bot.",
       href: "/documentation",
+      buttonLabel: "Read the Documentation",
       icon: <FaBook />,
     },
   ];
@@ -187,8 +185,8 @@ const Services = () => {
         <div className="section-title">
           <h2>Services</h2>
           <p>
-            Explore a range of services designed to streamline your bot's
-            setup and operation.
+            Explore a range of services designed to streamline your bot's setup
+            and operation.
           </p>
         </div>
       </Container>
@@ -207,7 +205,7 @@ const Services = () => {
                     title={`Go to ${service.title} page`}
                     variant="primary"
                   >
-                    Learn More
+                    {service.buttonLabel}
                   </Button>
                 </div>
               </div>
@@ -243,8 +241,8 @@ const About = () => {
             </span>
             <h2>An Open Source Project</h2>
             <p>
-              This is an open-source project hosted on GitHub,
-              inviting everyone to contribute and collaborate.
+              This is an open-source project hosted on GitHub, inviting everyone
+              to contribute and collaborate.
             </p>
             <Row>
               <ul style={{ listStyle: "none" }}>
@@ -255,13 +253,20 @@ const About = () => {
                 ))}
               </ul>
             </Row>
+            <Button
+              href="/#/about"
+              variant="primary"
+              title="Learn more about us"
+            >
+              Learn more about us
+            </Button>
           </div>
 
           <div className="col-xl-6">
-            <img
-              src={aboutImage}
-              alt="About Image"
-              className="img-fluid rounded-4"
+            <DotLottieReact
+              src="https://lottie.host/e1b9bfd1-724c-4057-9390-13cc1e44f264/tOO2ZdyvsE.lottie"
+              loop
+              autoplay
             />
           </div>
         </Row>
