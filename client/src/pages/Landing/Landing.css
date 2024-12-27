@@ -50,6 +50,13 @@
       }
     }
 
+    .navbar-brand {
+      cursor: pointer;
+      &:hover {
+        color: var(--color-link) !important;
+      }
+    }
+
     a {
       &:hover {
         cursor: pointer;
@@ -138,7 +145,7 @@
   --------------------------------------------------------------
   */
   #about {
-    margin: 20px 0;
+    margin: 60px 0;
 
     h2 {
       font-size: 1.75rem;

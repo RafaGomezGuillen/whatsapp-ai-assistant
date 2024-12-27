@@ -55,7 +55,20 @@ const Header = () => {
   return (
     <Navbar id="landing-navbar" expand="lg" sticky="top">
       <Container className="landing-navbar-container">
-        <Navbar.Brand href="/#/">
+        <Navbar.Brand
+          onClick={(e) => {
+            e.preventDefault();
+            const section = document.querySelector("#hero");
+            if (section) {
+              const yOffset = -100;
+              const y =
+                section.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          }}
+        >
           <BsWhatsapp /> {title}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
