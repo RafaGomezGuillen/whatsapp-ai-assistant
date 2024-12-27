@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Import icons
+import { FaCode, FaChrome } from "react-icons/fa";
+import { BsBing } from "react-icons/bs";
+
 const GroqCloud = () => {
   return (
     <div>
-      <h3>How to Manage Your Groq API Key</h3>
+      <h3>
+        <FaCode /> How to Manage Your Groq API Key
+      </h3>
 
       <p>
         The Groq API key is essential for generating text messages and other
@@ -69,12 +75,14 @@ const BingCookie = () => {
         borderTop: "var(--border-primary) solid 2px",
       }}
     >
-      <h3>How to Obtain and Configure the Bing Cookie (_U)</h3>
+      <h3>
+        <BsBing /> How to Obtain and Configure the Bing Cookie (_U)
+      </h3>
 
       <p>
-        The <strong>BING_IMAGE_COOKIE</strong> is required to generate images via Bing
-        services. To set it up, follow the steps below to locate and copy the{" "}
-        <strong>_U</strong> cookie value from Bing:
+        The <strong>BING_IMAGE_COOKIE</strong> is required to generate images
+        via Bing services. To set it up, follow the steps below to locate and
+        copy the <strong>_U</strong> cookie value from Bing:
       </p>
 
       <ol>
@@ -143,7 +151,9 @@ export const ChromePath = () => {
         borderTop: "var(--border-primary) solid 2px",
       }}
     >
-      <h3>How to Locate and Configure the Chrome Installation Path</h3>
+      <h3>
+        <FaChrome /> How to Locate and Configure the Chrome Installation Path
+      </h3>
 
       <p>
         The <strong>chrome_path</strong> specifies the location of the Chrome

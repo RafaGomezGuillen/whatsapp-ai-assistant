@@ -25,7 +25,7 @@ export const DocumentationNavbar = () => {
   ];
 
   return (
-    <Navbar expand={false} id="documentation-navbar">
+    <Navbar expand={false} id={label}>
       <Container fluid>
         <Navbar.Brand style={{ color: "var(--color-primary)" }}>
           {title}
@@ -48,8 +48,12 @@ export const DocumentationNavbar = () => {
                   key={index}
                   href={`/#/documentation${link.href}`}
                   title={`Go to ${link.title} documentation page`}
-                  className={location.pathname === `/documentation${link.href}` ? "active" : ""}
-                  style={{marginBottom: "10px"}}
+                  className={
+                    location.pathname === `/documentation${link.href}`
+                      ? "active"
+                      : ""
+                  }
+                  style={{ marginBottom: "10px" }}
                 >
                   <span
                     style={{

@@ -3,12 +3,14 @@
   border-top: var(--border-secondary) solid;
   border-bottom: var(--border-secondary) solid;
   
-  .active {
-    background-color: none !important;
-    border: solid var(--border-secondary) 1px;
-  }
-
   @media (min-width: 768px) {
     border-top: none;
+  }
+}
+
+#documentation-navbar-expand-false {
+  .active {
+    background: none !important;
+    border: solid var(--border-secondary) 1px !important;
   }
 }

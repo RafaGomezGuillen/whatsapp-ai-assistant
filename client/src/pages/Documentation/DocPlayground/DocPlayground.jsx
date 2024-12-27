@@ -4,6 +4,10 @@ import "./DocPlayground.css";
 // Import bootstrap components
 import Table from "react-bootstrap/Table";
 
+// Import icons
+import { FaRobot } from "react-icons/fa";
+import { BiSolidCommentError } from "react-icons/bi";
+
 export const DocPlayground = () => {
   const mainConfigFields = [
     {
@@ -76,7 +80,9 @@ export const DocPlayground = () => {
         and how to use it.
       </p>
 
-      <h4>Main Configuration</h4>
+      <h4>
+        <FaRobot /> Main Configuration
+      </h4>
 
       <Table striped bordered hover responsive>
         <thead>
@@ -97,7 +103,9 @@ export const DocPlayground = () => {
         </tbody>
       </Table>
 
-      <h4>Error Handling Fields</h4>
+      <h4>
+        <BiSolidCommentError /> Error Handling Fields
+      </h4>
 
       <Table striped bordered hover responsive>
         <thead>
