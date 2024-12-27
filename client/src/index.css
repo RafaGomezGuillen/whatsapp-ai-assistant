@@ -1,12 +1,13 @@
 :root {
   /* bg colors */
   --bg-primary: #fdfdffff;
-  --bg-secundary: #EEEEEE;
+  --bg-secondary: #EEEEEE;
   --bg-card: #EEEEEE;
 
   /* text colors */
   --color-primary: #000;
-  --color-secondary: #393d3fff;
+  --color-secondary: #fff;
+  --color-tertiary: #393d3fff;
   --color-placeholder: #393d3fff;
   --color-link: #ff9000ff;
 
@@ -36,12 +37,17 @@ input,
 textarea,
 select {
   color: var(--color-primary) !important;
-  background: none !important;
+  background-color: var(--bg-secondary) !important;
   border: var(--border-primary) solid !important;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-placeholder) !important;
+}
+
 option {
-  background-color: var(--bg-secundary);
+  background-color: var(--bg-secondary);
 }
 
 table,
@@ -58,11 +64,6 @@ td {
 svg {
   position: relative;
   bottom: 2px;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--color-placeholder) !important;
 }
 
 /* COMMON BOOTSTRAP CLASSES */
@@ -121,18 +122,18 @@ textarea::placeholder {
 }
 
 .btn-primary {
-  background-color: var(--bg-secundary) !important;
+  background-color: var(--color-link) !important;
   border: var(--border-primary) solid !important;
-  color: var(--color-secundary) !important;
+  color: var(--color-secondary) !important;
 
   &:hover {
-    background-color: var(--color-hover-secondary) !important;
+    opacity: 0.8;
   }
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary) !important;
-  color: #fff !important;
+  background-color: var(--color-tertiary) !important;
+  color: var(--color-secondary) !important;
 
   &:hover {
     opacity: 0.8;

@@ -63,7 +63,7 @@ const ApiKeys = () => {
         <FaLock /> API Keys
       </h2>
 
-      <p style={{ color: "var(--color-secondary)" }}>
+      <p style={{ color: "var(--color-tertiary)" }}>
         Manage your API keys carefully. Ensure they are kept secure to prevent
         unauthorized access to your account.
       </p>
@@ -154,7 +154,7 @@ const ChromePath = () => {
         <FaChrome /> Chrome Installation Path
       </h2>
 
-      <p style={{ color: "var(--color-secondary)" }}>
+      <p style={{ color: "var(--color-tertiary)" }}>
         Please ensure your Chrome installation path is set; otherwise, the
         application may not function correctly.
       </p>

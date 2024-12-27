@@ -70,7 +70,7 @@ export const DocPlayground = () => {
 
   return (
     <div id="playground-documentation-section">
-      <p style={{ color: "var(--color-secondary)" }}>
+      <p style={{ color: "var(--color-tertiary)" }}>
         The playground configuration fields allow you to customize the behavior
         and responses of your bot. Below is a detailed explanation of each field
         and how to use it.

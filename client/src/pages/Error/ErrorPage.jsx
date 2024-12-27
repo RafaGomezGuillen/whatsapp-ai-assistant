@@ -21,7 +21,7 @@ export const ErrorPage = () => {
           <Link
             to="/"
             title="Go to home page"
-            style={{ backgroundColor: "var(--bg-secundary)" }}
+            style={{ backgroundColor: "var(--bg-secondary)" }}
           >
             Go to home page
           </Link>
