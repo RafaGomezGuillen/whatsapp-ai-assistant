@@ -64,7 +64,7 @@ export const RepoDetails = () => {
           href={"https://github.com/malvads/whatsapp-gpt-bot"}
           title={`Go to whatsapp-gpt-bot GitHub Repository`}
         >
-          <span style={{ color: "#000" }}>Go to GitHub Repository</span>
+          Go to GitHub Repository
         </Button>
       </Card.Body>
     </Card>
@@ -109,7 +109,7 @@ const Constributors = () => {
                 href={`https://github.com/${contributor.login}`}
                 title={`Go to ${contributor.login} GitHub Profile Account`}
               >
-                <span style={{ color: "#000" }}>GitHub Profile</span>
+                GitHub Profile
               </Button>
             </Card.Body>
           </Card>
