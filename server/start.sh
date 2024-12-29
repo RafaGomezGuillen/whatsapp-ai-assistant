@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Source the .env file
-source "$(dirname "$0")/.env"
-
-export GROQ_API_KEY
-export BING_IMAGE_COOKIE
-
 while true; do
     node --no-deprecation index.js
 

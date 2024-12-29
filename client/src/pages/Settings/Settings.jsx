@@ -38,14 +38,14 @@ const ApiKeys = () => {
     e.preventDefault();
 
     try {
-      await updateEnv(groqApiKey, bingApiKey);
+      const response = await updateEnv(groqApiKey, bingApiKey);
 
       // Fetch the updated API keys again after submit
       const updatedConfig = await getEnv();
       setGroqApiKey(updatedConfig.GROQ_API_KEY || "");
       setBingApiKey(updatedConfig.BING_IMAGE_COOKIE || "");
 
-      toast.success("API keys was saved successfully");
+      toast.success(response);
     } catch (error) {
       console.error("Error saving API keys configuration:", error);
     }

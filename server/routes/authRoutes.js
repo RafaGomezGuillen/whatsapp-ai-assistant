@@ -50,7 +50,7 @@ router.get("/get-env", (req, res) => {
  * @param {Object} req - The request object containing the new values.
  * @param {Object} res - The response object to send feedback.
  */
-router.post("/update-env", (req, res) => {
+router.post("/update-env", async (req, res) => {
   const { GROQ_API_KEY, BING_IMAGE_COOKIE } = req.body;
   const envConfig = dotenv.parse(fs.readFileSync(envPath));
 
@@ -63,7 +63,22 @@ router.post("/update-env", (req, res) => {
 
   fs.writeFileSync(envPath, updatedEnv);
 
-  res.send("Environment variables updated successfully.");
+  res.send("Environment variables updated successfully. The server will restart to apply the changes...");
+
+  await sleep(3000);
+  process.exit(1);
 });
 
+// ------------------------------
+// HELPER FUNCTIONS
+// ------------------------------
+
+/**
+ * Sleep method pauses the execution for a specified duration.
+ * @param {Number} ms - The sleep time in milliseconds.
+ * @returns {Promise} A promise that resolves after the specified sleep time.
+ */
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 export default router;

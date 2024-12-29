@@ -15,6 +15,16 @@ limitations under the License.
 */
 
 import Groq from "groq-sdk";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+import fs from 'fs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const envPath = path.join(__dirname, "../.env");
+const envConfig = dotenv.parse(fs.readFileSync(envPath));
+const { GROQ_API_KEY } = envConfig;
 
 /**
  * Class representing a GPT service that utilizes the Groq SDK.
@@ -25,7 +35,7 @@ class GPT {
      * Initializes the Groq client with the provided API key from the environment variables.
      */
     constructor() {
-        this.groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+        this.groq = new Groq({ apiKey: GROQ_API_KEY });
     }
 
     /**

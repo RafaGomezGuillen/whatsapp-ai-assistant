@@ -30,7 +30,6 @@ export const PlaygroundChat = () => {
     try {
       const response = await sendMessage({ message: inputMessage });
       setInputMessage(""); // Clear the input
-      console.log(response);
 
       if (response.type === "audio") {
         const audioURL = URL.createObjectURL(response.data);
