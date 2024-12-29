@@ -2,6 +2,7 @@
   margin: 0;
   border-top: var(--border-secondary) solid;
   border-bottom: var(--border-secondary) solid;
+  background-color: var(--bg-primary) !important;
 
   .navbar-brand {
     color: var(--color-primary);

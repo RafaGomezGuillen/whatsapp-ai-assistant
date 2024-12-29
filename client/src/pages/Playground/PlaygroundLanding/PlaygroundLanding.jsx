@@ -10,7 +10,11 @@ import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 
 // Import API
-import { saveErrorConfig, saveGeneralConfig, fetchConfig } from "../../../api/config.api";
+import {
+  saveErrorConfig,
+  saveGeneralConfig,
+  fetchConfig,
+} from "../../../api/config.api";
 import { getEnv } from "../../../api/auth.api";
 
 // Import axios
@@ -18,6 +22,7 @@ import axios from "axios";
 
 // Import icons
 import { FaRobot } from "react-icons/fa";
+import { HiMiniCommandLine } from "react-icons/hi2";
 import { BiSolidCommentError } from "react-icons/bi";
 
 export const AiModels = ({ currentModel, onModelChange }) => {
@@ -132,7 +137,7 @@ const MainConfiguration = () => {
   };
 
   return (
-    <section>
+    <section id="main-configuration">
       <h2>
         <FaRobot /> Main Configuration
       </h2>
@@ -188,8 +193,8 @@ const MainConfiguration = () => {
           paddingTop: "15px",
         }}
       >
-        If you require additional support seeting up your main configuration fields, please have
-        a look at the{" "}
+        If you require additional support seeting up your main configuration
+        fields, please have a look at the{" "}
         <Link
           to="/documentation/playground"
           title="Go to Documentation page"
@@ -203,7 +208,160 @@ const MainConfiguration = () => {
   );
 };
 
-// Import API
+const CommandConfiguration = () => {
+  const [processingErrorMessage, setProcessingErrorMessage] = useState("");
+  const [generalErrorMessage, setGeneralErrorMessage] = useState("");
+  const [imageErrorMessage, setImageErrorMessage] = useState("");
+  const [ttsErrorMessage, setTtsErrorMessage] = useState("");
+  const [ttsPrefix, setTtsPrefix] = useState("");
+
+  // Fetch the current configuration
+  useEffect(() => {
+    const fetchCurrentConfig = async () => {
+      try {
+        const config = await fetchConfig();
+        setProcessingErrorMessage(config.errorMessages.processing || "");
+        setGeneralErrorMessage(config.errorMessages.generalError || "");
+        setImageErrorMessage(config.errorMessages.imageError || "");
+        setTtsErrorMessage(config.errorMessages.ttsError || "");
+        setTtsPrefix(config.errorMessages.ttsPrefix || "");
+      } catch (error) {
+        console.error("Error fetching configuration:", error);
+      }
+    };
+
+    fetchCurrentConfig();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await saveErrorConfig(
+        processingErrorMessage,
+        generalErrorMessage,
+        imageErrorMessage,
+        ttsErrorMessage,
+        ttsPrefix
+      );
+
+      // Fetch the updated config again after submit
+      const updatedConfig = await fetchConfig();
+      setProcessingErrorMessage(updatedConfig.errorMessages.processing || "");
+      setGeneralErrorMessage(updatedConfig.errorMessages.generalError || "");
+      setImageErrorMessage(updatedConfig.errorMessages.imageError || "");
+      setTtsErrorMessage(updatedConfig.errorMessages.ttsError || "");
+      setTtsPrefix(updatedConfig.errorMessages.ttsPrefix || "");
+
+      toast.success("Error configuration was saved successfully");
+    } catch (error) {
+      console.error("Error saving general configuration:", error);
+    }
+  };
+
+  return (
+    <section
+      id="commands-configuration"
+      style={{
+        marginTop: "25px",
+        paddingTop: "25px",
+        borderTop: "var(--border-primary) solid 2px",
+      }}
+    >
+      <h2>
+        <HiMiniCommandLine /> Commands Configuration
+      </h2>
+
+      <p style={{ color: "var(--color-tertiary)" }}>
+        Configure the error messages for the AI model.
+      </p>
+
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="processing-error-message">
+          <Form.Label>Processing Error Message</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Processing Error Message"
+            min={3}
+            max={50}
+            value={processingErrorMessage}
+            onChange={(e) => setProcessingErrorMessage(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="general-error-message">
+          <Form.Label>General Error Message</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter General Error Message"
+            min={3}
+            max={50}
+            value={generalErrorMessage}
+            onChange={(e) => setGeneralErrorMessage(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="image-error-message">
+          <Form.Label>Image Error Message</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Image Error Message"
+            min={3}
+            max={50}
+            value={imageErrorMessage}
+            onChange={(e) => setImageErrorMessage(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="tts-error-message">
+          <Form.Label>TTS Error Message</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter TTS Error Message"
+            min={3}
+            max={50}
+            value={ttsErrorMessage}
+            onChange={(e) => setTtsErrorMessage(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="tts-prefix">
+          <Form.Label>TTS Prefix</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter TTS Prefix"
+            min={3}
+            max={50}
+            value={ttsPrefix}
+            onChange={(e) => setTtsPrefix(e.target.value)}
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" title="Save configuration">
+          Save configuration
+        </Button>
+      </Form>
+
+      <p
+        style={{
+          marginTop: "15px",
+          paddingTop: "15px",
+        }}
+      >
+        If you require additional support seeting up your error configuration
+        messages, please have a look at the{" "}
+        <Link
+          to="/documentation/playground"
+          title="Go to Documentation page"
+          className="link"
+        >
+          Documentation page
+        </Link>{" "}
+        where the set-up process is explained in depth.
+      </p>
+    </section>
+  );
+};
 
 const ErrorConfiguration = () => {
   const [processingErrorMessage, setProcessingErrorMessage] = useState("");
@@ -258,6 +416,7 @@ const ErrorConfiguration = () => {
 
   return (
     <section
+      id="error-configuration"
       style={{
         marginTop: "25px",
         paddingTop: "25px",
@@ -344,8 +503,8 @@ const ErrorConfiguration = () => {
           paddingTop: "15px",
         }}
       >
-        If you require additional support seeting up your error configuration messages, please have
-        a look at the{" "}
+        If you require additional support seeting up your error configuration
+        messages, please have a look at the{" "}
         <Link
           to="/documentation/playground"
           title="Go to Documentation page"
@@ -363,6 +522,7 @@ export const PlaygroundLanding = () => {
   return (
     <section id="playground-landing">
       <MainConfiguration />
+      <CommandConfiguration />
       <ErrorConfiguration />
     </section>
   );

@@ -1,7 +1,5 @@
 #playground-landing {
   @media (min-width: 990px) {
-    overflow-y: auto;
-    max-height: 88vh;
     padding-right: 15px;
   }
 }

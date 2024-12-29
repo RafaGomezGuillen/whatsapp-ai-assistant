@@ -1,14 +1,10 @@
 #playground-layout {
-  max-height: 100vh;
-
   .playground-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 5px;
+    display: flex;
+    flex-direction: column;
 
     @media (min-width: 990px) {
+      display: grid;
       grid-template-columns: 2fr 1fr;
       grid-template-rows: 1fr;
       grid-column-gap: 5px;
