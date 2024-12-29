@@ -11,14 +11,14 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaRobot } from "react-icons/fa";
 import { HiMiniCommandLine } from "react-icons/hi2";
 import { BiSolidCommentError } from "react-icons/bi";
-import { IoChatboxOutline } from "react-icons/io5";
+import { IoIosChatboxes } from "react-icons/io";
 
 export const Header = () => {
   const links = [
     { title: "Main Configuration", href: "#main-configuration", icon: <FaRobot /> },
     {
-      title: "Commands Configuration",
-      href: "#commands-configuration",
+      title: "Command Configuration",
+      href: "#command-configuration",
       icon: <HiMiniCommandLine />,
     },
     {
@@ -29,7 +29,7 @@ export const Header = () => {
     {
       title: "Playground Chat",
       href: "#playground-chat",
-      icon: <IoChatboxOutline />,
+      icon: <IoIosChatboxes />,
     },
   ];
 

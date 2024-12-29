@@ -100,8 +100,8 @@ const ApiKeys = () => {
           paddingTop: "15px",
         }}
       >
-        If you require additional support seeting up your API keys, please have
-        a look at the{" "}
+        If you require additional support seeting up your API Keys and Chrome
+        Installation Path, please have a look at the{" "}
         <Link
           to="/documentation/settings"
           title="Go to Documentation page"
@@ -174,24 +174,6 @@ const ChromePath = () => {
           Save Chrome Path
         </Button>
       </Form>
-
-      <p
-        style={{
-          marginTop: "15px",
-          paddingTop: "15px",
-        }}
-      >
-        If you require additional support seeting up your Chrome Installation
-        Path, please have a look at the{" "}
-        <Link
-          to="/documentation/settings"
-          title="Go to Documentation page"
-          className="link"
-        >
-          Documentation page
-        </Link>{" "}
-        where the set-up process is explained in depth.
-      </p>
     </div>
   );
 };

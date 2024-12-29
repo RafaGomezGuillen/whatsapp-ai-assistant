@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 
 // Import icons
 import { AiOutlineSend } from "react-icons/ai";
-import { IoChatboxOutline } from "react-icons/io5";
+import { IoIosChatboxes } from "react-icons/io";
 
 // Import API
 import { sendMessage } from "../../api/chatSimulator.api";
@@ -74,7 +74,7 @@ export const PlaygroundChat = () => {
     <section id="playground-chat">
       <div>
         <h2>
-          <IoChatboxOutline /> Chat Simulator
+          <IoIosChatboxes /> Chat Simulator
         </h2>
         <p style={{ color: "var(--color-tertiary)" }}>
           Test your bot's responses in a controlled environment to ensure it's

@@ -89,6 +89,33 @@ export const saveErrorConfig = async (
 };
 
 /**
+ * Function to handle POST requests for commands fields.
+ * @param {Array} imageCommands - The image command array.
+ * @param {Array} audioCommands - The audio command array.
+ * @returns {Object} The response data from the server.
+ * @throws Will throw an error if the request fails.
+ */
+export const saveCommandsConfig = async (
+  imageCommands,
+  audioCommands,
+) => {
+  try {
+    const payload = {
+      commands: {
+        speak: audioCommands,
+        image: imageCommands
+      },
+    };
+
+    const response = await axios.post(`${API_URL}/save-config`, payload);
+    return response.data;
+  } catch (error) {
+    console.error("Error saving error configuration:", error);
+    throw error;
+  }
+};
+
+/**
  * Save the chrome installation path configuration to the server.
  * @param {string} chromePath - the chrome installation path.
  * @returns {Object} The response data from the server.

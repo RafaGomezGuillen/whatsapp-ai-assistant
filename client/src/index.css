@@ -1,8 +1,8 @@
 :root {
   /* bg colors */
   --bg-primary: #fdfdffff;
-  --bg-secondary: #EEEEEE;
-  --bg-card: #EEEEEE;
+  --bg-secondary: #eeeeee;
+  --bg-card: #eeeeee;
 
   /* text colors */
   --color-primary: #000;
@@ -16,8 +16,8 @@
   --border-secondary: #ff9000ff;
 
   /* hover colors */
-  --color-hover: #EEEEEE;
-  --color-hover-secondary: #E5E5E5;
+  --color-hover: #eeeeee;
+  --color-hover-secondary: #e5e5e5;
 }
 
 /* COMMON HTML TAGS */
@@ -119,6 +119,25 @@ svg {
 
 .accordion-button:focus {
   box-shadow: none !important;
+}
+
+.nav-tabs {
+  .nav-link {
+    color: var(--color-link) !important;
+    border-bottom: var(--border-primary) solid !important;
+
+    &:hover {
+      border: var(--border-primary) solid !important;
+    }
+  }
+
+  .nav-link.active {
+    color: var(--color-primary) !important;
+    border-top: var(--border-primary) solid !important;
+    border-left: var(--border-primary) solid !important;
+    border-right: var(--border-primary) solid !important;
+    border-bottom: var(--bg-primary) solid !important;
+  }
 }
 
 .btn-primary {
