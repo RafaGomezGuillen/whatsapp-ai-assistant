@@ -164,7 +164,7 @@ const Services = () => {
     {
       title: "Main Configuration",
       description:
-        "Set up your bot's core features, including its name, maximum tokens, and main prompt (personality). As well as, error and fallback responses to ensure a reliable bot performance with your WhatsApp account.",
+        "Set up your bot's core features, including its name, commands, main prompt (personality), as well as, error and fallback responses to ensure a reliable bot performance with your WhatsApp account.",
       href: "/playground",
       buttonLabel: "Customize your AI Assistant",
       icon: <GrConfigure />,
@@ -314,9 +314,9 @@ const FAQ = () => {
         "No, the bot generates responses using API keys (like GPT and Bing). There's no need to download any AI model locally.",
     },
     {
-      question: "Can I modify or monetize this project?",
+      question: "Can I modify this project?",
       answer:
-        "Yes, this project is open-source and available on GitHub. You are free to modify it and even monetize your version.",
+        "Yes, this project is open-source and available on GitHub. You are free to modify it and create your version.",
     },
   ];
   return (

@@ -1,15 +1,12 @@
 import React from "react";
 import "./DocPlayground.css";
-
-// Import bootstrap components
 import Table from "react-bootstrap/Table";
-
-// Import icons
 import { FaRobot } from "react-icons/fa";
+import { HiMiniCommandLine } from "react-icons/hi2";
 import { BiSolidCommentError } from "react-icons/bi";
 
-export const DocPlayground = () => {
-  const mainConfigFields = [
+const fieldsData = {
+  mainConfigFields: [
     {
       header: "Bot Name",
       description:
@@ -35,9 +32,22 @@ export const DocPlayground = () => {
       example:
         "You are ChatBuddy, the craziest and funniest assistant in the universe. Your mission is to make anyone who consults you laugh and surprise, answering in English with madness and a spicy touch. Imagine that you are the funniest, most arrogant and best person in the world, you are God in your world and no one can beat you. Your personality is an explosive mix of humor, madness, and creativity, and you're always looking for ways to take fun and dark humor to the next level. Your goal is to answer any question in a fun and original way, so don't be afraid to throw your strangest doubts at me. We're going to make every conversation an epic and completely unbridled experience!",
     },
-  ];
-
-  const errorHandlingFields = [
+  ],
+  commandFields: [
+    {
+      header: "Audio Command",
+      description:
+        "You will receive AI-generated audio content only when you type the following keywords.",
+      example: `["speak", "talk", "say"]. For example, "<bot name> speak about the war world 2" will return an audio response.`,
+    },
+    {
+      header: "Image Command",
+      description:
+        "You will receive AI-generated image content only when you type the following keywords.",
+      example: `["image", "photo", "picture"]. For example, "<bot name> generate images about Tenerife" will return 4 images.`,
+    },
+  ],
+  errorHandlingFields: [
     {
       header: "Processing Error Message",
       description:
@@ -70,61 +80,51 @@ export const DocPlayground = () => {
         "A prefix used to format or prepare text before sending it to the TTS engine.",
       example: "This message should be shorter than 500 characters.",
     },
-  ];
-
-  return (
-    <div id="playground-documentation-section">
-      <p style={{ color: "var(--color-tertiary)" }}>
-        The playground configuration fields allow you to customize the behavior
-        and responses of your bot. Below is a detailed explanation of each field
-        and how to use it.
-      </p>
-
-      <h4>
-        <FaRobot /> Main Configuration
-      </h4>
-
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Description</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mainConfigFields.map((field, index) => (
-            <tr key={index}>
-              <td>{field.header}</td>
-              <td>{field.description}</td>
-              <td>{field.example}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      <h4>
-        <BiSolidCommentError /> Error Handling Fields
-      </h4>
-
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Description</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          {errorHandlingFields.map((field, index) => (
-            <tr key={index}>
-              <td>{field.header}</td>
-              <td>{field.description}</td>
-              <td>{field.example}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
-  );
+  ],
 };
+
+const renderTable = (fields) => (
+  <Table striped bordered hover responsive>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      {fields.map((field, index) => (
+        <tr key={index}>
+          <td>{field.header}</td>
+          <td>{field.description}</td>
+          <td>{field.example}</td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+);
+
+export const DocPlayground = () => (
+  <div id="playground-documentation-section">
+    <p style={{ color: "var(--color-tertiary)" }}>
+      The playground configuration fields allow you to customize the behavior
+      and responses of your bot. Below is a detailed explanation of each field
+      and how to use it.
+    </p>
+
+    <h4>
+      <FaRobot /> Main Configuration
+    </h4>
+    {renderTable(fieldsData.mainConfigFields)}
+
+    <h4>
+      <HiMiniCommandLine /> Command Configuration
+    </h4>
+    {renderTable(fieldsData.commandFields)}
+
+    <h4>
+      <BiSolidCommentError /> Error Handling Fields
+    </h4>
+    {renderTable(fieldsData.errorHandlingFields)}
+  </div>
+);
