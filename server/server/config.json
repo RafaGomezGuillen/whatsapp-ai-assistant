@@ -3,15 +3,13 @@
   "commands": {
     "speak": [
       "habla",
-      "háblame",
-      "hablame"
+      "grita",
+      "cuenta"
     ],
     "image": [
       "imagen",
-      "imagenes",
-      "imágenes",
-      "foto",
-      "fotos"
+      "ilustra",
+      "foto"
     ]
   },
   "errorMessages": {

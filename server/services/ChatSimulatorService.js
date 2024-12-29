@@ -65,7 +65,20 @@ class ChatSimulatorService {
    * @returns {boolean} True if the message contains a command; otherwise, false.
    */
   isCommand(message, commandList) {
-    return commandList.some((command) => message.includes(command));
+    const nomarlizedCommands = this.removeAccentFromList(commandList);
+    return nomarlizedCommands.some((command) => message.includes(command));
+  }
+
+  /**
+   * Removes accents from a list of strings.
+   *
+   * @param {Array<string>} list - The list of strings to remove accents from.
+   * @returns {Array<string>} The list of strings with accents removed.
+   */
+  removeAccentFromList(list) {
+    return list.map((str) =>
+      str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    );
   }
 
   /**
