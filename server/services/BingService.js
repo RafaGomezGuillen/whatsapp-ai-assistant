@@ -83,7 +83,7 @@ class BingService {
   async generateLinkImages(prompt) {
     const imageLinks = await generateImagesLinks(prompt);
 
-    logger.info(`Generating images: ${imageLinks}`);
+    logger.info("Images generated successfully.");
     return imageLinks;
   }
 }

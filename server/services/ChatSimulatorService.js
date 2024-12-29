@@ -118,6 +118,8 @@ class ChatSimulatorService {
     this.isProcessing = true;
 
     try {
+      logger.info("Generating images... This may take a few seconds.");
+
       const prompt = this.promptService.generateImagePrompt(message);
       const images = await this.bingService.generateLinkImages(prompt);
 
