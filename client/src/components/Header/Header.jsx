@@ -27,7 +27,7 @@ export const Header = () => {
       icon: <BiSolidCommentError />,
     },
     {
-      title: "Playground Chat",
+      title: "Chat Simulator",
       href: "#playground-chat",
       icon: <IoIosChatboxes />,
     },
