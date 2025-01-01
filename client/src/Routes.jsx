@@ -3,12 +3,11 @@
 // Import default pages
 import { Landing } from "./pages/Landing/Landing";
 
-// Import playground pages
 import { Playground } from "./pages/Playground/Playground";
-
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { Settings } from "./pages/Settings/Settings";
 import { About } from "./pages/About/About";
+import { LogsViewer } from "./pages/LogsViewer/LogsViewer";
 
 // Import documentation pages
 import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
@@ -21,6 +20,7 @@ export const routes = [
     routes: [
       { title: "Settings", path: "/settings", element: <Settings /> },
       { title: "About", path: "/about", element: <About /> },
+      { title: "Logs", path: "/logs", element: <LogsViewer /> },
     ],
   },
   {

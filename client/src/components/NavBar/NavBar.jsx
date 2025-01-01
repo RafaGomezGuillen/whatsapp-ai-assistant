@@ -16,9 +16,10 @@ import Alert from "react-bootstrap/Alert";
 // Import React Icons
 import { BsTerminal } from "react-icons/bs";
 import { CiCircleCheck } from "react-icons/ci";
-import { IoDocumentOutline } from "react-icons/io5";
-import { IoMdInformationCircleOutline, IoMdSettings } from "react-icons/io";
+import { IoDocumentOutline, IoSettingsOutline } from "react-icons/io5";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { BsWhatsapp } from "react-icons/bs";
+import { FaRegFileLines } from "react-icons/fa6";
 
 // Import API
 import { fetchAuthStatus } from "../../api/auth.api";
@@ -31,13 +32,14 @@ export const NavBar = () => {
 
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/playground" },
-    { title: "Settings", icon: <IoMdSettings />, href: "/settings" },
+    { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
     {
       title: "Documentation",
       icon: <IoDocumentOutline />,
       href: "/documentation",
     },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
+    { title: "Logs", icon: <FaRegFileLines />, href: "/logs" },
   ];
   const title = "AI Assistant";
   const expand = "md";

@@ -140,6 +140,13 @@ svg {
   }
 }
 
+.pagination {
+  .active>.page-link { 
+    background-color: var(--color-link) !important;
+    border: var(--color-link) !important;
+  }
+}
+
 .btn-primary {
   background-color: var(--color-link) !important;
   border: var(--border-primary) solid !important;

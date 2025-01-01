@@ -1,0 +1,31 @@
+#logs-viewer {
+  .logs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: solid var(--border-primary);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+
+    .log-card {
+      background-color: var(--color-hover-secondary);
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid var(--border-primary);
+
+      .info {
+        color: green;
+      }
+
+      .error {
+        color: red;
+      }
+
+      .debug {
+        color: blue;
+      }
+    }
+  }
+}
