@@ -11,7 +11,7 @@ import { AiOutlineSend } from "react-icons/ai";
 import { IoIosChatboxes } from "react-icons/io";
 
 // Import API
-import { sendMessage } from "../../api/chatSimulator.api";
+import { sendMessage } from "../../../api/chatSimulator.api";
 
 export const PlaygroundChat = () => {
   const [messages, setMessages] = useState([

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "./PlaygroundHeader.css";
 
 // Import bootstrap components
 import Nav from "react-bootstrap/Nav";
@@ -13,7 +13,7 @@ import { HiMiniCommandLine } from "react-icons/hi2";
 import { BiSolidCommentError } from "react-icons/bi";
 import { IoIosChatboxes } from "react-icons/io";
 
-export const Header = () => {
+export const PlaygroundHeader = () => {
   const links = [
     { title: "Main Configuration", href: "#main-configuration", icon: <FaRobot /> },
     {

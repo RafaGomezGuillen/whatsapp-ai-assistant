@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./PlaygroundLanding.css";
+import "./Playground.css";
 import { Link } from "react-router-dom";
 
 // Import Bootstrap components
@@ -16,9 +16,9 @@ import {
   saveErrorConfig,
   saveGeneralConfig,
   fetchConfig,
-  saveCommandsConfig
-} from "../../../api/config.api";
-import { getEnv } from "../../../api/auth.api";
+  saveCommandsConfig,
+} from "../../api/config.api";
+import { getEnv } from "../../api/auth.api";
 
 // Import axios
 import axios from "axios";
@@ -244,7 +244,8 @@ const CommandConfiguration = () => {
       </h2>
 
       <p style={{ color: "var(--color-tertiary)" }}>
-        Set up the commands to manage audio and image AI content generation.
+        Set up the commands to manage <strong>audio</strong> and{" "}
+        <strong>image</strong> AI content generation.
       </p>
 
       <Form onSubmit={handleSubmit}>
@@ -256,8 +257,8 @@ const CommandConfiguration = () => {
         >
           <Tab eventKey="audio-command" title="Audio commands">
             <p style={{ color: "var(--color-tertiary)" }}>
-              You will receive AI-generated audio content only when you type the
-              following keywords.
+              You will receive <strong>AI-generated audio</strong> content only
+              when you type the following keywords.
             </p>
 
             {audioCommands.map((command, index) => (
@@ -283,8 +284,8 @@ const CommandConfiguration = () => {
             ))}
           </Tab>
           <Tab eventKey="image-command" title="Image commands">
-          <p style={{ color: "var(--color-tertiary)" }}>
-              You will receive AI-generated image content only when you type the
+            <p style={{ color: "var(--color-tertiary)" }}>
+              You will receive <strong>AI-generated image</strong> content only when you type the
               following keywords.
             </p>
 
@@ -475,7 +476,7 @@ const ErrorConfiguration = () => {
   );
 };
 
-export const PlaygroundLanding = () => {
+export const Playground = () => {
   return (
     <section id="playground-landing">
       <MainConfiguration />

@@ -4,7 +4,7 @@
 import { Landing } from "./pages/Landing/Landing";
 
 // Import playground pages
-import { PlaygroundLanding } from "./pages/Playground/PlaygroundLanding/PlaygroundLanding";
+import { Playground } from "./pages/Playground/Playground";
 
 import { ErrorPage } from "./pages/Error/ErrorPage";
 import { Settings } from "./pages/Settings/Settings";
@@ -41,7 +41,7 @@ export const routes = [
   {
     layout: "playground",
     routes: [
-      { title: "Playground", path: "/playground", element: <PlaygroundLanding /> },
+      { title: "Playground", path: "/playground", element: <Playground /> },
     ],
   },
   {
