@@ -33,13 +33,13 @@ export const NavBar = () => {
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/playground" },
     { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
+    { title: "Logs", icon: <FaRegFileLines />, href: "/logs" },
     {
       title: "Documentation",
       icon: <IoDocumentOutline />,
       href: "/documentation",
     },
     { title: "About", icon: <IoMdInformationCircleOutline />, href: "/about" },
-    { title: "Logs", icon: <FaRegFileLines />, href: "/logs" },
   ];
   const title = "AI Assistant";
   const expand = "md";
