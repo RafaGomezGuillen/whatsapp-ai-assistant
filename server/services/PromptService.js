@@ -46,7 +46,9 @@ class PromptService {
    * @returns {string} The generated image prompt.
    */
   generateImagePrompt(message) {
-    return message.replace(this.botName, "").trim();
+    const trimmedMessage = message.replace(this.botName.toLowerCase(), "").trim();
+    console.log(trimmedMessage);
+    return trimmedMessage;
   }
 
   /**
