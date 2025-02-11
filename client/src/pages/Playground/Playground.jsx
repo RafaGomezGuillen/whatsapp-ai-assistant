@@ -322,7 +322,6 @@ const CommandConfiguration = () => {
 };
 
 const ErrorConfiguration = () => {
-  const [processingErrorMessage, setProcessingErrorMessage] = useState("");
   const [generalErrorMessage, setGeneralErrorMessage] = useState("");
   const [imageErrorMessage, setImageErrorMessage] = useState("");
   const [ttsErrorMessage, setTtsErrorMessage] = useState("");
@@ -333,7 +332,6 @@ const ErrorConfiguration = () => {
     const fetchCurrentConfig = async () => {
       try {
         const config = await fetchConfig();
-        setProcessingErrorMessage(config.errorMessages.processing || "");
         setGeneralErrorMessage(config.errorMessages.generalError || "");
         setImageErrorMessage(config.errorMessages.imageError || "");
         setTtsErrorMessage(config.errorMessages.ttsError || "");
@@ -351,7 +349,6 @@ const ErrorConfiguration = () => {
 
     try {
       await saveErrorConfig(
-        processingErrorMessage,
         generalErrorMessage,
         imageErrorMessage,
         ttsErrorMessage,
@@ -360,7 +357,6 @@ const ErrorConfiguration = () => {
 
       // Fetch the updated config again after submit
       const updatedConfig = await fetchConfig();
-      setProcessingErrorMessage(updatedConfig.errorMessages.processing || "");
       setGeneralErrorMessage(updatedConfig.errorMessages.generalError || "");
       setImageErrorMessage(updatedConfig.errorMessages.imageError || "");
       setTtsErrorMessage(updatedConfig.errorMessages.ttsError || "");
@@ -390,18 +386,6 @@ const ErrorConfiguration = () => {
       </p>
 
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="processing-error-message">
-          <Form.Label>Processing Error Message</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Processing Error Message"
-            min={3}
-            max={50}
-            value={processingErrorMessage}
-            onChange={(e) => setProcessingErrorMessage(e.target.value)}
-          />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="general-error-message">
           <Form.Label>General Error Message</Form.Label>
           <Form.Control

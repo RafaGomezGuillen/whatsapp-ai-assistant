@@ -49,13 +49,6 @@ const fieldsData = {
   ],
   errorHandlingFields: [
     {
-      header: "Processing Error Message",
-      description:
-        "A message displayed when the bot encounters an error during processing.",
-      example:
-        "Sorry, I couldn’t process your request. Please try again later.",
-    },
-    {
       header: "General Error Message",
       description: "A fallback error message for unexpected errors.",
       example: "An error occurred. Please try again later.",

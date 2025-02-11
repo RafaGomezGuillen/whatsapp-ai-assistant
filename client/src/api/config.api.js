@@ -54,7 +54,6 @@ export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model)
 
 /**
  * Function to handle POST requests for error message fields.
- * @param {string} processingError - The error message for processing errors.
  * @param {string} generalError - The error message for general errors.
  * @param {string} imageError - The error message for image errors.
  * @param {string} ttsError - The error message for TTS errors.
@@ -63,7 +62,6 @@ export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model)
  * @throws Will throw an error if the request fails.
  */
 export const saveErrorConfig = async (
-  processingError,
   generalError,
   imageError,
   ttsError,
@@ -72,7 +70,6 @@ export const saveErrorConfig = async (
   try {
     const payload = {
       errorMessages: {
-        processing: processingError,
         generalError: generalError,
         imageError: imageError,
         ttsError: ttsError,
