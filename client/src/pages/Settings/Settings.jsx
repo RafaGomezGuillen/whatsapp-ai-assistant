@@ -17,7 +17,7 @@ import { FaLock, FaChrome } from "react-icons/fa";
 
 const ApiKeys = () => {
   const [groqApiKey, setGroqApiKey] = useState("");
-  const [bingApiKey, setBingApiKey] = useState("");
+  const [unsplashAccessKey, setUnsplashAccessKey] = useState("");
 
   // Fetch the current env
   useEffect(() => {
@@ -25,7 +25,7 @@ const ApiKeys = () => {
       try {
         const env = await getEnv();
         setGroqApiKey(env.GROQ_API_KEY || "");
-        setBingApiKey(env.BING_IMAGE_COOKIE || "");
+        setUnsplashAccessKey(env.UNSPLASH_ACCESS_KEY || "");
       } catch (error) {
         console.error("Error fetching env:", error);
       }
@@ -38,12 +38,12 @@ const ApiKeys = () => {
     e.preventDefault();
 
     try {
-      const response = await updateEnv(groqApiKey, bingApiKey);
+      const response = await updateEnv(groqApiKey, unsplashAccessKey);
 
       // Fetch the updated API keys again after submit
       const updatedConfig = await getEnv();
       setGroqApiKey(updatedConfig.GROQ_API_KEY || "");
-      setBingApiKey(updatedConfig.BING_IMAGE_COOKIE || "");
+      setUnsplashAccessKey(updatedConfig.UNSPLASH_ACCESS_KEY || "");
 
       toast.success(response);
     } catch (error) {
@@ -78,14 +78,14 @@ const ApiKeys = () => {
             onChange={(e) => setGroqApiKey(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="bing-api-key">
-          <Form.Label>Bing API Key</Form.Label>
+        <Form.Group className="mb-3" controlId="unsplash-api-key">
+          <Form.Label>Unsplash Access Key</Form.Label>
           <Form.Control
             type="text"
             as={"textarea"}
-            placeholder="Enter Bing API Key"
-            value={bingApiKey}
-            onChange={(e) => setBingApiKey(e.target.value)}
+            placeholder="Enter Unsplash Access Key"
+            value={unsplashAccessKey}
+            onChange={(e) => setUnsplashAccessKey(e.target.value)}
           />
         </Form.Group>
 

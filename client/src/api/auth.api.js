@@ -18,7 +18,7 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
- * Get the GROQ_API_KEY and BING_IMAGE_COOKIE fields from the .env file.
+ * Get the GROQ_API_KEY and UNSPLASH_ACCESS_KEY fields from the .env file.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
@@ -33,19 +33,19 @@ export const getEnv = async () => {
 };
 
 /**
- * Update the GROQ_API_KEY and BING_IMAGE_COOKIE fields in the .env file.
+ * Update the GROQ_API_KEY and UNSPLASH_ACCESS_KEY fields in the .env file.
  * @param {string} groqApiKey - The new GROQ_API_KEY value.
- * @param {string} bingCookie - The new BING_IMAGE_COOKIE value.
+ * @param {string} unsplashAccessKey - The new UNSPLASH_ACCESS_KEY value.
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
-export const updateEnv = async (groqApiKey, bingCookie) => {
+export const updateEnv = async (groqApiKey, unsplashAccessKey) => {
   try {
-    const payload = { GROQ_API_KEY: groqApiKey, BING_IMAGE_COOKIE: bingCookie };
+    const payload = { GROQ_API_KEY: groqApiKey, UNSPLASH_ACCESS_KEY: unsplashAccessKey };
     const response = await axios.post(`${API_URL}/update-env`, payload);
     return response.data;
   } catch (error) {
-    console.error("Error updating environment variables:", error);
+    console.error("Error fetching auth status:", error);
     throw error;
   }
 };

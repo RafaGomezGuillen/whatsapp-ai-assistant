@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 
 // Import icons
 import { FaCode, FaGithub, FaWhatsapp } from "react-icons/fa";
-import { BsBing } from "react-icons/bs";
+import { FaImage } from "react-icons/fa6";
 
 export const DocLanding = () => {
   const links = [
@@ -18,15 +18,15 @@ export const DocLanding = () => {
   const devResources = [
     {
       title: "GroqCloud",
-      desc: "Generate a GroqCloud API Key",
+      desc: "Generate a GroqCloud API Key and start generating responses!",
       link: "https://console.groq.com/login",
       icon: <FaCode />,
     },
     {
-      title: "Bing",
-      desc: "Generate a Bing API Key",
-      link: "https://www.bing.com/",
-      icon: <BsBing />,
+      title: "Unsplash",
+      desc: "Generate an Unsplash API Key and start generating images!",
+      link: "https://unsplash.com/developers",
+      icon: <FaImage />,
     },
     {
       title: "WhatsApp Web",
