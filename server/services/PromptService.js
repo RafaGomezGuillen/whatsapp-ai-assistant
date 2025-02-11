@@ -47,7 +47,6 @@ class PromptService {
    */
   generateImagePrompt(message) {
     const trimmedMessage = message.replace(this.botName.toLowerCase(), "").trim();
-    console.log(trimmedMessage);
     return trimmedMessage;
   }
 
