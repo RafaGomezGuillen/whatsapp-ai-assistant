@@ -103,7 +103,7 @@ const ApiKeys = () => {
         If you require additional support seeting up your API Keys and Chrome
         Installation Path, please have a look at the{" "}
         <Link
-          to="/documentation/settings"
+          to="/documentation/configurations"
           title="Go to Documentation page"
           className="link"
         >

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Import icons
 import { FaCode, FaChrome } from "react-icons/fa";
-import { BsBing } from "react-icons/bs";
+import { FaImage } from "react-icons/fa6";
 
 const GroqCloud = () => {
   return (
@@ -66,7 +66,7 @@ const GroqCloud = () => {
   );
 };
 
-const BingCookie = () => {
+const Unplash = () => {
   return (
     <div
       style={{
@@ -76,67 +76,57 @@ const BingCookie = () => {
       }}
     >
       <h3>
-        <BsBing /> How to Obtain and Configure the Bing Cookie (_U)
+        <FaImage /> Set up Unplash Access Key
       </h3>
 
       <p>
-        The <strong>BING_IMAGE_COOKIE</strong> is required to generate images
-        via Bing services. To set it up, follow the steps below to locate and
-        copy the <strong>_U</strong> cookie value from Bing:
+        The <strong>UNSPLASH_ACCESS_KEY</strong> is required to generate images
+        via Unsplash services. To set it up, follow the steps below to locate
+        and copy the <strong>UNSPLASH_ACCESS_KEY</strong> value:
       </p>
 
       <ol>
         <li>
-          Open your browser (preferably <strong>Microsoft Edge</strong>) and
-          sign in to{" "}
-          <a
-            href="https://www.bing.com/"
-            title="Bing.com homepage"
-            target="_blank"
-            rel="noopener noreferrer"
+          Visit the{" "}
+          <Link
+            to="https://unsplash.com/developers"
+            title="Unsplash Developers"
             className="link"
           >
-            Bing.com
-          </a>{" "}
-          with your Microsoft account.
+            Unsplash Developers
+          </Link>{" "}
+          page to create your access key.
         </li>
         <li>
-          Press <strong>F12</strong> or <strong>Ctrl + Shift + I</strong> to
-          open the Developer Tools. Alternatively, you can right-click anywhere
-          on the page and select <em>Inspect</em>.
+          Log in or sign up for a new account to access the Unsplash API.
         </li>
         <li>
-          Navigate to the <strong>Application</strong> or{" "}
-          <strong>Storage</strong> tab in the Developer Tools.
+          Navigate to the{" "} <strong>API Keys</strong> tab in your account dashboard.
         </li>
         <li>
-          Under the <strong>Cookies</strong> section in the sidebar, locate and
-          select <strong>https://www.bing.com</strong>
+          Click the <strong>Create New Application</strong> button to generate a new API
+          key. Give your key a descriptive name to easily identify it later.
         </li>
         <li>
-          Find the cookie named <strong>_U</strong> in the list of cookies.
+          Copy the newly generated API key. Remember to store it securely as you
+          will not be able to view it again after closing the page.
         </li>
         <li>
-          Copy the value of the <strong>_U</strong> cookie by double-clicking on
-          it or using the context menu (right-click and select <em>Copy</em>).
-        </li>
-        <li>
-          Paste the copied value into your application's{" "}
+          Paste the API key in the{" "}
           <Link
-            to="/settings"
+            to="/configurations"
             title="Go to the API key settings page"
             className="link"
           >
-            Bing API Key
+            Unsplash Access Key
           </Link>{" "}
-          configuration field or environment variable.
+          field on the configurations page of your application.
         </li>
       </ol>
-
       <p>
-        <strong>Note:</strong> The <strong>_U</strong> cookie is sensitive
-        information. Handle it with care and avoid sharing it publicly to
-        maintain the security of your Bing account.
+        <strong>Note:</strong> Ensure your Unsplash Access Key has the required permissions
+        for the operations you intend to perform. Avoid sharing your Access Key
+        publicly to maintain the security of your account.
       </p>
     </div>
   );
@@ -257,7 +247,7 @@ export const DocConfigurations = () => {
   return (
     <>
       <GroqCloud />
-      <BingCookie />
+      <Unplash />
       <ChromePath />
     </>
   );
