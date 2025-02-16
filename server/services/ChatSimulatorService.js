@@ -19,13 +19,13 @@ class ChatSimulatorService {
    * Creates an instance of the ChatSimulatorService class.
    *
    * @param {Object} gptService - The service for generating responses from GPT.
-   * @param {Object} bingService - The service for generating and downloading images.
+   * @param {Object} imageService - The service for generating and downloading images.
    * @param {Object} ttsService - The service for text-to-speech audio generation.
    * @param {Object} promptService - The service for generating prompts.
    */
-  constructor(gptService, bingService, ttsService, promptService) {
+  constructor(gptService, imageService, ttsService, promptService) {
     this.gptService = gptService;
-    this.bingService = bingService;
+    this.imageService = imageService;
     this.ttsService = ttsService;
     this.promptService = promptService;
     this.isProcessing = false;
@@ -111,25 +111,12 @@ class ChatSimulatorService {
    * @returns {Promise<Object>} The image paths or error.
    */
   async handleImageRequest(message) {
-    if (this.isProcessing) {
-      return { error: config.errorMessages.processing };
-    }
-
-    this.isProcessing = true;
-
+    const prompt = this.promptService.generateImagePrompt(message);
     try {
-      logger.info("Generating images... This may take a few seconds.");
-
-      const prompt = this.promptService.generateImagePrompt(message);
-      const images = await this.bingService.generateLinkImages(prompt);
-
-      this.isProcessing = false;
-
-      const response = images.slice(1, 5);
+      const response = await this.imageService.generateLinkImages(prompt);
       return { response };
     } catch (error) {
       logger.error("Error generating image:", error);
-      this.isProcessing = false;
       return { error: config.errorMessages.imageError };
     }
   }

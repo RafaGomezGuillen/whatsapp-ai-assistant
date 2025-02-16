@@ -16,7 +16,7 @@ limitations under the License.
 
 import "./server/config.js";
 import GPTService from "./services/GPTService.js";
-import BingService from "./services/BingService.js";
+import ImageService from "./services/ImageService.js";
 import TTSService from "./services/TTSService.js";
 import PromptService from "./services/PromptService.js";
 import WhatsAppClient from "./services/WhatsApp.js";
@@ -30,7 +30,7 @@ let chatSimulator;
  * Initializes the required services.
  *
  * @throws {Error} Throws an error if required configuration values are missing.
- * @returns {{ gptService: GPTService, bingService: BingService, ttsService: TTSService, promptService: PromptService }} The initialized services.
+ * @returns {{ gptService: GPTService, imageService: ImageService, ttsService: TTSService, promptService: PromptService }} The initialized services.
  */
 const initializeServices = () => {
   const { IMAGES_DIR, AUDIO_DIR } = config;
@@ -40,32 +40,32 @@ const initializeServices = () => {
   }
 
   const gptService = new GPTService();
-  const bingService = new BingService(IMAGES_DIR);
+  const imageService = new ImageService(IMAGES_DIR);
   const ttsService = new TTSService(AUDIO_DIR);
   const promptService = new PromptService();
   chatSimulator = new ChatSimulatorService(
     gptService,
-    bingService,
+    imageService,
     ttsService,
     promptService
   );
   logger.info("Services started...");
-  return { gptService, bingService, ttsService, promptService };
+  return { gptService, imageService, ttsService, promptService };
 };
 
 /**
  * Initializes the WhatsApp client with the provided services.
  *
- * @param {{ gptService: GPTService, bingService: BingService, ttsService: TTSService, promptService: PromptService }} services - The initialized services.
+ * @param {{ gptService: GPTService, imageService: ImageService, ttsService: TTSService, promptService: PromptService }} services - The initialized services.
  * @returns {WhatsAppClient} The initialized WhatsApp client.
  */
 const initializeWhatsAppClient = ({
   gptService,
-  bingService,
+  imageService,
   ttsService,
   promptService,
 }) => {
-  return new WhatsAppClient(gptService, bingService, ttsService, promptService);
+  return new WhatsAppClient(gptService, imageService, ttsService, promptService);
 };
 
 /**

@@ -29,11 +29,11 @@ class WhatsAppClient {
    * Creates an instance of the WhatsAppClient class.
    *
    * @param {Object} gptService - The service for generating responses from GPT.
-   * @param {Object} bingService - The service for generating and downloading images.
+   * @param {Object} imageService - The service for generating and downloading images.
    * @param {Object} ttsService - The service for text-to-speech audio generation.
    * @param {Object} promptService - The service for generating prompts.
    */
-  constructor(gptService, bingService, ttsService, promptService) {
+  constructor(gptService, imageService, ttsService, promptService) {
     this.client = new Client({
       authStrategy: new LocalAuth(),
       puppeteer: {
@@ -44,7 +44,7 @@ class WhatsAppClient {
     });
 
     this.gptService = gptService;
-    this.bingService = bingService;
+    this.imageService = imageService;
     this.ttsService = ttsService;
     this.promptService = promptService;
     this.isProcessing = false;
@@ -175,16 +175,17 @@ class WhatsAppClient {
     try {
       const prompt = this.promptService.generateImagePrompt(msg.body);
 
-      const files = await this.bingService.generateAndDownloadImages(prompt);
+      const files = await this.imageService.generateAndDownloadImages(prompt);
 
       for (const file of files) {
-        const filePath = path.join(this.bingService.saveDir, file);
+        const filePath = path.join(this.imageService.saveDir, file);
         const fileData = await fs.readFile(filePath);
         const media = new MessageMedia(
           "image/png",
           fileData.toString("base64"),
           file
         );
+        
         await this.client.sendMessage(msg.from, media);
       }
     } catch (error) {
