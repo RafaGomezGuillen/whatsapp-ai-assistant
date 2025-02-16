@@ -79,8 +79,8 @@ export const PlaygroundChat = () => {
         <p style={{ color: "var(--color-tertiary)" }}>
           Test your bot's responses in a controlled environment to ensure it's
           working as expected (
-          <Link to={"/settings"} title="Settings" className="link">
-            You have to set up settings fields to generate AI responses
+          <Link to={"/configurations"} title="Configurations" className="link">
+            You have to set up configurations fields to generate AI responses
           </Link>
           ) .
         </p>

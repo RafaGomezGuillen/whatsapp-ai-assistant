@@ -170,10 +170,10 @@ const Services = () => {
       icon: <GrConfigure />,
     },
     {
-      title: "Settings",
+      title: "Configuration Settings",
       description:
         "Easily configure your external API key integrations and other settings in just a few clicks to set up your application as fast as possible.",
-      href: "/settings",
+      href: "/configurations",
       buttonLabel: "Set up your AI Assistant",
       icon: <IoSettings />,
     },
