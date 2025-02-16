@@ -253,7 +253,7 @@ export const ChromePath = () => {
   );
 };
 
-export const DocSettings = () => {
+export const DocConfigurations = () => {
   return (
     <>
       <GroqCloud />

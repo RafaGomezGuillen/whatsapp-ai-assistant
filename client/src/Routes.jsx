@@ -5,20 +5,20 @@ import { Landing } from "./pages/Landing/Landing";
 
 import { Playground } from "./pages/Playground/Playground";
 import { ErrorPage } from "./pages/Error/ErrorPage";
-import { Settings } from "./pages/Settings/Settings";
+import { Configurations } from "./pages/Configurations/Configurations";
 import { About } from "./pages/About/About";
 import { LogsViewer } from "./pages/LogsViewer/LogsViewer";
 
 // Import documentation pages
 import { DocLanding } from "./pages/Documentation/DocLanding/DocLanding";
-import { DocSettings } from "./pages/Documentation/DocSettings/DocSettings";
+import { DocConfigurations } from "./pages/Documentation/DocConfigurations/DocConfigurations";
 import { DocPlayground } from "./pages/Documentation/DocPlayground/DocPlayground";
 
 export const routes = [
   {
     layout: "default",
     routes: [
-      { title: "Settings", path: "/settings", element: <Settings /> },
+      { title: "Configurations", path: "/configurations", element: <Configurations /> },
       { title: "About", path: "/about", element: <About /> },
       { title: "Logs", path: "/logs", element: <LogsViewer /> },
     ],
@@ -58,9 +58,9 @@ export const routes = [
         element: <DocPlayground />,
       },
       {
-        title: "Settings Documentation",
-        path: "/documentation/settings",
-        element: <DocSettings />,
+        title: "Configurations Documentation",
+        path: "/documentation/configurations",
+        element: <DocConfigurations />,
       },
     ],
   },

@@ -21,7 +21,7 @@ export const DocumentationNavbar = () => {
   const links = [
     { title: "Overview", href: "", icon: <FaHome /> },
     { title: "Playground", href: "/playground", icon: <BsTerminal /> },
-    { title: "Settings", href: "/settings", icon: <IoMdSettings /> },
+    { title: "Configurations", href: "/configurations", icon: <IoMdSettings /> },
   ];
 
   return (

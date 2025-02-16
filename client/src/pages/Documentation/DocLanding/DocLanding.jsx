@@ -12,7 +12,7 @@ import { FaImage } from "react-icons/fa6";
 export const DocLanding = () => {
   const links = [
     { title: "Playground", href: "/playground" },
-    { title: "Settings", href: "/settings" },
+    { title: "Configurations", href: "/configurations" },
   ];
 
   const devResources = [

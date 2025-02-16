@@ -178,7 +178,7 @@ const ChromePath = () => {
   );
 };
 
-export const Settings = () => {
+export const Configurations = () => {
   return (
     <>
       <ChromePath />

@@ -32,7 +32,7 @@ export const NavBar = () => {
 
   const links = [
     { title: "Playground", icon: <BsTerminal />, href: "/playground" },
-    { title: "Settings", icon: <IoSettingsOutline />, href: "/settings" },
+    { title: "Configurations", icon: <IoSettingsOutline />, href: "/configurations" },
     { title: "Logs", icon: <FaRegFileLines />, href: "/logs" },
     {
       title: "Documentation",
