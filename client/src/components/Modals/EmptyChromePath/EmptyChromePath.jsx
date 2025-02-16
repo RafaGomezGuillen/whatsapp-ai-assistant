@@ -23,12 +23,12 @@ const EmptyChromePathModal = ({ onHide, ...props }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Please set the Chrome path in the settings page.</p>
+        <p>Please set the Chrome path in the configurations page.</p>
       </Modal.Body>
       <Modal.Footer>
-        <Link to="/settings" title="Go to settings page">
+        <Link to="/configurations" title="Go to configurations page">
           <Button variant="primary" onClick={onHide}>
-            Settings
+            Go to configurations
           </Button>
         </Link>
       </Modal.Footer>
