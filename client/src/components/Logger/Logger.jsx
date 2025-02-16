@@ -36,7 +36,7 @@ export const Logger = () => {
     };
 
     fetchLogs();
-    const intervalId = setInterval(fetchLogs, 5000);
+    const intervalId = setInterval(fetchLogs, 60000);
     return () => clearInterval(intervalId);
   }, [lastLog]);
 
