@@ -21,7 +21,7 @@ export const LogsViewer = () => {
   const [level, setLevel] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
-  const [order, setOrder] = useState("asc");
+  const [order, setOrder] = useState("desc");
 
   // Fetch logs whenever filters or currentPage changes
   useEffect(() => {
