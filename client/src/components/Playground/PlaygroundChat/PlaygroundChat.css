@@ -63,7 +63,7 @@
     grid-row-gap: 0px;
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: 1700px) {
     border-top: none;
     border-left: solid var(--color-link);
     position: fixed;
