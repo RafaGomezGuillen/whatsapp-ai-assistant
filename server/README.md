@@ -6,58 +6,6 @@ The WhatsApp GPT Bot server allows customization through an admin panel. Access 
 http://localhost:<your_port> # normally is 3001
 ```
 
-This provides real-time configuration options for your bot.
-
-![Admin panel picture](assets/admin.png)
-
-> [!NOTE]
-> While you can configure the bot through the server, it is highly recommended to perform customizations in the client-side project, which includes comprehensive documentation and an easier user experience.
-
-## Environment files
-
-Before running the application, create an `.env` file in the same folder as the `start.sh` file with your API keys:
-
-```env
-# .env
-GROQ_API_KEY="API_KEY"
-BING_IMAGE_COOKIE="API_KEY"
-```
-
-1. **GROQ_API_KEY**: Replace this with your actual API key for the GROQ service.
-2. **BING_IMAGE_COOKIE**: Replace this with the `_U` cookie value from Bing. To obtain the `_U` cookie:
-
-- Open your browser (preferably Microsoft Edge).
-- Go to [Bing](https://www.bing.com/) and sign in with your Microsoft account.
-- Open Developer Tools (`F12` or `Ctrl + Shift + I`), and navigate to the "Application" or "Storage" tab.
-- Under "Cookies," select `https://www.bing.com` and locate the `_U` cookie.
-- Copy the `_U` cookie value and use it as your BING_IMAGE_COOKIE.
-
-3. **chrome_path**: Specify the path to the Chrome executable on your system. Here’s how to find it:
-
-- **On Windows**: The default path is usually:
-
-```bash
-C:\Program Files\Google\Chrome\Application\chrome.exe
-```
-
-If you are using a 32-bit version of Chrome on a 64-bit system, it may be:
-
-```bash
-C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-```
-
-- **On macOS**: The path is typically:
-
-```bash
-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-```
-
-- **On Linux**: Common paths include:
-
-```bash
-/usr/bin/google-chrome
-```
-
 ## Getting Started
 
 Follow the steps below to set up and run the project locally.
