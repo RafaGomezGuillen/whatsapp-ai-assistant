@@ -49,7 +49,6 @@ router.post("/save-config", (req, res) => {
     const updatedConfig = lodash.merge({}, global.config, newFields);
 
     saveConfig(updatedConfig);
-    res.send('Configuration updated successfully! <a href="/">Go Back</a>');
   } catch (error) {
     console.error("Error handling POST /save-config:", error);
     res.status(500).send("Error saving configuration.");
