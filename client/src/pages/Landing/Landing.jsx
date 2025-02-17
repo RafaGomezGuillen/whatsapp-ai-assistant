@@ -311,7 +311,7 @@ const FAQ = () => {
     {
       question: "Do I need to download an AI model locally to use this bot?",
       answer:
-        "No, the bot generates responses using API keys (like GPT and Bing). There's no need to download any AI model locally.",
+        "No, the bot generates responses using API keys (like GPT and Unplash). There's no need to download any AI model locally.",
     },
     {
       question: "Can I modify this project?",

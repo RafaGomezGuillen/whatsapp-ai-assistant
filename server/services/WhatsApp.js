@@ -22,7 +22,7 @@ const { Client, LocalAuth, MessageMedia } = pkg;
 
 /**
  * Class representing a WhatsApp client that interacts with various services
- * like GPT, Bing, and TTS for processing messages.
+ * like GPT, Images, and TTS for processing messages.
  */
 class WhatsAppClient {
   /**
