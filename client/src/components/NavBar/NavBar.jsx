@@ -23,7 +23,6 @@ import { FaRegFileLines } from "react-icons/fa6";
 
 // Import API
 import { fetchAuthStatus } from "../../api/auth.api";
-import { fetchConfig } from "../../api/config.api";
 
 export const NavBar = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -50,6 +49,7 @@ export const NavBar = () => {
       try {
         const response = await fetchAuthStatus();
         setIsAuth(response.is_auth);
+        setChromePath(response.chrome_path);
       } catch (error) {
         console.error("Error fetching configuration:", error);
       }
@@ -57,22 +57,6 @@ export const NavBar = () => {
 
     fetchCurrentAuth();
     const intervalId = setInterval(fetchCurrentAuth, 5e3);
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // Fetch the current auth status
-  useEffect(() => {
-    const fetchChromePath = async () => {
-      try {
-        const response = await fetchConfig();
-        setChromePath(response.chrome_path);
-      } catch (error) {
-        console.error("Error fetching chrome path:", error);
-      }
-    };
-
-    fetchChromePath();
-    const intervalId = setInterval(fetchChromePath, 5e3);
     return () => clearInterval(intervalId);
   }, []);
 

@@ -30,7 +30,8 @@ const envPath = path.join(__dirname, '../.env');
  * @param {Boolean} res - The response object.
  */
 router.get("/auth-status", (req, res) => {
-  res.json({ is_auth, qr_code });
+  const chrome_path = global.config.chrome_path;
+  res.json({ is_auth, qr_code, chrome_path });
 });
 
 /**
