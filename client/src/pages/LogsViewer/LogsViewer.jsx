@@ -38,6 +38,10 @@ export const LogsViewer = () => {
 
         setLogs(data.logs); // Set logs
         setTotalPages(Math.ceil(data.totalLogs / logsPerPage)); // Calculate total pages
+        
+        if (data.logs.length === 0) {
+          setCurrentPage(1); // Reset to the first page if no logs are found
+        }
       } catch (error) {
         console.error("Failed to load logs:", error);
       }
@@ -51,10 +55,72 @@ export const LogsViewer = () => {
     setCurrentPage(page);
   };
 
-  // Handle form submission
-  const handleFilterSubmit = (e) => {
-    e.preventDefault();
-    setCurrentPage(1); // Reset to the first page when applying filters
+  // Pagination logic
+  const renderPaginationItems = () => {
+    const items = [];
+    const maxPagesToShow = 5;
+    const halfWay = Math.floor(maxPagesToShow / 2);
+
+    if (totalPages <= maxPagesToShow) {
+      // If total pages are less than or equal to maxPagesToShow, show all pages
+      for (let i = 1; i <= totalPages; i++) {
+        items.push(
+          <Pagination.Item
+            key={i}
+            active={i === currentPage}
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </Pagination.Item>
+        );
+      }
+    } else {
+      // If total pages are more than maxPagesToShow, show ellipsis
+      const startPage = Math.max(currentPage - halfWay, 1);
+      const endPage = Math.min(currentPage + halfWay, totalPages);
+
+      if (startPage > 1) {
+        items.push(
+          <Pagination.Item
+            key={1}
+            onClick={() => handlePageChange(1)}
+          >
+            {1}
+          </Pagination.Item>
+        );
+        if (startPage > 2) {
+          items.push(<Pagination.Ellipsis key="ellipsis-start" />);
+        }
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        items.push(
+          <Pagination.Item
+            key={i}
+            active={i === currentPage}
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </Pagination.Item>
+        );
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          items.push(<Pagination.Ellipsis key="ellipsis-end" />);
+        }
+        items.push(
+          <Pagination.Item
+            key={totalPages}
+            onClick={() => handlePageChange(totalPages)}
+          >
+            {totalPages}
+          </Pagination.Item>
+        );
+      }
+    }
+
+    return items;
   };
 
   return (
@@ -64,7 +130,7 @@ export const LogsViewer = () => {
       </h2>
 
       {/* Filter Form */}
-      <Form onSubmit={handleFilterSubmit} style={{ marginBottom: "20px" }}>
+      <Form style={{ marginBottom: "20px" }}>
         <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
           <Form.Group controlId="filterLogsPerPage">
             <Form.Label>Logs per page</Form.Label>
@@ -160,15 +226,7 @@ export const LogsViewer = () => {
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
           />
-          {[...Array(totalPages)].map((_, index) => (
-            <Pagination.Item
-              key={index + 1}
-              active={index + 1 === currentPage}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </Pagination.Item>
-          ))}
+          {renderPaginationItems()}
           <Pagination.Next
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
