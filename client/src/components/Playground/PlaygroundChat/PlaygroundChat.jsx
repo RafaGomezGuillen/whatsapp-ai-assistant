@@ -5,6 +5,7 @@ import "./PlaygroundChat.css";
 // Import Bootstrap components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 // Import icons
 import { AiOutlineSend } from "react-icons/ai";
@@ -13,12 +14,52 @@ import { IoIosChatboxes } from "react-icons/io";
 // Import API
 import { sendMessage } from "../../../api/chatSimulator.api";
 
+const ImageModal = ({ image, show, handleClose }) => (
+  <Modal show={show} onHide={handleClose} centered size="lg">
+    <Modal.Header closeButton>
+      <Modal.Title>
+        {image ? "Image Preview" : "No Image Available"}
+      </Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {image ? (
+          <img
+            src={image}
+            alt="Image preview from modal"
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          "No image to display."
+        )}
+      </div>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="primary" onClick={handleClose}>
+        Close
+      </Button>
+    </Modal.Footer>
+  </Modal>
+);
+
 export const PlaygroundChat = () => {
   const [messages, setMessages] = useState([
     { text: "Hello! AI Assistant tell me something about...", sender: "user" },
     { text: "Generated message from the bot...", sender: "bot" },
   ]);
   const [inputMessage, setInputMessage] = useState("");
+  const [modalImage, setModalImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,12 +103,17 @@ export const PlaygroundChat = () => {
       console.error("Error sending message:", error);
       const errorMessage = { text: "Error processing message.", sender: "bot" };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
-      setInputMessage(""); // Clear the input
+      setInputMessage("");
     }
   };
 
   const handleChange = (e) => {
     setInputMessage(e.target.value);
+  };
+
+  const openImageModal = (image) => {
+    setModalImage(image);
+    setShowModal(true);
   };
 
   return (
@@ -82,7 +128,7 @@ export const PlaygroundChat = () => {
           <Link to={"/configurations"} title="Configurations" className="link">
             You have to set up configurations fields to generate AI responses
           </Link>
-          ) .
+          ).
         </p>
       </div>
       <div className="chat-messages">
@@ -110,6 +156,8 @@ export const PlaygroundChat = () => {
                     key={imgIndex}
                     src={image}
                     alt={`Generated ${imgIndex + 1}`}
+                    onClick={() => openImageModal(image)}
+                    style={{ cursor: "pointer" }}
                   />
                 ))}
               </div>
@@ -134,6 +182,11 @@ export const PlaygroundChat = () => {
           </Button>
         </div>
       </Form>
+      <ImageModal
+        image={modalImage}
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+      />
     </section>
   );
 };
