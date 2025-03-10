@@ -1,0 +1,18 @@
+#playground-layout {
+  .playground-content {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1700px) {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 5px;
+      grid-row-gap: 0px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 200px;
+  }
+}

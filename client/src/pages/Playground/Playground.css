@@ -1,0 +1,5 @@
+#playground-landing {
+  @media (min-width: 990px) {
+    padding-right: 15px;
+  }
+}

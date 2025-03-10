@@ -1,0 +1,9 @@
+audio/*
+node_modules/*
+package-lock.json
+logger/logs/*
+.wwebjs_auth/*
+.wwebjs_cache/*
+.env
+images/*
+.DS_Store

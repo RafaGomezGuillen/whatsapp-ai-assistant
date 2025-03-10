@@ -1,4 +1,1 @@
-audio/*
-node_modules/*
-package-lock.json
-logger/logs/*
+.DS_Store

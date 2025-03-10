@@ -1,0 +1,41 @@
+#playground-landing-navbar {
+  margin: 0;
+  border-top: var(--border-secondary) solid;
+  border-bottom: var(--border-secondary) solid;
+  background-color: var(--bg-primary) !important;
+
+  .navbar-brand {
+    color: var(--color-primary);
+  }
+
+  .active {
+    background: none !important;
+    border: solid var(--border-secondary) 1px;
+  }
+
+  .dropdown a {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+
+    @media (min-width: 990px) {
+      margin-top: 0px;
+    }
+  }
+
+  .dropdown-menu a:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  .dropdown-menu a {
+    background-color: var(--color-hover);
+
+    &:hover {
+      background-color: var(--color-hover-secondary);
+    }
+  }
+
+  @media (min-width: 768px) {
+    border-top: none;
+  }
+}

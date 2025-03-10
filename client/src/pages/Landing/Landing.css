@@ -1,0 +1,235 @@
+#landing {
+  /* 
+  --------------------------------------------------------------
+  GLOBAL STYLES 
+  --------------------------------------------------------------
+  */
+  .active {
+    font-weight: bold !important;
+    color: var(--color-link) !important;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .section-title h2::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 3px;
+    margin: auto;
+    top: 15px;
+    border: solid var(--color-link);
+  }
+
+  /* 
+  --------------------------------------------------------------
+  NAVBAR 
+  --------------------------------------------------------------
+  */
+  #landing-navbar {
+    padding: 20px 0;
+
+    .landing-navbar-container {
+      background-color: var(--bg-primary);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+
+      @media (max-width: 990px) {
+        border-radius: 8px;
+      }
+    }
+
+    .navbar-brand {
+      cursor: pointer;
+      &:hover {
+        color: var(--color-link) !important;
+      }
+    }
+
+    a {
+      &:hover {
+        cursor: pointer;
+        color: var(--color-link) !important;
+      }
+    }
+
+    .navbar-toggler {
+      position: relative;
+      right: 20px;
+      background: none !important;
+      border: none !important;
+    }
+
+    .ms-auto {
+      a {
+        color: var(--color-link) !important;
+        font-weight: bolder;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline !important;
+        }
+        @media (max-width: 990px) {
+          margin-top: 10px;
+          background-color: var(--color-hover);
+          padding: 15px 15px 15px 5px;
+          border-radius: 8px;
+        }
+      }
+    } 
+
+    @media (max-width: 1200px) {
+      padding: 10px;
+
+      .landing-navbar-container {
+        padding: 10px 5px 10px 15px;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  HERO SECTION 
+  --------------------------------------------------------------
+  */
+  #hero {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 575px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  ABOUT SECTION 
+  --------------------------------------------------------------
+  */
+  #about {
+    margin: 60px 0;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 992px) {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  SERVICES SECTION 
+  --------------------------------------------------------------
+  */
+  #services {
+    .service-card {
+      height: 100%;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: var(--bg-card);
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card .icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 30px;
+      background-color: var(--color-hover-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: #000;
+      font-size: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .icon {
+      background: var(--bg-primary);
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 25px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+
+  /* 
+  --------------------------------------------------------------
+  FAQ SECTION 
+  --------------------------------------------------------------
+  */
+  #faq {
+    padding-bottom: 50px;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

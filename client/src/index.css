@@ -1,0 +1,188 @@
+:root {
+  /* bg colors */
+  --bg-primary: #fdfdffff;
+  --bg-secondary: #eeeeee;
+  --bg-card: #eeeeee;
+
+  /* text colors */
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-tertiary: #393d3fff;
+  --color-placeholder: #393d3fff;
+  --color-link: #ff9000ff;
+
+  /* border colors */
+  --border-primary: #393d3fff;
+  --border-secondary: #ff9000ff;
+
+  /* hover colors */
+  --color-hover: #eeeeee;
+  --color-hover-secondary: #e5e5e5;
+}
+
+/* COMMON HTML TAGS */
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+a {
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+}
+
+input,
+textarea,
+select {
+  color: var(--color-primary) !important;
+  background-color: var(--bg-secondary) !important;
+  border: var(--border-primary) solid !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-placeholder) !important;
+}
+
+option {
+  background-color: var(--bg-secondary);
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  background-color: var(--bg-card) !important;
+  color: var(--color-primary) !important;
+  border: var(--border-primary) solid !important;
+}
+
+svg {
+  position: relative;
+  bottom: 2px;
+}
+
+/* COMMON BOOTSTRAP CLASSES */
+
+.navbar-toggler {
+  background-color: var(--bg-primary) !important;
+}
+
+.navbar-toggler:focus {
+  border: solid var(--border-primary) 1px;
+}
+
+.modal-content {
+  border: var(--border-primary) solid !important;
+  background-color: var(--bg-card) !important;
+}
+
+.card {
+  color: var(--color-primary) !important;
+  background: var(--bg-card) !important;
+  border: var(--border-primary) solid !important;
+}
+
+.dropdown-menu {
+  background-color: var(--bg-primary) !important;
+  color: var(--color-primary) !important;
+  border: var(--border-primary) solid !important;
+  padding: 5px !important;
+}
+
+.offcanvas {
+  background-color: var(--bg-primary) !important;
+  color: var(--color-primary) !important;
+
+  a {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--color-hover);
+
+    &:hover {
+      background-color: var(--color-hover-secondary);
+    }
+  }
+}
+
+.accordion-header {
+  margin: 0 !important;
+}
+
+.accordion-button {
+  background-color: var(--bg-card) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.nav-tabs {
+  .nav-link {
+    color: var(--color-link) !important;
+    border-bottom: var(--border-primary) solid !important;
+
+    &:hover {
+      border: var(--border-primary) solid !important;
+    }
+  }
+
+  .nav-link.active {
+    color: var(--color-primary) !important;
+    border-top: var(--border-primary) solid !important;
+    border-left: var(--border-primary) solid !important;
+    border-right: var(--border-primary) solid !important;
+    border-bottom: var(--bg-primary) solid !important;
+  }
+}
+
+.pagination {
+  .active>.page-link { 
+    background-color: var(--color-link) !important;
+    border: var(--color-link) !important;
+  }
+}
+
+.btn-primary {
+  background-color: var(--color-link) !important;
+  border: var(--border-primary) solid !important;
+  color: var(--color-secondary) !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-secondary {
+  background-color: var(--color-tertiary) !important;
+  color: var(--color-secondary) !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 8px;
+}
+
+/* COMMON CLASSES */
+
+.link {
+  color: var(--color-link) !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
