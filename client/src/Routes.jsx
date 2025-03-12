@@ -48,7 +48,7 @@ export const routes = [
     layout: "documentation",
     routes: [
       {
-        title: "Welcome to the WhatsApp GPT Bot page documentation",
+        title: "Welcome to the WhatsApp AI Assitant page documentation",
         path: "/documentation",
         element: <DocLanding />,
       },

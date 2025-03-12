@@ -35,9 +35,9 @@ export const DocLanding = () => {
       icon: <FaWhatsapp />,
     },
     {
-      title: "WhatsApp GPT Bot",
+      title: "WhatsApp AI Assitant",
       desc: "For more information navigate to the GitHub repository",
-      link: "https://github.com/malvads/whatsapp-gpt-bot",
+      link: "https://github.com/RafaGomezGuillen/whatsapp-ai-assistant",
       icon: <FaGithub />,
     },
   ];
@@ -45,7 +45,7 @@ export const DocLanding = () => {
   return (
     <section id="documentation-landing">
       <p>
-        Here you will find all the necessary information to get started with the WhatsApp GPT Bot
+        Here you will find all the necessary information to get started with the WhatsApp AI Assitant
       </p>
 
       <ul>
