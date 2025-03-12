@@ -36,7 +36,7 @@ export const Logger = () => {
     };
 
     fetchLogs();
-    const intervalId = setInterval(fetchLogs, 60000);
+    const intervalId = setInterval(fetchLogs, 1000); // Poll every second
     return () => clearInterval(intervalId);
   }, [lastLog]);
 
