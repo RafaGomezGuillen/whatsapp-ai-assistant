@@ -13,6 +13,7 @@ import { FaEye, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 
 export const RepoDetails = () => {
+  const repository = "RafaGomezGuillen/whatsapp-ai-assistant";
   const [stargazersCount, setStargazersCount] = useState(0);
   const [forksCount, setForksCount] = useState(0);
   const [watchers, setWatchers] = useState(0);
@@ -27,7 +28,7 @@ export const RepoDetails = () => {
     const fetchRepoDetails = async () => {
       try {
         const response = await axios.get(
-          "https://api.github.com/repos/malvads/whatsapp-gpt-bot"
+          `https://api.github.com/repos/${repository}`
         );
 
         setStargazersCount(response.data.stargazers_count);
@@ -45,7 +46,7 @@ export const RepoDetails = () => {
     <Card>
       <Card.Body>
         <Card.Title style={{ color: "var(--color-link)" }}>
-          malvads/whatsapp-gpt-bot
+          RafaGomezGuillen/whatsapp-ai-assistant
         </Card.Title>
         <Card.Subtitle style={{ marginTop: "10px", marginBottom: "10px" }}>
           GitHub Repository details
@@ -61,7 +62,7 @@ export const RepoDetails = () => {
         </div>
         <Button
           variant="primary"
-          href={"https://github.com/malvads/whatsapp-gpt-bot"}
+          href={`https://github.com/${repository}`}
           title={`Go to whatsapp-gpt-bot GitHub Repository`}
         >
           Go to GitHub Repository
@@ -78,7 +79,7 @@ const Constributors = () => {
     const fetchContributors = async () => {
       try {
         const response = await axios.get(
-          "https://api.github.com/repos/malvads/whatsapp-gpt-bot/contributors"
+          `https://api.github.com/repos/${repository}/contributors`
         );
 
         setContributors(response.data);
@@ -124,9 +125,9 @@ export const About = () => {
     <div id="about-page">
       <div className="about-info-container">
         <div>
-          <h1>About the WhatsApp GPT Bot</h1>
+          <h1>About WhatsApp AI Assistant</h1>
           <p>
-            Welcome to the <strong>WhatsApp GPT Bot</strong>, a project designed
+            Welcome to the <strong>WhatsApp AI Assistant</strong>, a project designed
             to bring the power of AI directly into your WhatsApp conversations.
             Generate a bot that integrates advanced natural language processing
             capabilities with a user-friendly interface to deliver fun,
@@ -150,6 +151,9 @@ export const About = () => {
               <strong>Customizable Configuration:</strong> Tailor the bot’s
               personality, error messages, and behavior to suit your
               preferences.
+            </li>
+            <li>
+              <strong>Create Commands:</strong> Customize commands to enhance user interaction with general, image, and audio responses.
             </li>
           </ul>
         </div>
