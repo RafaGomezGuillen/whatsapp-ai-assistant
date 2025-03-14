@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import axios from "axios";
+import { toast } from "react-toastify";
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
@@ -41,11 +42,16 @@ export const fetchConfig = async () => {
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
-export const saveGeneralConfig = async (botName, maxTokens, systemPrompt, model) => {
+export const saveGeneralConfig = async (
+  botName,
+  maxTokens,
+  systemPrompt,
+  model
+) => {
   try {
     const payload = { botName, max_tokens: maxTokens, systemPrompt, model };
-    const response = await axios.post(`${API_URL}/save-config`, payload);
-    return response.data;
+    toast.success("Main configuration was saved successfully");
+    await axios.post(`${API_URL}/save-config`, payload);
   } catch (error) {
     console.error("Error saving general configuration:", error);
     throw error;
@@ -77,6 +83,8 @@ export const saveErrorConfig = async (
       },
     };
 
+    toast.success("Error configuration was saved successfully");
+
     const response = await axios.post(`${API_URL}/save-config`, payload);
     return response.data;
   } catch (error) {
@@ -92,18 +100,16 @@ export const saveErrorConfig = async (
  * @returns {Object} The response data from the server.
  * @throws Will throw an error if the request fails.
  */
-export const saveCommandsConfig = async (
-  imageCommands,
-  audioCommands,
-) => {
+export const saveCommandsConfig = async (imageCommands, audioCommands) => {
   try {
     const payload = {
       commands: {
         speak: audioCommands,
-        image: imageCommands
+        image: imageCommands,
       },
     };
 
+    toast.success("Command configuration was saved successfully");
     const response = await axios.post(`${API_URL}/save-config`, payload);
     return response.data;
   } catch (error) {
@@ -121,6 +127,7 @@ export const saveCommandsConfig = async (
 export const saveChromePath = async (chromePath) => {
   try {
     const payload = { chrome_path: chromePath };
+    toast.success("Chrome installation path was saved successfully");
     const response = await axios.post(`${API_URL}/save-config`, payload);
     return response.data;
   } catch (error) {

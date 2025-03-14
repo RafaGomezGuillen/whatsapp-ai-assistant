@@ -141,8 +141,6 @@ const ChromePath = () => {
       // Fetch the updated Chrome installation path again after submit
       const updatedConfig = await fetchConfig();
       setChromePath(updatedConfig.chrome_path || "");
-
-      toast.success("Chrome installation path was saved successfully");
     } catch (error) {
       console.error("Error saving Chrome installation path:", error);
     }
