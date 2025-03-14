@@ -73,8 +73,13 @@ const AiModels = ({ currentModel, onModelChange }) => {
   }, [groqApiKey]);
 
   // Handle loading and error states
-  if (loading) return <div>Loading AI models...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading)
+    return (
+      <div className="error-message">
+        No GroqCloud API Key have been set. AI models will not be displayed!
+      </div>
+    );
+  if (error) return <div className="error-message">{error}</div>;
 
   return (
     <Form.Group className="mb-3" controlId="ai-model">
