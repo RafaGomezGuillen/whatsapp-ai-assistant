@@ -72,7 +72,7 @@ const ApiKeys = () => {
         <Form.Group className="mb-3" controlId="groq-api-key">
           <Form.Label>GroqCloud API Key</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             placeholder="Enter GroqCloud API Key"
             value={groqApiKey}
             onChange={(e) => setGroqApiKey(e.target.value)}
@@ -81,8 +81,7 @@ const ApiKeys = () => {
         <Form.Group className="mb-3" controlId="unsplash-api-key">
           <Form.Label>Unsplash Access Key</Form.Label>
           <Form.Control
-            type="text"
-            as={"textarea"}
+            type="password"
             placeholder="Enter Unsplash Access Key"
             value={unsplashAccessKey}
             onChange={(e) => setUnsplashAccessKey(e.target.value)}
