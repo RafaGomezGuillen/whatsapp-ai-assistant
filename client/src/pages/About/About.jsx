@@ -11,9 +11,9 @@ import Card from "react-bootstrap/Card";
 // Import icons
 import { FaEye, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+const repository = "RafaGomezGuillen/whatsapp-ai-assistant";
 
 export const RepoDetails = () => {
-  const repository = "RafaGomezGuillen/whatsapp-ai-assistant";
   const [stargazersCount, setStargazersCount] = useState(0);
   const [forksCount, setForksCount] = useState(0);
   const [watchers, setWatchers] = useState(0);
@@ -81,7 +81,7 @@ const Constributors = () => {
         const response = await axios.get(
           `https://api.github.com/repos/${repository}/contributors`
         );
-
+        console.log(response.data);
         setContributors(response.data);
       } catch (error) {
         console.error("Error fetching contributors:", error);
