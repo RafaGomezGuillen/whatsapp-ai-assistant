@@ -2,6 +2,31 @@
 
 Welcome to the Vite-powered React.js frontend repository of WhatsApp AI Assistant. This project serves as the frontend of the WhatsApp AI Assistant application, providing an interactive UI for users.
 
+## Project Structure
+
+```
+client/
+  ├── .env.development
+  ├── .env.production
+  ├── .gitignore
+  ├── eslint.config.js
+  ├── index.html
+  ├── package.json
+  ├── README.md
+  ├── vite.config.js
+  ├── public/
+  │   └── logo.png
+  └── src/
+      ├── App.jsx
+      ├── index.css
+      ├── main.jsx
+      ├── Routes.jsx
+      ├── api/
+      ├── components/
+      ├── layouts/
+      ├── pages/
+```
+
 ## Environment Files
 
 Before running the application, ensure that you have the environment files `.env.development` and `.env.production` set up in the root directory of your project. These files are crucial for configuring different API base URLs for development and production environments.
@@ -59,33 +84,3 @@ To create a production build, run:
 npm run build
 ```
 
-## Project Structure
-
-```
-client/
-  ├── .env.development
-  ├── .env.production
-  ├── .gitignore
-  ├── eslint.config.js
-  ├── index.html
-  ├── package.json
-  ├── README.md
-  ├── vite.config.js
-  ├── public/
-  │   └── logo.png
-  └── src/
-      ├── App.jsx
-      ├── index.css
-      ├── main.jsx
-      ├── Routes.jsx
-      ├── api/
-      ├── components/
-      ├── layouts/
-      ├── pages/
-```
-
-## Scripts
-
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the project for production.
-- `npm run lint`: Lints the codebase using ESLint.
