@@ -2,6 +2,8 @@
 
 Welcome to the WhatsApp AI Assistant project! This bot integrates GPT functionality with WhatsApp, allowing for various features such as text-to-speech, image generation, and more.
 
+[![Watch the video](https://img.youtube.com/vi/tkHRkxfhbps/0.jpg)](https://www.youtube.com/watch?v=tkHRkxfhbps)
+
 ## Key Features
 
 - **AI-Powered Chat**: Leverages state-of-the-art GPT models for engaging, intelligent responses.
