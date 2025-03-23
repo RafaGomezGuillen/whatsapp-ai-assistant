@@ -1,4 +1,10 @@
 #playground-landing {
+  .error-message {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: var(--color-error);
+  }
+
   @media (min-width: 990px) {
     padding-right: 15px;
   }

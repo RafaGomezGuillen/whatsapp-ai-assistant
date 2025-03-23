@@ -8,9 +8,6 @@ import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-// Import toast
-import { toast } from "react-toastify";
-
 // Import API
 import {
   saveErrorConfig,
@@ -76,8 +73,13 @@ const AiModels = ({ currentModel, onModelChange }) => {
   }, [groqApiKey]);
 
   // Handle loading and error states
-  if (loading) return <div>Loading AI models...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading)
+    return (
+      <div className="error-message">
+        No GroqCloud API Key have been set. AI models will not be displayed!
+      </div>
+    );
+  if (error) return <div className="error-message">{error}</div>;
 
   return (
     <Form.Group className="mb-3" controlId="ai-model">
@@ -132,8 +134,6 @@ const MainConfiguration = () => {
       setMaxTokens(updatedConfig.max_tokens || "");
       setSystemPrompt(updatedConfig.systemPrompt || "");
       setModel(updatedConfig.model || "");
-
-      toast.success("Main configuration was saved successfully");
     } catch (error) {
       console.error("Error saving general configuration:", error);
     }
@@ -223,8 +223,6 @@ const CommandConfiguration = () => {
 
       setAudioCommands(updatedConfig.commands.speak || []);
       setImageCommands(updatedConfig.commands.image || []);
-
-      toast.success("Command configuration was saved successfully");
     } catch (error) {
       console.error("Error saving general configuration:", error);
     }
@@ -285,8 +283,8 @@ const CommandConfiguration = () => {
           </Tab>
           <Tab eventKey="image-command" title="Image commands">
             <p style={{ color: "var(--color-tertiary)" }}>
-              You will receive <strong>AI-generated image</strong> content only when you type the
-              following keywords.
+              You will receive <strong>AI-generated image</strong> content only
+              when you type the following keywords.
             </p>
 
             {imageCommands.map((command, index) => (
@@ -361,8 +359,6 @@ const ErrorConfiguration = () => {
       setImageErrorMessage(updatedConfig.errorMessages.imageError || "");
       setTtsErrorMessage(updatedConfig.errorMessages.ttsError || "");
       setTtsPrefix(updatedConfig.errorMessages.ttsPrefix || "");
-
-      toast.success("Error configuration was saved successfully");
     } catch (error) {
       console.error("Error saving general configuration:", error);
     }

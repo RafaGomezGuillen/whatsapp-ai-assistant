@@ -43,12 +43,14 @@ router.get("/current-config", (req, res) => {
  * @param {Object} req - The request object containing form data.
  * @param {Object} res - The response object to send feedback.
  */
-router.post("/save-config", (req, res) => {
+router.post("/save-config", async (req, res) => {
   try {
     const newFields = req.body;
     const updatedConfig = lodash.merge({}, global.config, newFields);
 
-    saveConfig(updatedConfig);
+    await saveConfig(updatedConfig);
+    await sleep(3000);
+    process.exit(1);
   } catch (error) {
     console.error("Error handling POST /save-config:", error);
     res.status(500).send("Error saving configuration.");
@@ -60,13 +62,26 @@ router.post("/save-config", (req, res) => {
  * Save the updated configuration back to the JSON file.
  * @param {Object} newConfig - The new configuration object to save.
  */
-function saveConfig(newConfig) {
+async function saveConfig(newConfig) {
   try {
-    fs.writeFileSync(configPath, JSON.stringify(newConfig, null, 2), "utf-8");
-    config = newConfig;
+    await fs.promises.writeFile(configPath, JSON.stringify(newConfig, null, 2), "utf-8");
+    global.config = newConfig;
   } catch (error) {
     console.error("Error saving config:", error);
   }
+}
+
+// ------------------------------
+// HELPER FUNCTIONS
+// ------------------------------
+
+/**
+ * Sleep method pauses the execution for a specified duration.
+ * @param {Number} ms - The sleep time in milliseconds.
+ * @returns {Promise} A promise that resolves after the specified sleep time.
+ */
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default router;
