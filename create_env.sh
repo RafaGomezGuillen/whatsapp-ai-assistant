@@ -20,6 +20,6 @@ echo "$CLIENT_DEV_ENV_PATH file created successfully."
 CLIENT_PROD_ENV_PATH="./client/.env.production"
 
 cat > "$CLIENT_PROD_ENV_PATH" <<EOL
-VITE_API_BASE_URL=https://your-production-url.com
+VITE_API_BASE_URL=http://localhost:3001
 EOL
 echo "$CLIENT_PROD_ENV_PATH file created successfully."
