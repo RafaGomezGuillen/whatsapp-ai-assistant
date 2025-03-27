@@ -192,6 +192,18 @@ export const ChromePath = () => {
         </li>
       </ul>
 
+      <h4>Dokcer</h4>
+      <ul>
+        <li>
+          Use this path if you are running the application in a Docker container:
+          <ul>
+            <li>
+              <code>/usr/bin/chromium-browser</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
       <h4>How to Verify the Chrome Path</h4>
       <ol>
         <li>Open a terminal (or command prompt on Windows).</li>
