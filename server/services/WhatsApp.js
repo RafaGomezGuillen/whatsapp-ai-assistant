@@ -37,9 +37,13 @@ class WhatsAppClient {
     this.client = new Client({
       authStrategy: new LocalAuth(),
       puppeteer: {
-        headless: false,
-        executablePath: config.chrome_path,
         headless: true,
+        executablePath: config.chrome_path,
+        args: [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--user-data-dir=/tmp/chrome-user-data",
+        ],
       },
     });
 
@@ -185,7 +189,7 @@ class WhatsAppClient {
           fileData.toString("base64"),
           file
         );
-        
+
         await this.client.sendMessage(msg.from, media);
       }
     } catch (error) {
