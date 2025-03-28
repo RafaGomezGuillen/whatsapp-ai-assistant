@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 // Import icons
-import { FaCode, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaCode, FaGithub, FaWhatsapp, FaDocker } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
 
 export const DocLanding = () => {
@@ -39,6 +39,12 @@ export const DocLanding = () => {
       desc: "For more information navigate to the GitHub repository",
       link: "https://github.com/RafaGomezGuillen/whatsapp-ai-assistant",
       icon: <FaGithub />,
+    },
+    {
+      title: "Docker",
+      desc: "You can deploy your WhatsApp AI Assitant with Docker",
+      link: "https://www.docker.com/",
+      icon: <FaDocker />,
     },
   ];
 
