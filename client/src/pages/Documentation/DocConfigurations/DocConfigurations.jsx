@@ -192,7 +192,7 @@ export const ChromePath = () => {
         </li>
       </ul>
 
-      <h4>Dokcer</h4>
+      <h4>Docker</h4>
       <ul>
         <li>
           Use this path if you are running the application in a Docker container:
