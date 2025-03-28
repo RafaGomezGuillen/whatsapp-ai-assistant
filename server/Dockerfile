@@ -14,7 +14,9 @@ RUN apk add --no-cache \
     freetype \
     harfbuzz \
     ca-certificates \
-    ttf-freefont
+    ttf-freefont \
+    jq \ 
+    bash
      
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -24,6 +26,10 @@ RUN npm install
 
 # Copy all backend files
 COPY . .
+
+# Modify config.json to use the correct path for Chromium
+RUN jq '.chrome_path = "/usr/bin/chromium-browser"' /app/server/config.json > /app/server/config.tmp.json \
+    && mv /app/server/config.tmp.json /app/server/config.json
 
 # Give execution permission to start.sh
 RUN chmod +x /app/start.sh
