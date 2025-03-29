@@ -1,4 +1,4 @@
-# Use Ubuntu as the base image
+# Use Node.js as the base image
 FROM node:18-alpine AS build
 
 # Set the working directory
@@ -37,5 +37,5 @@ RUN chmod +x /app/start.sh
 # Expose the backend port
 EXPOSE 3001
 
-# Ensure we use /bin/sh to execute start.sh
+# Execute start.sh
 CMD ["/bin/sh", "/app/start.sh"]
