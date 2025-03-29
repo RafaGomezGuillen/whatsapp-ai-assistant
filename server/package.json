@@ -16,7 +16,6 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "groq-sdk": "^0.17.0",
-    "jaxcore-say-node": "^0.0.9",
     "lodash": "^4.17.21",
     "whatsapp-web.js": "^1.26.0",
     "winston": "^3.17.0"

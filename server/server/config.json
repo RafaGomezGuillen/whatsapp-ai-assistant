@@ -23,6 +23,6 @@
   "max_tokens": 1000,
   "IMAGES_DIR": "./images/",
   "AUDIO_DIR": "./audio/",
-  "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "chrome_path": "/usr/bin/chromium-browser",
   "server_port": 3001
 }

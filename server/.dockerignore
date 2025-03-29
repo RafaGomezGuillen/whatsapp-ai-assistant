@@ -1,0 +1,6 @@
+.wwebjs_auth/
+.wwebjs_cache/
+audio/
+images/
+logger/logs/
+node_modules/
